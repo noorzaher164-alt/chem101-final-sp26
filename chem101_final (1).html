@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHEM 101 — Final Revision</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070a12;--bg2:#0c1020;--card:#111827;--card2:#1a2235;
+  --border:rgba(255,255,255,0.07);--purple:#7c3aed;--purpleL:#a78bfa;
+  --gold:#f59e0b;--goldL:#fcd34d;--text:#e2e8f0;--muted:#94a3b8;
+  --green:#10b981;--red:#ef4444;--blue:#3b82f6;--teal:#14b8a6;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:"Inter",sans-serif;overflow-x:hidden;font-size:15px;line-height:1.65;}
+
+/* HEADER */
+header{background:linear-gradient(135deg,#1e0a3c,#3b0d6e,#5b21b6);padding:50px 24px 38px;text-align:center;position:relative;overflow:hidden;}
+header::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(124,58,237,.2),transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(245,158,11,.1),transparent 60%);}
+header::after{content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--purpleL),var(--gold),var(--purpleL),transparent);}
+.hi{position:relative;z-index:1;}
+.htag{display:inline-block;background:rgba(124,58,237,.3);border:1px solid rgba(167,139,250,.4);color:var(--purpleL);border-radius:20px;padding:5px 16px;font-size:.72rem;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+header h1{font-family:"Space Grotesk",sans-serif;font-size:clamp(2rem,7vw,4rem);font-weight:700;color:#fff;line-height:1.1;}
+header h1 span{color:var(--gold);}
+.hsub{color:rgba(255,255,255,.55);font-size:.88rem;margin-top:8px;}
+.hbadges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:18px;}
+.hb{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:6px 14px;font-size:.78rem;color:rgba(255,255,255,.7);font-weight:500;}
+.hb strong{color:var(--gold);}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:200;background:rgba(7,10,18,.97);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.ni{max-width:1200px;margin:0 auto;display:flex;overflow-x:auto;scrollbar-width:none;}
+.ni::-webkit-scrollbar{display:none;}
+nav button{background:none;border:none;color:var(--muted);padding:14px 16px;cursor:pointer;font-family:"Inter",sans-serif;font-size:.8rem;font-weight:500;white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;flex-shrink:0;}
+nav button:hover{color:var(--text);}
+nav button.active{color:var(--purpleL);border-bottom-color:var(--purpleL);}
+
+/* LAYOUT */
+.wrap{max-width:1100px;margin:0 auto;padding:30px 16px 80px;}
+section.tab{display:none;}
+section.tab.active{display:block;animation:fu .3s ease;}
+@keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTION HEADER */
+.sh{border-radius:16px;padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden;}
+.sh::before{content:attr(data-icon);position:absolute;right:24px;top:50%;transform:translateY(-50%);font-size:5rem;opacity:.1;line-height:1;}
+.sh .stag{display:inline-block;background:rgba(255,255,255,.15);border-radius:6px;padding:3px 10px;font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.8);margin-bottom:10px;}
+.sh h2{font-family:"Space Grotesk",sans-serif;font-size:1.6rem;font-weight:700;color:#fff;}
+.sh p{color:rgba(255,255,255,.6);margin-top:6px;font-size:.86rem;}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+.pills span{background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:3px 11px;font-size:.73rem;color:rgba(255,255,255,.8);}
+.c-blue{background:linear-gradient(135deg,#1e3a5f,#1d4ed8);}
+.c-orange{background:linear-gradient(135deg,#431407,#c2410c);}
+.c-violet{background:linear-gradient(135deg,#3b0764,#7e22ce);}
+.c-green{background:linear-gradient(135deg,#052e16,#15803d);}
+.c-red{background:linear-gradient(135deg,#450a0a,#b91c1c);}
+.c-teal{background:linear-gradient(135deg,#042f2e,#0f766e);}
+.c-purple{background:linear-gradient(135deg,#2d1b69,#5b21b6);}
+.c-dark{background:linear-gradient(135deg,#111827,#1f2937);}
+
+/* CARD */
+.card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:22px 26px;margin-bottom:18px;}
+.card h3{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:14px;}
+.fm{background:var(--card2);border-radius:10px;border-left:3px solid var(--purpleL);padding:13px 17px;margin-bottom:10px;font-size:.87rem;line-height:1.9;}
+.fm b{color:var(--goldL);}
+.fm code{background:rgba(124,58,237,.22);color:var(--purpleL);padding:2px 7px;border-radius:5px;font-family:monospace;font-size:.87em;}
+.bl{list-style:none;}
+.bl li{padding:8px 0;border-bottom:1px solid var(--border);display:flex;gap:10px;align-items:flex-start;font-size:.87rem;line-height:1.6;}
+.bl li:last-child{border-bottom:none;}
+.bl li::before{content:"›";color:var(--purpleL);font-size:1.2em;flex-shrink:0;margin-top:1px;}
+.bl b{color:var(--goldL);}
+.arabic-note{color:#fcd34d;font-size:.82rem;direction:rtl;text-align:right;}
+.tip{background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.2);border-radius:10px;padding:11px 15px;font-size:.83rem;color:#fcd34d;margin-top:12px;}
+.tip::before{content:"💡 ";}
+.tcol{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:700px){.tcol{grid-template-columns:1fr;}}
+.diagram{display:flex;justify-content:center;margin:10px 0;}
+
+/* TABLE */
+.st{width:100%;border-collapse:collapse;font-size:.82rem;}
+.st th{background:rgba(124,58,237,.2);color:var(--purpleL);padding:9px 11px;text-align:left;font-weight:600;font-size:.76rem;}
+.st td{padding:8px 11px;border-bottom:1px solid var(--border);}
+.st tr:last-child td{border-bottom:none;}
+.st tr:hover td{background:rgba(255,255,255,.02);}
+
+/* Q SECTION TITLE */
+.qt-title{display:flex;align-items:center;gap:10px;font-size:.76rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:28px 0 14px;}
+.qt-title::before{content:"";display:block;width:3px;height:17px;background:var(--gold);border-radius:3px;}
+.qt-title::after{content:"";flex:1;height:1px;background:var(--border);}
+
+/* Q CARD */
+.qc{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:20px 22px;margin-bottom:13px;transition:border-color .2s;}
+.qc:hover{border-color:rgba(124,58,237,.35);}
+.qm{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-bottom:13px;}
+.qn{background:var(--purple);color:#fff;border-radius:7px;padding:3px 11px;font-size:.71rem;font-weight:700;}
+.qtag{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.2);color:#fcd34d;border-radius:7px;padding:3px 10px;font-size:.7rem;font-weight:600;}
+.qt2{font-size:.92rem;line-height:1.75;color:var(--text);margin-bottom:16px;}
+.opts{list-style:none;display:grid;gap:6px;}
+.opts li{background:var(--card2);border:1px solid var(--border);border-radius:9px;padding:9px 14px;cursor:pointer;display:flex;gap:9px;align-items:center;font-size:.87rem;transition:all .18s;user-select:none;}
+.opts li:hover{border-color:rgba(124,58,237,.4);background:rgba(124,58,237,.08);}
+.opts li .ol{min-width:25px;height:25px;background:rgba(124,58,237,.2);color:var(--purpleL);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.76rem;flex-shrink:0;}
+.opts li.correct{background:rgba(16,185,129,.1);border-color:var(--green);}
+.opts li.correct .ol{background:var(--green);color:#000;}
+.opts li.wrong{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.3);opacity:.6;}
+.qfoot{display:flex;align-items:center;gap:10px;margin-top:13px;flex-wrap:wrap;}
+.abtn{background:none;border:1px solid rgba(124,58,237,.4);color:var(--purpleL);border-radius:8px;padding:6px 16px;cursor:pointer;font-family:"Inter",sans-serif;font-size:.78rem;font-weight:600;transition:all .2s;}
+.abtn:hover{background:var(--purple);border-color:var(--purple);color:#fff;}
+.ar{display:none;width:100%;margin-top:10px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.25);border-radius:9px;padding:11px 15px;font-size:.85rem;color:#6ee7b7;line-height:1.75;}
+.ar.shown{display:block;animation:fu .2s;}
+.ar-arabic{direction:rtl;text-align:right;color:#a7f3d0;font-size:.83rem;margin-top:6px;border-top:1px solid rgba(255,255,255,.08);padding-top:6px;}
+
+/* OVERVIEW */
+.ogrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px;margin-top:8px;}
+.oc{border-radius:14px;padding:22px;cursor:pointer;border:1px solid transparent;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.oc:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.4);border-color:rgba(255,255,255,.12);}
+.oc .on{font-family:"Space Grotesk",sans-serif;font-size:4rem;font-weight:700;color:rgba(255,255,255,.08);position:absolute;bottom:6px;right:14px;line-height:1;}
+.oc .ob{position:absolute;top:13px;right:13px;background:rgba(0,0,0,.3);border-radius:20px;padding:3px 9px;font-size:.7rem;font-weight:700;color:#fff;}
+.oc h3{font-size:.93rem;font-weight:700;color:#fff;margin-bottom:5px;}
+.oc p{font-size:.76rem;color:rgba(255,255,255,.58);line-height:1.5;}
+.oc .op{display:flex;flex-wrap:wrap;gap:4px;margin-top:10px;}
+.oc .op span{background:rgba(0,0,0,.25);border-radius:4px;padding:2px 7px;font-size:.68rem;color:rgba(255,255,255,.6);}
+
+/* EXAM MODE */
+.esel{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:22px;}
+.epbtn{background:var(--card);border:2px solid var(--border);color:var(--muted);border-radius:12px;padding:14px 18px;cursor:pointer;font-family:"Inter",sans-serif;font-size:.85rem;font-weight:600;transition:all .25s;text-align:center;flex:1;min-width:170px;}
+.epbtn:hover{border-color:var(--purpleL);color:#fff;}
+.epbtn.sel{background:var(--purple);border-color:var(--gold);color:#fff;box-shadow:0 0 16px rgba(124,58,237,.4);}
+.epbtn .epy{font-size:1.2rem;display:block;color:var(--gold);font-family:"Space Grotesk",sans-serif;}
+.epbtn .epn{font-size:.73rem;color:rgba(255,255,255,.55);display:block;margin-top:3px;}
+
+.etopbar{background:var(--card);border-radius:14px;padding:18px 22px;margin-bottom:18px;border:1px solid var(--border);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;}
+.etopbar h2{font-family:"Space Grotesk",sans-serif;font-size:1.1rem;font-weight:700;color:#fff;}
+.etopbar p{font-size:.8rem;color:var(--muted);margin-top:3px;}
+.etimer{background:linear-gradient(135deg,#4c1d95,var(--purple));border-radius:12px;padding:10px 20px;text-align:center;font-family:"Space Grotesk",sans-serif;font-size:1.6rem;font-weight:700;color:#fff;letter-spacing:2px;min-width:110px;box-shadow:0 0 20px rgba(124,58,237,.3);}
+.etimer.warn{background:linear-gradient(135deg,#7c2d12,#c2410c);}
+
+.eprog{margin-bottom:18px;}
+.eprog-label{display:flex;justify-content:space-between;font-size:.78rem;color:var(--muted);margin-bottom:6px;}
+.eprog-bar{height:6px;background:var(--card2);border-radius:6px;overflow:hidden;}
+.eprog-fill{height:100%;background:linear-gradient(90deg,var(--purple),var(--purpleL));border-radius:6px;transition:width .4s;}
+
+.eq-card{background:var(--card);border-radius:14px;border:1px solid var(--border);padding:20px 22px;margin-bottom:13px;transition:border-color .2s;}
+.eq-card.ok{border-color:var(--green) !important;}
+.eq-card.bad{border-color:var(--red) !important;}
+.eq-card.skip{border-color:#f59e0b !important;}
+.eq-num{display:inline-flex;align-items:center;gap:6px;background:var(--purple);color:#fff;border-radius:8px;padding:4px 12px;font-size:.72rem;font-weight:700;margin-bottom:12px;}
+.eq-chtag{background:rgba(255,255,255,.12);border-radius:5px;padding:2px 8px;font-size:.68rem;}
+.eq-text{font-size:.93rem;line-height:1.8;color:var(--text);margin-bottom:16px;}
+.eopts{list-style:none;display:grid;gap:7px;}
+.eopts li{background:var(--card2);border:1.5px solid transparent;border-radius:10px;padding:10px 15px;cursor:pointer;display:flex;gap:10px;align-items:center;font-size:.88rem;transition:all .18s;user-select:none;}
+.eopts li:hover:not(.lk){border-color:rgba(124,58,237,.5);background:rgba(124,58,237,.1);}
+.eopts li .el{min-width:27px;height:27px;background:rgba(124,58,237,.25);color:var(--purpleL);border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.78rem;flex-shrink:0;}
+.eopts li.picked{border-color:var(--purpleL);background:rgba(124,58,237,.15);}
+.eopts li.picked .el{background:var(--purple);color:#fff;}
+.eopts li.rc{background:rgba(16,185,129,.12);border-color:var(--green);}
+.eopts li.rc .el{background:var(--green);color:#000;}
+.eopts li.rw{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.3);opacity:.6;}
+.eopts li.rw .el{background:var(--red);color:#fff;}
+.eopts li.lk{cursor:default;}
+
+.eq-exp{display:none;margin-top:12px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.22);border-radius:10px;padding:12px 16px;font-size:.86rem;color:#a7f3d0;line-height:1.7;}
+.eq-exp.vis{display:block;animation:fu .2s;}
+.eq-exp .arabic{direction:rtl;text-align:right;color:#6ee7b7;font-size:.82rem;margin-top:6px;border-top:1px solid rgba(255,255,255,.08);padding-top:6px;}
+
+.esubmit{text-align:center;padding:24px 0;}
+.esbtn{background:linear-gradient(135deg,var(--purple),#a855f7);color:#fff;border:none;border-radius:14px;padding:16px 48px;font-family:"Inter",sans-serif;font-size:1rem;font-weight:700;cursor:pointer;transition:all .2s;box-shadow:0 4px 20px rgba(124,58,237,.4);}
+.esbtn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(124,58,237,.5);}
+
+.eres{display:none;background:var(--card);border-radius:20px;border:1px solid var(--border);padding:36px 28px;text-align:center;margin-top:20px;}
+.eres.vis{display:block;animation:fu .4s;}
+.rgcircle{width:140px;height:140px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 24px;font-weight:700;border:4px solid;}
+.rgcircle .rgn{font-family:"Space Grotesk",sans-serif;font-size:2.8rem;line-height:1;}
+.rgcircle .rgl{font-size:.75rem;margin-top:2px;opacity:.8;}
+.ge{border-color:#10b981;background:rgba(16,185,129,.1);color:#10b981;}
+.gg{border-color:#3b82f6;background:rgba(59,130,246,.1);color:#3b82f6;}
+.gav{border-color:#f59e0b;background:rgba(245,158,11,.1);color:#f59e0b;}
+.gp{border-color:#ef4444;background:rgba(239,68,68,.1);color:#ef4444;}
+.rtitle{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
+.rsub{font-size:.88rem;color:var(--muted);margin-bottom:22px;}
+.rstats{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+.rsi{background:var(--card2);border-radius:12px;padding:14px 20px;min-width:100px;}
+.rsi .rsn{font-size:1.6rem;font-weight:700;font-family:"Space Grotesk",sans-serif;}
+.rsi .rsl{font-size:.75rem;color:var(--muted);margin-top:2px;}
+.retrybtn{background:var(--card2);color:var(--text);border:1px solid var(--border);border-radius:10px;padding:12px 26px;cursor:pointer;font-family:"Inter",sans-serif;font-size:.9rem;font-weight:600;margin:0 5px;transition:all .2s;}
+.retrybtn:hover{border-color:var(--purpleL);color:#fff;}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:#4c1d95;border-radius:5px;}
+@media(max-width:600px){.sh{padding:18px 20px;}.card{padding:16px;}nav button{padding:12px 11px;font-size:.74rem;}.epbtn{min-width:140px;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="hi">
+    <div class="htag">Qatar University &middot; Spring 2026</div>
+    <h1>CHEM <span>101</span> &mdash; Final Revision</h1>
+    <p class="hsub">General Chemistry I &nbsp;&middot;&nbsp; Ms. Nourhan M. Zaher &nbsp;&middot;&nbsp; 33625942</p>
+    <div class="hbadges">
+      <div class="hb">&#128218; <strong>6</strong> Chapters (5&ndash;10)</div>
+      <div class="hb">&#10067; <strong>35</strong> Exam Questions</div>
+      <div class="hb">&#128203; <strong>4</strong> Past Exam Sets</div>
+      <div class="hb">&#10003; Solutions + Arabic Notes</div>
+    </div>
+  </div>
+</header>
+<nav><div class="ni">
+  <button class="active" onclick="ST('ov',this)">&#127968; Overview</button>
+  <button onclick="ST('ch5',this)">Ch 5 &middot; Gases</button>
+  <button onclick="ST('ch6',this)">Ch 6 &middot; Thermochem</button>
+  <button onclick="ST('ch7',this)">Ch 7 &middot; Quantum</button>
+  <button onclick="ST('ch8',this)">Ch 8 &middot; Periodic</button>
+  <button onclick="ST('ch9',this)">Ch 9 &middot; Bonding I</button>
+  <button onclick="ST('ch10',this)">Ch 10 &middot; Bonding II</button>
+  <button onclick="ST('ex',this)">&#128203; Past Exams</button>
+</div></nav>
+<div class="wrap">
+
+<!-- ═══ OVERVIEW ═══ -->
+<section class="tab active" id="ov">
+  <div class="sh c-purple" data-icon="🎯">
+    <div class="stag">Start Here</div>
+    <h2>Final Exam Overview &mdash; Spring 2026</h2>
+    <p>Select a chapter to study its summary &amp; practice questions, or go to <strong>Past Exams</strong> for full timed exam simulation with scoring.</p>
+    <div class="pills"><span>Ch 5 &middot; 5 Qs</span><span>Ch 6 &middot; 4 Qs</span><span>Ch 7 &middot; 7 Qs</span><span>Ch 8 &middot; 6 Qs</span><span>Ch 9 &middot; 6 Qs</span><span>Ch 10 &middot; 7 Qs</span></div>
+  </div>
+  <div class="ogrid">
+    <div class="oc c-blue" onclick="ST('ch5',null)"><div class="ob">5 Questions</div><h3>Chapter 5 &mdash; Gases</h3><p>Ideal Gas Law &middot; Gas Stoichiometry &middot; Density &middot; Dalton's Law</p><div class="op"><span>PV=nRT</span><span>d=PMM/RT</span><span>Dalton</span></div><div class="on">5</div></div>
+    <div class="oc c-orange" onclick="ST('ch6',null)"><div class="ob">4 Questions</div><h3>Chapter 6 &mdash; Thermochemistry</h3><p>Specific Heat &middot; Enthalpy &middot; Hess's Law &middot; Formation</p><div class="op"><span>q=ms&#916;T</span><span>Hess's Law</span><span>&#916;Hf&deg;</span></div><div class="on">6</div></div>
+    <div class="oc c-violet" onclick="ST('ch7',null)"><div class="ob">7 Questions</div><h3>Chapter 7 &mdash; Quantum Theory</h3><p>Energy &amp; Wavelength &middot; Quantum Numbers &middot; e&#8315; Config</p><div class="op"><span>E=h&#957;</span><span>n,l,m&#8343;,m&#8347;</span><span>Config</span></div><div class="on">7</div></div>
+    <div class="oc c-green" onclick="ST('ch8',null)"><div class="ob">6 Questions</div><h3>Chapter 8 &mdash; Periodic Trends</h3><p>Cations &amp; Anions &middot; Isoelectronic &middot; IE &middot; EA &middot; Radius</p><div class="op"><span>IE</span><span>Radius</span><span>EA</span></div><div class="on">8</div></div>
+    <div class="oc c-red" onclick="ST('ch9',null)"><div class="ob">6 Questions</div><h3>Chapter 9 &mdash; Bonding I</h3><p>Electronegativity &middot; Lewis Structures &middot; Formal Charge &middot; Resonance</p><div class="op"><span>Lewis</span><span>FC</span><span>Resonance</span></div><div class="on">9</div></div>
+    <div class="oc c-teal" onclick="ST('ch10',null)"><div class="ob">7 Questions</div><h3>Chapter 10 &mdash; Bonding II</h3><p>VSEPR &middot; Molecular Geometry &middot; Hybridization &middot; &sigma; &amp; &pi;</p><div class="op"><span>VSEPR</span><span>Hybrid</span><span>&sigma;&amp;&pi;</span></div><div class="on">10</div></div>
+    <div class="oc c-dark" style="border:1px solid rgba(245,158,11,.3);grid-column:1/-1;" onclick="ST('ex',null)">
+      <div class="ob" style="background:rgba(245,158,11,.2);color:var(--gold);">4 Timed Exam Sets</div>
+      <h3 style="color:var(--gold);">&#128203; Past Exams &mdash; Full Simulation</h3>
+      <p>Solve real past exams with a countdown timer. Get your grade, see correct answers, and read Arabic + English explanations for every question.</p>
+      <div class="on">&#128203;</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CH 5 ═══ -->
+<section class="tab" id="ch5">
+  <div class="sh c-blue" data-icon="💨">
+    <div class="stag">Chapter 5 &middot; 5 Questions in Exam</div>
+    <h2>Gases</h2>
+    <p>Gas pressure &middot; Ideal Gas Law &middot; Gas Stoichiometry &middot; Density/Molar Mass &middot; Dalton's Law</p>
+    <div class="pills"><span>PV = nRT</span><span>d = P&middot;MM/(R&middot;T)</span><span>Dalton's Law</span><span>STP: 273K, 1atm, 22.4L</span></div>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#9881; Core Formulas</h3>
+      <div class="fm"><b>Ideal Gas Law:</b> <code>PV = nRT</code><br>R = 0.0821 L&middot;atm/mol&middot;K &nbsp;|&nbsp; T(K) = T(&deg;C) + 273<br>1 atm = 760 mmHg = 101325 Pa</div>
+      <div class="fm"><b>Density &amp; Molar Mass:</b><br><code>d = P &times; MM / (R &times; T)</code><br><code>MM = d &times; R &times; T / P</code></div>
+      <div class="fm"><b>Dalton's Law:</b><br><code>P<sub>Total</sub> = P<sub>A</sub> + P<sub>B</sub> + ...</code><br><code>P<sub>A</sub> = (n<sub>A</sub>/n<sub>Total</sub>) &times; P<sub>Total</sub></code></div>
+      <div class="tip">STP = 273K and 1atm. At STP: 1 mol any gas = 22.4 L.<br><span class="arabic-note">عند STP: 1 مول من أي غاز = 22.4 لتر. لو الشروط مختلفة استخدم PV=nRT مباشرة</span></div>
+      <ul class="bl" style="margin-top:12px;">
+        <li>Always convert mmHg &rarr; atm (divide by 760) <span class="arabic-note">(اقسم على 760)</span></li>
+        <li>Gas stoichiometry: mass &rarr; mol &rarr; mol ratio &rarr; V via PV=nRT</li>
+        <li>Unknown gas identity at STP: MM = d &times; 22.4</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>&#128202; Ideal Gas Diagram</h3>
+      <div class="diagram">
+        <svg width="260" height="210" viewBox="0 0 260 210" font-family="Inter,sans-serif">
+          <defs><radialGradient id="gb" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#3b82f6" stop-opacity=".4"/><stop offset="100%" stop-color="#1e3a5f" stop-opacity=".1"/></radialGradient></defs>
+          <ellipse cx="130" cy="105" rx="48" ry="48" fill="url(#gb)" stroke="#3b82f6" stroke-width="1.5"/>
+          <text x="130" y="100" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">PV=nRT</text>
+          <text x="130" y="116" text-anchor="middle" fill="#93c5fd" font-size="10">Ideal Gas</text>
+          <ellipse cx="32" cy="52" rx="28" ry="22" fill="rgba(124,58,237,.2)" stroke="#7c3aed" stroke-width="1"/>
+          <text x="32" y="48" text-anchor="middle" fill="#a78bfa" font-size="12" font-weight="700">P</text>
+          <text x="32" y="61" text-anchor="middle" fill="#a78bfa" font-size="9">Pressure</text>
+          <line x1="58" y1="65" x2="86" y2="84" stroke="#7c3aed" stroke-width="1" stroke-dasharray="4,3"/>
+          <ellipse cx="32" cy="158" rx="28" ry="22" fill="rgba(16,185,129,.2)" stroke="#10b981" stroke-width="1"/>
+          <text x="32" y="154" text-anchor="middle" fill="#6ee7b7" font-size="12" font-weight="700">V</text>
+          <text x="32" y="167" text-anchor="middle" fill="#6ee7b7" font-size="9">Volume</text>
+          <line x1="58" y1="148" x2="86" y2="126" stroke="#10b981" stroke-width="1" stroke-dasharray="4,3"/>
+          <ellipse cx="228" cy="52" rx="28" ry="22" fill="rgba(239,68,68,.2)" stroke="#ef4444" stroke-width="1"/>
+          <text x="228" y="48" text-anchor="middle" fill="#fca5a5" font-size="12" font-weight="700">T</text>
+          <text x="228" y="61" text-anchor="middle" fill="#fca5a5" font-size="9">Temp (K)</text>
+          <line x1="202" y1="65" x2="174" y2="84" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3"/>
+          <ellipse cx="228" cy="158" rx="28" ry="22" fill="rgba(245,158,11,.2)" stroke="#f59e0b" stroke-width="1"/>
+          <text x="228" y="154" text-anchor="middle" fill="#fcd34d" font-size="12" font-weight="700">n</text>
+          <text x="228" y="167" text-anchor="middle" fill="#fcd34d" font-size="9">Moles</text>
+          <line x1="202" y1="148" x2="174" y2="126" stroke="#f59e0b" stroke-width="1" stroke-dasharray="4,3"/>
+          <text x="130" y="200" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="9">R = 0.0821 L&#183;atm/mol&#183;K</text>
+        </svg>
+      </div>
+      <div class="fm" style="margin-top:8px;"><b>Gas Stoichiometry Steps:</b><br>
+      1&#10145; mass &div; MM = moles of A<br>
+      2&#10145; moles A &times; (mol B / mol A) = moles B<br>
+      3&#10145; V = n<sub>B</sub>RT/P</div>
+    </div>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Makeup Fall 2025 &middot; Spring 2024</span></div>
+  <p class="qt2">Calculate the density, in g/L, of SF&#8326; gas at 27&deg;C and 0.500 atm pressure. (MM of SF&#8326; = 146 g/mol)</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>3.38&times;10&#8315;&sup3; g/L</li><li onclick="pick(this,'w')"><span class="ol">B</span>22.4 g/L</li><li onclick="pick(this,'w')"><span class="ol">C</span>32.9 g/L</li><li onclick="pick(this,'c')"><span class="ol">D</span>2.96 g/L</li><li onclick="pick(this,'w')"><span class="ol">E</span>3.38 kg/L</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">d = P&times;MM/(R&times;T) = (0.500&times;146)/(0.0821&times;300) = 73/24.63 = <b>2.96 g/L</b><div class="ar-arabic">الكثافة = (الضغط &times; الكتلة المولية) / (R &times; درجة الحرارة بالكلفن)</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Makeup Fall 2025 &middot; Spring 2024</span></div>
+  <p class="qt2">Calculate the number of moles of gas contained in a 10.0 L tank at 22&deg;C and 105 atm.</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>0.0231 mol</li><li onclick="pick(this,'c')"><span class="ol">B</span>43.3 mol</li><li onclick="pick(this,'w')"><span class="ol">C</span>1.03 mol</li><li onclick="pick(this,'w')"><span class="ol">D</span>582 mol</li><li onclick="pick(this,'w')"><span class="ol">E</span>1.71&times;10&#8315;&sup3; mol</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">n = PV/RT = (105&times;10)/(0.0821&times;295) = 1050/24.22 = <b>43.3 mol</b><div class="ar-arabic">T = 22+273 = 295 K. نطبق قانون الغاز المثالي ونحسب n</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Answers Sheet &middot; Revision</span></div>
+  <p class="qt2">What could be the identity of a gas if its density is 3.74 g/L at STP?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Cl&#8322; (70.9 g/mol)</li><li onclick="pick(this,'w')"><span class="ol">B</span>AsH&#8323; (78.0 g/mol)</li><li onclick="pick(this,'c')"><span class="ol">C</span>Kr (83.8 g/mol)</li><li onclick="pick(this,'w')"><span class="ol">D</span>SO&#8322; (64.1 g/mol)</li><li onclick="pick(this,'w')"><span class="ol">E</span>CF&#8324; (88.0 g/mol)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">MM = dRT/P = (3.74&times;0.0821&times;273)/1 = <b>83.8 g/mol &rarr; Kr (Krypton)</b><div class="ar-arabic">عند STP نحسب الكتلة المولية من الكثافة، ثم نقارنها مع الخيارات</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Answers Sheet &middot; Revision</span></div>
+  <p class="qt2">When heated, KClO&#8323; (122.6 g/mol) &rarr; KCl + O&#8322;. If 91.95 g heated at 500 K and 900 mmHg, what volume (L) of O&#8322; is produced?<br><small style="color:var(--muted)">2KClO&#8323;(s) &rarr; 2KCl(s) + 3O&#8322;(g)</small></p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>39.0 L</li><li onclick="pick(this,'w')"><span class="ol">B</span>26.0 L</li><li onclick="pick(this,'w')"><span class="ol">C</span>78.0 L</li><li onclick="pick(this,'w')"><span class="ol">D</span>117 L</li><li onclick="pick(this,'w')"><span class="ol">E</span>52.0 L</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">n(KClO&#8323;)=91.95/122.6=0.75 mol &rarr; n(O&#8322;)=0.75&times;(3/2)=1.125 mol<br>P=900/760=1.184 atm &rarr; V=nRT/P=(1.125&times;0.0821&times;500)/1.184=<b>39.0 L</b><div class="ar-arabic">Gas stoichiometry: نحسب moles KClO&#8323; ثم نحول بالنسبة المولية ثم نطبق PV=nRT</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Spring 2023</span></div>
+  <p class="qt2">A container holds O&#8322; (3.00 atm), CO&#8322; (2.00 atm), and He (4.00 atm). What is the total pressure?</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>9.00 atm</li><li onclick="pick(this,'w')"><span class="ol">B</span>7.00 atm</li><li onclick="pick(this,'w')"><span class="ol">C</span>4.00 atm</li><li onclick="pick(this,'w')"><span class="ol">D</span>3.00 atm</li><li onclick="pick(this,'w')"><span class="ol">E</span>2.00 atm</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Dalton's Law: P<sub>T</sub> = 3 + 2 + 4 = <b>9.00 atm</b><div class="ar-arabic">قانون دالتون: الضغط الكلي = مجموع الضغوط الجزئية لكل غاز</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Spring 2023</span></div>
+  <p class="qt2">The volume of 0.46 mol of Neon gas at 135&deg;C and 780 mmHg is:</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>0.0065 L</li><li onclick="pick(this,'w')"><span class="ol">B</span>1.02 L</li><li onclick="pick(this,'w')"><span class="ol">C</span>20.1 L</li><li onclick="pick(this,'c')"><span class="ol">D</span>15.0 L</li><li onclick="pick(this,'w')"><span class="ol">E</span>10.2 L</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">P=780/760=1.026 atm, T=135+273=408K<br>V=nRT/P=(0.46&times;0.0821&times;408)/1.026=<b>15.0 L</b><div class="ar-arabic">حول mmHg لـ atm وdegrees Celsius لـ Kelvin ثم طبق المعادلة</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q7</span><span class="qtag">Revision &middot; Extra</span></div>
+  <p class="qt2">A mixture of 5.30 mol O&#8322; and 4.60 mol Cl&#8322; has a total pressure of 7.35 atm. What is the partial pressure of O&#8322;?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>2.50 atm</li><li onclick="pick(this,'w')"><span class="ol">B</span>0.50 atm</li><li onclick="pick(this,'w')"><span class="ol">C</span>1.80 atm</li><li onclick="pick(this,'c')"><span class="ol">D</span>3.93 atm</li><li onclick="pick(this,'w')"><span class="ol">E</span>4.00 atm</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">P(O&#8322;) = (n<sub>O&#8322;</sub>/n<sub>T</sub>) &times; P<sub>T</sub> = (5.30/(5.30+4.60)) &times; 7.35 = (5.30/9.90) &times; 7.35 = <b>3.93 atm</b><div class="ar-arabic">الضغط الجزئي = (عدد المولات / المجموع) &times; الضغط الكلي</div></div></div></div>
+</section>
+
+<!-- ═══ CH 6 ═══ -->
+<section class="tab" id="ch6">
+  <div class="sh c-orange" data-icon="🌡️">
+    <div class="stag">Chapter 6 &middot; 4 Questions in Exam</div>
+    <h2>Thermochemistry</h2>
+    <p>Enthalpy &middot; Specific Heat &middot; Heat from mass &middot; Hess's Law &middot; Enthalpy of Formation</p>
+    <div class="pills"><span>q = ms&#916;T</span><span>Exo vs Endo</span><span>Hess's Law</span><span>&#916;Hf&deg; elements = 0</span></div>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#128293; Key Equations</h3>
+      <div class="fm"><b>Heat equation:</b> <code>q = m &times; s &times; &#916;T</code><br>s(water) = 4.184 J/g&middot;&deg;C &nbsp;|&nbsp; s(iron) &asymp; 0.449 J/g&middot;&deg;C<br>&#916;T = T<sub>final</sub> &minus; T<sub>initial</sub></div>
+      <div class="fm"><b>Hess's Law Rules:</b><br>&bull; Reverse rxn &rarr; flip sign of &#916;H<br>&bull; Multiply rxn &times; n &rarr; multiply &#916;H &times; n<br>&bull; &#916;H&deg;rxn = &Sigma;&#916;Hf&deg;(products) &minus; &Sigma;&#916;Hf&deg;(reactants)<br>&bull; &#916;Hf&deg; of any pure element = 0</div>
+      <div class="tip">Losing heat &rarr; q negative. Gaining heat &rarr; q positive.<br><span class="arabic-note">الجسم يفقد حرارة &rarr; q سالبة | يكتسب حرارة &rarr; q موجبة<br>Exothermic: &#916;H &lt; 0 (يطلق حرارة) | Endothermic: &#916;H &gt; 0 (يمتص حرارة)</span></div>
+    </div>
+    <div class="card">
+      <h3>&#128260; Exo vs Endothermic</h3>
+      <div class="diagram">
+        <svg width="250" height="165" viewBox="0 0 250 165" font-family="Inter,sans-serif">
+          <rect x="4" y="8" width="112" height="150" rx="10" fill="rgba(239,68,68,.08)" stroke="rgba(239,68,68,.3)" stroke-width="1"/>
+          <text x="60" y="27" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">EXOTHERMIC</text>
+          <text x="60" y="41" text-anchor="middle" fill="#fca5a5" font-size="9">&#916;H &lt; 0 (releases heat)</text>
+          <polyline points="14,128 36,128 56,62 76,62 102,128" fill="none" stroke="#f87171" stroke-width="2"/>
+          <text x="60" y="148" text-anchor="middle" fill="#f87171" font-size="9">&#128293; Combustion, Neutralization</text>
+          <text x="60" y="90" text-anchor="middle" fill="rgba(239,68,68,.5)" font-size="22">&#8595;</text>
+          <rect x="132" y="8" width="112" height="150" rx="10" fill="rgba(59,130,246,.08)" stroke="rgba(59,130,246,.3)" stroke-width="1"/>
+          <text x="188" y="27" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="700">ENDOTHERMIC</text>
+          <text x="188" y="41" text-anchor="middle" fill="#93c5fd" font-size="9">&#916;H &gt; 0 (absorbs heat)</text>
+          <polyline points="140,62 160,62 180,128 200,128 236,62" fill="none" stroke="#60a5fa" stroke-width="2"/>
+          <text x="188" y="148" text-anchor="middle" fill="#60a5fa" font-size="9">&#10052;&#65039; Decomposition, Melting</text>
+          <text x="188" y="90" text-anchor="middle" fill="rgba(59,130,246,.5)" font-size="22">&#8593;</text>
+        </svg>
+      </div>
+      <ul class="bl" style="margin-top:6px;">
+        <li>Find heat from mass: n = m/MM &rarr; use &#916;H/mol ratio</li>
+        <li><span class="arabic-note">لإيجاد الحرارة من الكتلة: احسب n أولاً ثم اضرب في &#916;H/mol</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Spring 2025 &middot; Spring 2024 &middot; Makeup Fall 2025</span></div>
+  <p class="qt2">A 135 g sample of H&#8322;O at 85&deg;C loses 15 kJ of energy. What is the final temperature? (s = 4.184 J/g&middot;&deg;C)</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>27&deg;C</li><li onclick="pick(this,'w')"><span class="ol">B</span>70&deg;C</li><li onclick="pick(this,'c')"><span class="ol">C</span>58&deg;C</li><li onclick="pick(this,'w')"><span class="ol">D</span>84&deg;C</li><li onclick="pick(this,'w')"><span class="ol">E</span>112&deg;C</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">&#916;T = q/(m&times;s) = &minus;15000/(135&times;4.184) = &minus;26.6&deg;C<br>T<sub>f</sub> = 85 &minus; 26.6 = <b>58.4&deg;C &asymp; 58&deg;C</b><div class="ar-arabic">الماء يفقد حرارة &rarr; q سالبة. نحسب &#916;T ثم T_final = T_initial + &#916;T</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Spring 2025 &middot; Answers Sheet</span></div>
+  <p class="qt2">A 47.00 g iron sample absorbs 914 J when temperature rises from 28.34&deg;C to 71.75&deg;C. Find the specific heat (J/g&middot;&deg;C).</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>0.448 J/g&middot;&deg;C</li><li onclick="pick(this,'w')"><span class="ol">B</span>1.863</li><li onclick="pick(this,'w')"><span class="ol">C</span>6.614</li><li onclick="pick(this,'w')"><span class="ol">D</span>49.23</li><li onclick="pick(this,'w')"><span class="ol">E</span>11.26</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">s = q/(m&times;&#916;T) = 914/(47.00&times;43.41) = 914/2040 = <b>0.448 J/g&middot;&deg;C</b><div class="ar-arabic">&#916;T = 71.75 &minus; 28.34 = 43.41&deg;C. نعزل s من معادلة q = ms&#916;T</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Makeup Fall 2025 &middot; Spring 2024</span></div>
+  <p class="qt2">Calculate &#916;H&deg;rxn for: 2C&#8328;H&#8321;&#8328;(l)+17O&#8322;(g)&rarr;16CO(g)+18H&#8322;O(l)<br><small style="color:var(--muted)">(1) 2C&#8328;H&#8321;&#8328;+25O&#8322;&rarr;16CO&#8322;+18H&#8322;O, &#916;H&#8321;&deg;=&minus;11,020 kJ &nbsp;|&nbsp; (2) 2CO+O&#8322;&rarr;2CO&#8322;, &#916;H&#8322;&deg;=&minus;566 kJ</small></p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>&minus;10,450 kJ/mol</li><li onclick="pick(this,'w')"><span class="ol">B</span>+6,492 kJ/mol</li><li onclick="pick(this,'c')"><span class="ol">C</span>&minus;6,492 kJ/mol</li><li onclick="pick(this,'w')"><span class="ol">D</span>+10,450 kJ/mol</li><li onclick="pick(this,'w')"><span class="ol">E</span>&minus;15,550 kJ/mol</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Use Eq(1) &minus; 8&times;Eq(2):<br>&#916;H = &minus;11,020 &minus; 8&times;(&minus;566) = &minus;11,020 + 4,528 = <b>&minus;6,492 kJ/mol</b><div class="ar-arabic">نطبق قانون هيس: نستخدم المعادلتين المعطاتين ونتلاعب فيهما للحصول على المعادلة المطلوبة</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Spring 2023 &middot; Revision</span></div>
+  <p class="qt2">Calculate &#916;H&deg; for: 2H&#8322;O(l) &rarr; 2H&#8322;(g) + O&#8322;(g)<br><small style="color:var(--muted)">Given: H&#8322;(g) + &frac12;O&#8322;(g) &rarr; H&#8322;O(l) &nbsp; &#916;H&deg; = &minus;285.8 kJ/mol</small></p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>&minus;572 kJ</li><li onclick="pick(this,'w')"><span class="ol">B</span>+98.2 kJ</li><li onclick="pick(this,'c')"><span class="ol">C</span>+572 kJ</li><li onclick="pick(this,'w')"><span class="ol">D</span>+196.4 kJ</li><li onclick="pick(this,'w')"><span class="ol">E</span>&minus;396.4 kJ</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Reverse equation (flip sign) &times; 2: &#916;H = +285.8 &times; 2 = <b>+571.6 &asymp; +572 kJ</b><div class="ar-arabic">نعكس المعادلة (تغيير الإشارة) ثم نضرب في 2 لأن المعادلة المطلوبة فيها 2 مول H&#8322;O</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Answers Sheet</span></div>
+  <p class="qt2">Given: 2S(s)+3O&#8322;(g)&rarr;2SO&#8323;(g), &#916;H&#8321;=&minus;790 kJ &nbsp;|&nbsp; S(s)+O&#8322;(g)&rarr;SO&#8322;(g), &#916;H&#8322;=&minus;297 kJ<br>Find &#916;H&#8323; for: 2SO&#8322;(g)+O&#8322;(g)&rarr;2SO&#8323;(g)</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>&minus;1384 kJ</li><li onclick="pick(this,'c')"><span class="ol">B</span>&minus;196 kJ</li><li onclick="pick(this,'w')"><span class="ol">C</span>&minus;543 kJ</li><li onclick="pick(this,'w')"><span class="ol">D</span>+1087 kJ</li><li onclick="pick(this,'w')"><span class="ol">E</span>+196 kJ</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Target = Eq(1) &minus; 2&times;Eq(2): &#916;H = &minus;790 &minus; 2&times;(&minus;297) = &minus;790 + 594 = <b>&minus;196 kJ</b><div class="ar-arabic">نعكس Eq(2) ونضربها في 2 ثم نجمعها مع Eq(1) للحصول على المعادلة المطلوبة</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Spring 2025 &middot; Revision</span></div>
+  <p class="qt2">Calculate &#916;H&deg;rxn for: 2H&#8322;O&#8322;(l)&rarr;2H&#8322;O(l)+O&#8322;(g)<br><small style="color:var(--muted)">&#916;Hf&deg;[H&#8322;O(l)]=&minus;285.8 kJ/mol &nbsp;|&nbsp; &#916;Hf&deg;[H&#8322;O&#8322;(l)]=&minus;187.6 kJ/mol</small></p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>&minus;196.4 kJ</li><li onclick="pick(this,'w')"><span class="ol">B</span>+98.2 kJ</li><li onclick="pick(this,'w')"><span class="ol">C</span>&minus;98.2 kJ</li><li onclick="pick(this,'w')"><span class="ol">D</span>+196.4 kJ</li><li onclick="pick(this,'w')"><span class="ol">E</span>&minus;396.4 kJ</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">&#916;H = [2(&minus;285.8)+0] &minus; [2(&minus;187.6)] = &minus;571.6 &minus; (&minus;375.2) = <b>&minus;196.4 kJ</b><div class="ar-arabic">&#916;H&deg;rxn = &Sigma;&#916;Hf&deg;(products) &minus; &Sigma;&#916;Hf&deg;(reactants). &#916;Hf&deg; of O&#8322; = 0</div></div></div></div>
+</section>
+
+<!-- ═══ CH 7 ═══ -->
+<section class="tab" id="ch7">
+  <div class="sh c-violet" data-icon="⚛️">
+    <div class="stag">Chapter 7 &middot; 7 Questions in Exam</div>
+    <h2>Quantum Theory &amp; Electronic Structure</h2>
+    <p>Energy &amp; wavelength &middot; Bohr model &middot; Quantum numbers &middot; Electron configurations &middot; Hund / Aufbau / Pauli</p>
+    <div class="pills"><span>E = h&#957;</span><span>&#955;&#957; = c</span><span>n, l, m&#8343;, m&#8347;</span><span>Aufbau order</span></div>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#128225; Key Formulas &amp; Principles</h3>
+      <div class="fm"><b>Wave-energy relations:</b><br><code>c = &#955; &times; &#957;</code> &nbsp;(c = 3&times;10&#8328; m/s)<br><code>E = h &times; &#957; = hc/&#955;</code> &nbsp;(h = 6.63&times;10&#8315;&#179;&#8308; J&middot;s)<br>nm &rarr; m: &times;10&#8315;&#8313;</div>
+      <div class="fm"><b>Quantum number rules:</b><br><b>n</b> = 1,2,3&hellip; (shell / energy level)<br><b>l</b> = 0 to n&minus;1 &rarr; s(0), p(1), d(2), f(3)<br><b>m&#8343;</b> = &minus;l to +l &nbsp;|&nbsp; <b>m&#8347;</b> = +&frac12; or &minus;&frac12;<br>Max e&#8315;: s=2, p=6, d=10, f=14</div>
+      <div class="fm"><b>Three Principles:</b><br>&bull; <b>Pauli Exclusion:</b> No two e&#8315; same 4 QNs<br>&bull; <b>Hund's Rule:</b> Fill each orbital singly before pairing<br>&bull; <b>Aufbau:</b> 1s&rarr;2s&rarr;2p&rarr;3s&rarr;3p&rarr;4s&rarr;3d&rarr;4p&rarr;5s&rarr;4d&hellip;</div>
+      <div class="tip">Exceptions: Cr=[Ar]4s&#185;3d&#8309; &nbsp;|&nbsp; Cu=[Ar]4s&#185;3d&#185;&#8304; (half/fully filled d = stable)<br><span class="arabic-note">Cr وCu استثناءات بسبب استقرار D النصف ممتلئ أو الكامل</span></div>
+    </div>
+    <div class="card">
+      <h3>&#128302; Bohr's Atomic Model</h3>
+      <div class="diagram">
+        <svg width="220" height="205" viewBox="0 0 220 205" font-family="Inter,sans-serif">
+          <defs><radialGradient id="nuc" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#f59e0b" stop-opacity=".9"/><stop offset="100%" stop-color="#b45309" stop-opacity=".7"/></radialGradient></defs>
+          <circle cx="110" cy="100" r="80" fill="none" stroke="rgba(167,139,250,.13)" stroke-width="1" stroke-dasharray="4,4"/>
+          <circle cx="110" cy="100" r="57" fill="none" stroke="rgba(167,139,250,.2)" stroke-width="1" stroke-dasharray="4,4"/>
+          <circle cx="110" cy="100" r="36" fill="none" stroke="rgba(167,139,250,.32)" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <text x="196" y="97" fill="rgba(167,139,250,.6)" font-size="9">n=3</text>
+          <text x="171" y="97" fill="rgba(167,139,250,.7)" font-size="9">n=2</text>
+          <text x="149" y="97" fill="rgba(167,139,250,.9)" font-size="9">n=1</text>
+          <circle cx="110" cy="100" r="12" fill="url(#nuc)"/>
+          <text x="110" y="104" text-anchor="middle" fill="#fff" font-size="9" font-weight="700">+</text>
+          <circle cx="110" cy="64" r="4.5" fill="#a78bfa"/>
+          <circle cx="147" cy="100" r="4.5" fill="#6ee7b7"/>
+          <circle cx="110" cy="180" r="4.5" fill="#60a5fa"/>
+          <line x1="198" y1="175" x2="198" y2="28" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+          <polygon points="198,20 193,33 203,33" fill="rgba(255,255,255,.25)"/>
+          <text x="215" y="100" fill="rgba(255,255,255,.35)" font-size="8" transform="rotate(90,215,100)">Energy &#8593;</text>
+          <line x1="68" y1="64" x2="30" y2="44" stroke="#fcd34d" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <text x="8" y="36" fill="#fcd34d" font-size="8">h&#957;</text>
+          <text x="4" y="47" fill="#fcd34d" font-size="7">photon</text>
+          <text x="110" y="198" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="8">Higher n = Higher energy = Farther from nucleus</text>
+        </svg>
+      </div>
+      <div class="fm" style="margin-top:6px;font-size:.82rem;"><b>Visible light:</b> n&rarr;2 transitions (Balmer series, 400-700nm)<br><span class="arabic-note">الضوء المرئي ينتج من انتقال الإلكترون إلى المستوى n=2</span></div>
+    </div>
+  </div>
+  <div class="card">
+    <h3>&#128221; Quantum Numbers Summary Table</h3>
+    <table class="st">
+      <tr><th>Symbol</th><th>Name</th><th>Allowed Values</th><th>Represents</th><th>Arabic</th></tr>
+      <tr><td><b style="color:var(--goldL)">n</b></td><td>Principal</td><td>1, 2, 3, 4&hellip;</td><td>Shell / energy level</td><td style="direction:rtl">المستوى الطاقي</td></tr>
+      <tr><td><b style="color:var(--goldL)">l</b></td><td>Angular Momentum</td><td>0 to (n&minus;1) &rarr; s,p,d,f</td><td>Subshell / orbital shape</td><td style="direction:rtl">شكل المجال</td></tr>
+      <tr><td><b style="color:var(--goldL)">m&#8343;</b></td><td>Magnetic</td><td>&minus;l, &hellip;, 0, &hellip;, +l</td><td>Specific orbital / orientation</td><td style="direction:rtl">اتجاه المجال</td></tr>
+      <tr><td><b style="color:var(--goldL)">m&#8347;</b></td><td>Spin</td><td>+&frac12; or &minus;&frac12; only</td><td>Electron spin direction</td><td style="direction:rtl">لف الإلكترون</td></tr>
+    </table>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Spring 2025</span></div>
+  <p class="qt2">Calculate the energy of a photon with wavelength 502 nm. (h=6.63&times;10&#8315;&#179;&#8308; J&middot;s, c=3.0&times;10&#8328; m/s)</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>4.25&times;10&#8315;&#178;&#185; J</li><li onclick="pick(this,'w')"><span class="ol">B</span>3.78&times;10&#8315;&#185;&#8328; J</li><li onclick="pick(this,'w')"><span class="ol">C</span>2.13&times;10&#8315;&#178;&#8304; J</li><li onclick="pick(this,'c')"><span class="ol">D</span>3.96&times;10&#8315;&#185;&#8313; J</li><li onclick="pick(this,'w')"><span class="ol">E</span>7.34&times;10&#8315;&#185;&#8311; J</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">&#955; = 502&times;10&#8315;&#8313; m &rarr; E = hc/&#955; = (6.63&times;10&#8315;&#179;&#8308;&times;3&times;10&#8328;)/(502&times;10&#8315;&#8313;) = <b>3.96&times;10&#8315;&#185;&#8313; J</b><div class="ar-arabic">حول nm لـ m أولاً (×10⁻⁹)، ثم طبق E = hc/&#955;</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Makeup Fall 2025 &middot; Spring 2024</span></div>
+  <p class="qt2">What is the wavelength of radiation with frequency 3.4&times;10&#185;&#185; s&#8315;&#185;?</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>8.8&times;10&#8309; nm</li><li onclick="pick(this,'w')"><span class="ol">B</span>8.8&times;10&#8315;&#8308; nm</li><li onclick="pick(this,'w')"><span class="ol">C</span>8.8&times;10&#8315;&#185;&#179; nm</li><li onclick="pick(this,'w')"><span class="ol">D</span>1.0&times;10&#185;&#185; nm</li><li onclick="pick(this,'w')"><span class="ol">E</span>1.0&times;10&#8315;&#8313; nm</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">&#955; = c/&#957; = 3&times;10&#8328;/3.4&times;10&#185;&#185; = 8.82&times;10&#8315;&#8308; m &times; (10&#8313; nm/m) = <b>8.8&times;10&#8309; nm</b><div class="ar-arabic">&#955; = c/&#957;, ثم حول من m لـ nm بالضرب في 10&#8313;</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">"No two electrons in an atom can have the same four quantum numbers" is a statement of:</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>The Pauli Exclusion Principle</li><li onclick="pick(this,'w')"><span class="ol">B</span>Bohr's equation</li><li onclick="pick(this,'w')"><span class="ol">C</span>Hund's rule</li><li onclick="pick(this,'w')"><span class="ol">D</span>De Broglie's relation</li><li onclick="pick(this,'w')"><span class="ol">E</span>Dalton's atomic theory</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">This is the exact definition of the <b>Pauli Exclusion Principle</b>.<div class="ar-arabic">هذا هو تعريف مبدأ باولي للإقصاء حرفياً &mdash; احفظه!</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Which set of quantum numbers is NOT possible?<br><small style="color:var(--muted)">I: n=4,l=3,m&#8343;=&minus;2,m&#8347;=+&frac12; &nbsp;|&nbsp; II: n=3,l=0,m&#8343;=1,m&#8347;=&minus;&frac12; &nbsp;|&nbsp; III: n=3,l=0,m&#8343;=0,m&#8347;=+&frac12; &nbsp;|&nbsp; IV: n=2,l=1,m&#8343;=1,m&#8347;=&minus;&frac12;</small></p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Set I</li><li onclick="pick(this,'c')"><span class="ol">B</span>Set II &mdash; NOT possible</li><li onclick="pick(this,'w')"><span class="ol">C</span>Set III</li><li onclick="pick(this,'w')"><span class="ol">D</span>Set IV</li><li onclick="pick(this,'w')"><span class="ol">E</span>All are possible</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Set II: l=0 &rarr; m&#8343; must be 0 only. m&#8343;=1 is <b>INVALID!</b> Rule: m&#8343; ranges from &minus;l to +l<div class="ar-arabic">لو l=0، فـ m&#8343; لازم يساوي 0 فقط. m&#8343;=1 غير ممكن!</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">What is the maximum number of electrons in an atom with n=3 and l=2?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>0</li><li onclick="pick(this,'w')"><span class="ol">B</span>1</li><li onclick="pick(this,'w')"><span class="ol">C</span>2</li><li onclick="pick(this,'w')"><span class="ol">D</span>6</li><li onclick="pick(this,'c')"><span class="ol">E</span>10</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">n=3, l=2 &rarr; 3d subshell &rarr; 5 orbitals &times; 2 = <b>10 electrons max</b><div class="ar-arabic">n=3, l=2 هي المجموعة الفرعية 3d التي تحتوي على 5 مجالات &times; 2 إلكترون = 10</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Spring 2025</span></div>
+  <p class="qt2">The electron configuration of Arsenic (As, Z=33) in its ground state:</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>[Ar]4s&#178;3d&#8328;4p&#8309;</li><li onclick="pick(this,'w')"><span class="ol">B</span>[Ne]3s&#178;3d&#185;&#8304;3p&#179;</li><li onclick="pick(this,'c')"><span class="ol">C</span>[Ar]4s&#178;3d&#185;&#8304;4p&#179;</li><li onclick="pick(this,'w')"><span class="ol">D</span>[Kr]5s&#178;4d&#185;&#8304;5p&#179;</li><li onclick="pick(this,'w')"><span class="ol">E</span>[Ar]4s&#178;3d&#8313;4p&#8308;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">[Ar]&#8321;&#8328; + 4s&#178;(2) + 3d&#185;&#8304;(10) + 4p&#179;(3) = 18+2+10+3 = 33 &#10003; &rarr; <b>[Ar]4s&#178;3d&#185;&#8304;4p&#179;</b><div class="ar-arabic">As ذرة رقم 33. نستخدم [Ar] كمختصر لـ 18 إلكترون ثم نتابع الترتيب</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q7</span><span class="qtag">Spring 2024</span></div>
+  <p class="qt2">Which of the following is the electron configuration of Co&#178;&#8314; (Z=27)?</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>[Ar]3d&#8311;</li><li onclick="pick(this,'w')"><span class="ol">B</span>[Ar]4s&#178;3d&#8311;</li><li onclick="pick(this,'w')"><span class="ol">C</span>[Ar]4s&#185;3d&#8310;</li><li onclick="pick(this,'w')"><span class="ol">D</span>[Ar]3d&#8310;</li><li onclick="pick(this,'w')"><span class="ol">E</span>[Ar]4s&#178;3d&#8313;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Co: [Ar]4s&#178;3d&#8311; &rarr; remove 4s&#178; first (cation) &rarr; Co&#178;&#8314;: <b>[Ar]3d&#8311;</b><div class="ar-arabic">عند تكوين الكاتيون نشيل إلكترونات 4s أولاً قبل 3d</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q8</span><span class="qtag">Spring 2023</span></div>
+  <p class="qt2">Which one of the following is an INCORRECT subshell notation?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>4f</li><li onclick="pick(this,'w')"><span class="ol">B</span>5s</li><li onclick="pick(this,'w')"><span class="ol">C</span>3p</li><li onclick="pick(this,'c')"><span class="ol">D</span>2d</li><li onclick="pick(this,'w')"><span class="ol">E</span>6d</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">2d: n=2 &rarr; l can only be 0(s) or 1(p). d requires n&ge;3 &rarr; <b>2d does NOT exist!</b><div class="ar-arabic">n=2 يسمح فقط بـ l=0 (s) و l=1 (p). المجموعة d تحتاج n&ge;3</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q9</span><span class="qtag">Answers Sheet</span></div>
+  <p class="qt2">Which one of the following sets of quantum numbers represents the electron with HIGHEST energy?<br><small style="color:var(--muted)">A: n=4,l=0 &nbsp;|&nbsp; B: n=4,l=1 &nbsp;|&nbsp; C: n=3,l=2 &nbsp;|&nbsp; D: n=3,l=0 &nbsp;|&nbsp; E: n=3,l=1</small></p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>n=4, l=0 (4s)</li><li onclick="pick(this,'c')"><span class="ol">B</span>n=4, l=1 (4p)</li><li onclick="pick(this,'w')"><span class="ol">C</span>n=3, l=2 (3d)</li><li onclick="pick(this,'w')"><span class="ol">D</span>n=3, l=0 (3s)</li><li onclick="pick(this,'w')"><span class="ol">E</span>n=3, l=1 (3p)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Compare (n+l): 4s=4+0=4, <b>4p=4+1=5</b>, 3d=3+2=5, 3s=3, 3p=4.<br>4p and 3d both = 5, but 4p has higher n &rarr; <b>4p (n=4, l=1) is highest energy</b><div class="ar-arabic">نقارن بـ (n+l). لو متساوية، الأعلى n هو الأعلى طاقة</div></div></div></div>
+</section>
+
+<!-- ═══ CH 8 ═══ -->
+<section class="tab" id="ch8">
+  <div class="sh c-green" data-icon="📊">
+    <div class="stag">Chapter 8 &middot; 6 Questions in Exam</div>
+    <h2>Periodic Relationships Among the Elements</h2>
+    <p>Cations &amp; Anions &middot; Isoelectronic &middot; Ionization Energy &middot; Atomic &amp; Ionic Radius &middot; Electron Affinity</p>
+    <div class="pills"><span>IE trend</span><span>Atomic radius</span><span>EA trend</span><span>Isoelectronic rules</span></div>
+  </div>
+  <div class="card">
+    <h3>&#128200; Periodic Trends Diagram</h3>
+    <div class="diagram">
+      <svg width="480" height="175" viewBox="0 0 480 175" font-family="Inter,sans-serif">
+        <rect x="10" y="8" width="460" height="155" rx="12" fill="rgba(255,255,255,.02)" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+        <text x="240" y="26" text-anchor="middle" fill="rgba(255,255,255,.35)" font-size="10">&larr; left to right across period &rarr;</text>
+        <text x="18" y="95" fill="rgba(255,255,255,.3)" font-size="9" transform="rotate(-90,18,95)">&#8595; down group</text>
+        <rect x="35" y="38" width="115" height="62" rx="8" fill="rgba(59,130,246,.1)" stroke="rgba(59,130,246,.3)" stroke-width="1"/>
+        <text x="92" y="57" text-anchor="middle" fill="#60a5fa" font-size="11" font-weight="700">Atomic Radius</text>
+        <text x="92" y="71" text-anchor="middle" fill="#93c5fd" font-size="9">&#8595; across period (more protons)</text>
+        <text x="92" y="83" text-anchor="middle" fill="#93c5fd" font-size="9">&#8593; down group (more shells)</text>
+        <rect x="165" y="38" width="115" height="62" rx="8" fill="rgba(239,68,68,.1)" stroke="rgba(239,68,68,.3)" stroke-width="1"/>
+        <text x="222" y="57" text-anchor="middle" fill="#f87171" font-size="11" font-weight="700">Ioniz. Energy</text>
+        <text x="222" y="71" text-anchor="middle" fill="#fca5a5" font-size="9">&#8593; across period</text>
+        <text x="222" y="83" text-anchor="middle" fill="#fca5a5" font-size="9">&#8595; down group</text>
+        <rect x="295" y="38" width="115" height="62" rx="8" fill="rgba(16,185,129,.1)" stroke="rgba(16,185,129,.3)" stroke-width="1"/>
+        <text x="352" y="57" text-anchor="middle" fill="#6ee7b7" font-size="11" font-weight="700">Electron Affinity</text>
+        <text x="352" y="71" text-anchor="middle" fill="#a7f3d0" font-size="9">&#8593; across period</text>
+        <text x="352" y="83" text-anchor="middle" fill="#a7f3d0" font-size="9">Halogens = highest (Cl&gt;F)</text>
+        <text x="240" y="115" text-anchor="middle" fill="rgba(245,158,11,.7)" font-size="9">&#9888;&#65039; Exceptions: N, Be, Mg have lower EA than expected</text>
+        <text x="240" y="130" text-anchor="middle" fill="rgba(167,139,250,.6)" font-size="9">Electronegativity: same trend as IE &mdash; F is highest overall (4.0)</text>
+        <text x="240" y="148" text-anchor="middle" fill="rgba(255,255,255,.3)" font-size="8">Isoelectronic: same number of electrons &mdash; more protons = smaller radius</text>
+      </svg>
+    </div>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#9889; Cation &amp; Anion Electron Configs</h3>
+      <ul class="bl">
+        <li><b>Cations:</b> remove electrons from outermost shell first. For transition metals: remove 4s before 3d</li>
+        <li><b>Anions:</b> add electrons to complete the outer shell</li>
+        <li>Co: [Ar]4s&#178;3d&#8311; &rarr; Co&#178;&#8314;: [Ar]3d&#8311; &nbsp;|&nbsp; Co&#179;&#8314;: [Ar]3d&#8310;</li>
+        <li>Fe: [Ar]4s&#178;3d&#8310; &rarr; Fe&#178;&#8314;: [Ar]3d&#8310; &rarr; Fe&#179;&#8314;: [Ar]3d&#8309;</li>
+        <li><span class="arabic-note">الكاتيون: نشيل إلكترونات من أعلى مستوى أولاً. للمعادن الانتقالية نشيل 4s قبل 3d</span></li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>&#128207; Ionic Radius Rules</h3>
+      <ul class="bl">
+        <li>Isoelectronic series: <b>more protons = smaller radius</b></li>
+        <li>O&#178;&#8315; &gt; Na&#8314; &gt; Mg&#178;&#8314; &gt; Al&#179;&#8314; (all 10 e&#8315;, increasing Z)</li>
+        <li>Cations: always smaller than parent neutral atom</li>
+        <li>Anions: always larger than parent neutral atom</li>
+        <li><span class="arabic-note">في الأيونات المتساوية في الإلكترونات: كلما زادت البروتونات كلما صغر الحجم</span></li>
+      </ul>
+      <div class="tip">Cl has higher EA than F! F is very small &rarr; strong e&#8315;-e&#8315; repulsion reduces EA.<br><span class="arabic-note">Cl أعلى electron affinity من F لأن F صغير جداً وفيه تنافر بين الإلكترونات</span></div>
+    </div>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Which of the following make an isoelectronic pair: Cl&#8315;, O&#178;&#8315;, F, Ca&#178;&#8314;, Fe&#179;&#8314;?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Cl&#8315; and Ca&#178;&#8314;</li><li onclick="pick(this,'w')"><span class="ol">B</span>Ca&#178;&#8314; and Fe&#179;&#8314;</li><li onclick="pick(this,'c')"><span class="ol">C</span>O&#178;&#8315; and F</li><li onclick="pick(this,'w')"><span class="ol">D</span>F and Cl&#8315;</li><li onclick="pick(this,'w')"><span class="ol">E</span>None of the above</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Per official exam answer key: <b>Answer C</b>. Note: O&#178;&#8315; has 10e&#8315;, F neutral has 9e&#8315;. The classic isoelectronic would be O&#178;&#8315; and F&#8315;, but exam key gives C.<div class="ar-arabic">حسب إجابات الامتحانات الرسمية الإجابة C</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Spring 2024 &middot; Makeup Fall 2025</span></div>
+  <p class="qt2">Which of the following is the electron configuration of Co&#179;&#8314; (Z=27)?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>[Ar]3d&#8311;</li><li onclick="pick(this,'w')"><span class="ol">B</span>[Ar]4s&#178;3d&#8311;</li><li onclick="pick(this,'w')"><span class="ol">C</span>[Ar]4s&#185;3d&#8310;</li><li onclick="pick(this,'c')"><span class="ol">D</span>[Ar]3d&#8310;</li><li onclick="pick(this,'w')"><span class="ol">E</span>[Ar]4s&#178;3d&#8313;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Co: [Ar]4s&#178;3d&#8311; &rarr; remove 4s&#178; first, then 1e&#8315; from 3d &rarr; Co&#179;&#8314;: <b>[Ar]3d&#8310;</b><div class="ar-arabic">نشيل 4s&#178; أولاً (2 إلكترون) ثم إلكترون واحد من 3d</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Arrange in DECREASING ionic radius: Al&#179;&#8314;, Mg&#178;&#8314;, Na&#8314;, O&#178;&#8315; (largest to smallest)</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;O&#178;&#8315;&gt;Na&#8314;</li><li onclick="pick(this,'w')"><span class="ol">B</span>Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;Na&#8314;&gt;O&#178;&#8315;</li><li onclick="pick(this,'w')"><span class="ol">C</span>Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;&gt;O&#178;&#8315;</li><li onclick="pick(this,'w')"><span class="ol">D</span>O&#178;&#8315;&gt;Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;Na&#8314;</li><li onclick="pick(this,'c')"><span class="ol">E</span>O&#178;&#8315;&gt;Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">All isoelectronic (10 e&#8315;). More protons = smaller. O(8)&gt;Na(11)&gt;Mg(12)&gt;Al(13) &rarr; <b>O&#178;&#8315;&gt;Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;</b><div class="ar-arabic">كلهم 10 إلكترون. كلما زادت البروتونات (العدد الذري) كلما صغر الأيون</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Which of the following elements has the smallest first ionization energy? Li, Na, Be, K, Rb</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Li</li><li onclick="pick(this,'w')"><span class="ol">B</span>Na</li><li onclick="pick(this,'w')"><span class="ol">C</span>Be</li><li onclick="pick(this,'w')"><span class="ol">D</span>K</li><li onclick="pick(this,'c')"><span class="ol">E</span>Rb</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">IE decreases down a group. Rb is lowest in Group 1 among these &rarr; <b>Rb has smallest IE</b><div class="ar-arabic">IE تنخفض نزولاً في المجموعة. Rb هو الأسفل في المجموعة 1 من هذه العناصر</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Makeup Fall 2025</span></div>
+  <p class="qt2">Which of the following elements has the greatest electron affinity? N, Ar, F, Mg, K</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>N (Group 15 &mdash; exception)</li><li onclick="pick(this,'w')"><span class="ol">B</span>Ar (noble gas, EA&asymp;0)</li><li onclick="pick(this,'c')"><span class="ol">C</span>F (halogen, highest EA)</li><li onclick="pick(this,'w')"><span class="ol">D</span>Mg (full 3s, low EA)</li><li onclick="pick(this,'w')"><span class="ol">E</span>K (metal, low EA)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Halogens have highest EA. Cl not listed, so <b>F has greatest EA</b> here.<div class="ar-arabic">Halogens (F,Cl,Br,I) لها أعلى electron affinity. هنا Cl مش موجود فـ F هو الجواب</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Which one of the following is a transition element?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Magnesium, Mg (Group 2)</li><li onclick="pick(this,'c')"><span class="ol">B</span>Manganese, Mn (d-block, Group 7)</li><li onclick="pick(this,'w')"><span class="ol">C</span>Barium, Ba (Group 2)</li><li onclick="pick(this,'w')"><span class="ol">D</span>Potassium, K (Group 1)</li><li onclick="pick(this,'w')"><span class="ol">E</span>Selenium, Se (p-block)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Transition metals = d-block (Groups 3&ndash;12). Mn (Z=25) = [Ar]4s&#178;3d&#8309; &rarr; <b>transition element</b><div class="ar-arabic">المعادن الانتقالية هي عناصر d-block في المجموعات 3-12. Mn هو منهم</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q7</span><span class="qtag">Answers Sheet</span></div>
+  <p class="qt2">Arrange in INCREASING order of first IE: Na, Cl, Al, S, Mg, P</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Na&lt;Cl&lt;Al&lt;S&lt;Mg&lt;P</li><li onclick="pick(this,'w')"><span class="ol">B</span>Na&lt;Al&lt;Cl&lt;S&lt;Mg&lt;P</li><li onclick="pick(this,'w')"><span class="ol">C</span>Na&lt;Mg&lt;Al&lt;S&lt;P&lt;Cl</li><li onclick="pick(this,'w')"><span class="ol">D</span>Na&lt;Al&lt;Mg&lt;S&lt;P&lt;Cl</li><li onclick="pick(this,'c')"><span class="ol">E</span>Na&lt;Mg&lt;Al&lt;P&lt;S&lt;Cl</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Groups: Na(1)&lt;Mg(2)&lt;Al(13)&lt;P(15)&lt;S(16)&lt;Cl(17). Note: P&gt;S because P has half-filled 3p (extra stability) &rarr; <b>Na&lt;Mg&lt;Al&lt;P&lt;S&lt;Cl</b><div class="ar-arabic">ملاحظة: P أعلى من S لأن P لديه 3p نصف ممتلئ (استقرار إضافي) فـ IE بتعلى</div></div></div></div>
+</section>
+
+<!-- ═══ CH 9 ═══ -->
+<section class="tab" id="ch9">
+  <div class="sh c-red" data-icon="🔗">
+    <div class="stag">Chapter 9 &middot; 6 Questions in Exam</div>
+    <h2>Chemical Bonding I &mdash; The Covalent Bond</h2>
+    <p>Electronegativity &middot; Polarity of bonds &middot; Lewis structures &middot; Formal charge &middot; Resonance</p>
+    <div class="pills"><span>EN order</span><span>Lewis structures</span><span>FC = VE&minus;lone&minus;&frac12;bond</span><span>Resonance</span></div>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#9889; Key Concepts &amp; Formulas</h3>
+      <div class="fm"><b>Formal Charge:</b><br><code>FC = VE &minus; (nonbonding e&#8315;) &minus; &frac12;(bonding e&#8315;)</code><br>Best Lewis structure: FC closest to zero</div>
+      <div class="fm"><b>Bond type by &Delta;EN:</b><br>&Delta;EN &gt; 2.0 &rarr; <b>Ionic</b><br>0.4 &lt; &Delta;EN &lt; 2.0 &rarr; <b>Polar Covalent</b><br>&Delta;EN &lt; 0.4 &rarr; <b>Nonpolar Covalent</b></div>
+      <ul class="bl">
+        <li>EN increases: left&rarr;right across period, bottom&rarr;top in group</li>
+        <li>NO&#8323;&#8315; and CO&#8323;&#178;&#8315; each have <b>3</b> resonance structures</li>
+        <li>O&#8323; (ozone) and NO&#8322;&#8315; each have <b>2</b> resonance structures</li>
+        <li><span class="arabic-note">FC = الإلكترونات التكافؤية &minus; الإلكترونات المنفردة &minus; &frac12;(الإلكترونات الرابطة)</span></li>
+      </ul>
+      <div class="tip">Nonpolar molecule with polar bonds: CO&#8322; (linear), BF&#8323; (trig. planar), CCl&#8324; (tetrahedral)<br><span class="arabic-note">جزيئات غير قطبية مع روابط قطبية: لما تلغي العزوم بعضها بسبب الشكل التماثلي</span></div>
+    </div>
+    <div class="card">
+      <h3>&#128302; Lewis Structure Diagrams</h3>
+      <div class="diagram">
+        <svg width="250" height="210" viewBox="0 0 250 210" font-family="Inter,sans-serif">
+          <text x="125" y="18" text-anchor="middle" fill="var(--gold)" font-size="10" font-weight="700">CO&#8322; &mdash; Nonpolar (linear)</text>
+          <text x="38" y="50" text-anchor="middle" fill="#6ee7b7" font-size="14">:O:</text>
+          <line x1="58" y1="46" x2="92" y2="46" stroke="#a78bfa" stroke-width="2"/>
+          <line x1="58" y1="52" x2="92" y2="52" stroke="#a78bfa" stroke-width="2"/>
+          <text x="112" y="53" text-anchor="middle" fill="#fff" font-size="14">C</text>
+          <line x1="132" y1="46" x2="166" y2="46" stroke="#a78bfa" stroke-width="2"/>
+          <line x1="132" y1="52" x2="166" y2="52" stroke="#a78bfa" stroke-width="2"/>
+          <text x="188" y="50" text-anchor="middle" fill="#6ee7b7" font-size="14">:O:</text>
+          <text x="125" y="72" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="9">Dipoles cancel &rarr; nonpolar</text>
+          <defs><marker id="arh" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto"><path d="M0,0 L0,6 L6,3 Z" fill="#f87171"/></marker></defs>
+          <line x1="73" y1="62" x2="50" y2="62" stroke="#f87171" stroke-width="1.5" marker-end="url(#arh)"/>
+          <line x1="174" y1="62" x2="197" y2="62" stroke="#f87171" stroke-width="1.5" marker-end="url(#arh)"/>
+          <line x1="0" y1="85" x2="250" y2="85" stroke="rgba(255,255,255,.08)" stroke-width="1"/>
+          <text x="125" y="102" text-anchor="middle" fill="var(--gold)" font-size="10" font-weight="700">NH&#8323; &mdash; Polar (pyramidal)</text>
+          <text x="125" y="130" text-anchor="middle" fill="#fff" font-size="14">N</text>
+          <text x="113" y="117" text-anchor="middle" fill="#93c5fd" font-size="8">lone pair</text>
+          <line x1="115" y1="136" x2="88" y2="162" stroke="#a78bfa" stroke-width="1.5"/>
+          <line x1="125" y1="140" x2="125" y2="168" stroke="#a78bfa" stroke-width="1.5"/>
+          <line x1="135" y1="136" x2="162" y2="162" stroke="#a78bfa" stroke-width="1.5"/>
+          <text x="87" y="176" text-anchor="middle" fill="#93c5fd" font-size="12">H</text>
+          <text x="125" y="180" text-anchor="middle" fill="#93c5fd" font-size="12">H</text>
+          <text x="163" y="176" text-anchor="middle" fill="#93c5fd" font-size="12">H</text>
+          <text x="125" y="200" text-anchor="middle" fill="rgba(255,255,255,.4)" font-size="9">Lone pair &rarr; net dipole &rarr; polar</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Arrange the elements F, P, and Cl in order of INCREASING electronegativity.</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>F &lt; P &lt; Cl</li><li onclick="pick(this,'w')"><span class="ol">B</span>Cl &lt; P &lt; F</li><li onclick="pick(this,'c')"><span class="ol">C</span>P &lt; Cl &lt; F</li><li onclick="pick(this,'w')"><span class="ol">D</span>P &lt; F &lt; Cl</li><li onclick="pick(this,'w')"><span class="ol">E</span>Cl &lt; F &lt; P</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">EN values: P=2.1, Cl=3.0, F=4.0 &rarr; Increasing: <b>P &lt; Cl &lt; F</b><div class="ar-arabic">قيم الكهرسالبية: P=2.1, Cl=3.0, F=4.0. F هو الأعلى كهرسالبية في الجدول الدوري</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Which of the following molecules has POLAR bonds but is a NONPOLAR molecule?</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>CO&#8322;</li><li onclick="pick(this,'w')"><span class="ol">B</span>CO</li><li onclick="pick(this,'w')"><span class="ol">C</span>CHCl&#8323;</li><li onclick="pick(this,'w')"><span class="ol">D</span>Cl&#8322;</li><li onclick="pick(this,'w')"><span class="ol">E</span>HCl</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">CO&#8322;: O=C=O &rarr; linear &rarr; dipoles cancel perfectly &rarr; <b>nonpolar molecule</b> with polar C=O bonds<div class="ar-arabic">CO&#8322; شكله خطي &rarr; العزوم تلغي بعضها &rarr; الجزيء غير قطبي رغم أن الروابط قطبية</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">The Lewis structure of PF&#8323; shows that the central P atom has ___ lone pairs and ___ bonding pairs.</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>2 lone, 2 bonding</li><li onclick="pick(this,'c')"><span class="ol">B</span>1 lone, 3 bonding</li><li onclick="pick(this,'w')"><span class="ol">C</span>3 lone, 1 bonding</li><li onclick="pick(this,'w')"><span class="ol">D</span>1 lone, 2 bonding</li><li onclick="pick(this,'w')"><span class="ol">E</span>3 lone, 3 bonding</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">P has 5 VE. 3 bonds with F (3 bonding pairs). Remaining: 5&minus;3=2e&#8315; = <b>1 lone pair</b><div class="ar-arabic">P لديه 5 إلكترونات تكافؤية. 3 روابط مع F تستهلك 3. يتبقى إلكترونان = زوج منفرد واحد</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">The formal charge on bromine in BrO&#8323;&#8315; drawn with three single bonds is:</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>+2</li><li onclick="pick(this,'w')"><span class="ol">B</span>&minus;1</li><li onclick="pick(this,'w')"><span class="ol">C</span>0</li><li onclick="pick(this,'w')"><span class="ol">D</span>+1</li><li onclick="pick(this,'w')"><span class="ol">E</span>&minus;2</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Br: VE=7, lone pairs=4e&#8315; (2 lone pairs), 3 single bonds=6 bonding e&#8315;<br>FC = 7 &minus; 4 &minus; &frac12;(6) = 7&minus;4&minus;3 = <b>+2</b><div class="ar-arabic">FC = الإلكترونات التكافؤية &minus; المنفردة &minus; نصف الرابطة = 7&minus;4&minus;3 = +2</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Answers Sheet</span></div>
+  <p class="qt2">In a correct resonance form of ozone (O&#8323;), the formal charge on the CENTRAL oxygen is:</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>0</li><li onclick="pick(this,'c')"><span class="ol">B</span>+1</li><li onclick="pick(this,'w')"><span class="ol">C</span>&minus;1</li><li onclick="pick(this,'w')"><span class="ol">D</span>+2</li><li onclick="pick(this,'w')"><span class="ol">E</span>&minus;2</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">O&#8323; resonance: :O=O&minus;O: &rarr; Central O: VE=6, lone=2e&#8315;, bonds=3 (double+single)<br>FC = 6 &minus; 2 &minus; &frac12;(6) = 6&minus;2&minus;3 = <b>+1</b><div class="ar-arabic">الأوزون يشبه SO&#8322;. ذرة O المركزية: 6 &minus; 2 &minus; 3 = +1</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Spring 2023 &middot; Answers Sheet</span></div>
+  <p class="qt2">Consider: (i) NO&#8322;&#8315;, (ii) NO&#8323;&#8315;, (iii) CO&#8323;&#178;&#8315;. Which have THREE equivalent resonance structures?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>(i) only &mdash; NO&#8322;&#8315; has 2</li><li onclick="pick(this,'w')"><span class="ol">B</span>(ii) only</li><li onclick="pick(this,'w')"><span class="ol">C</span>(iii) only</li><li onclick="pick(this,'w')"><span class="ol">D</span>(i) and (ii)</li><li onclick="pick(this,'c')"><span class="ol">E</span>(ii) and (iii)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">NO&#8322;&#8315; &rarr; 2 resonance | NO&#8323;&#8315; &rarr; 3 | CO&#8323;&#178;&#8315; &rarr; 3 &rarr; <b>(ii) and (iii)</b><div class="ar-arabic">NO&#8322;&#8315; له رابطتان أوكسجين &rarr; 2 resonance. NO&#8323;&#8315; وCO&#8323;&#178;&#8315; لكل منهما 3 أوكسجينات &rarr; 3 resonance</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q7</span><span class="qtag">Spring 2023</span></div>
+  <p class="qt2">Given EN: F=4.0, O=3.5, H=2.1, S=2.5, Cl=3.0. Which bond has GREATEST polarity?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>S&minus;H (&Delta;EN=0.4)</li><li onclick="pick(this,'w')"><span class="ol">B</span>O&minus;F (&Delta;EN=0.5)</li><li onclick="pick(this,'w')"><span class="ol">C</span>H&minus;Cl (&Delta;EN=0.9)</li><li onclick="pick(this,'c')"><span class="ol">D</span>O&minus;H (&Delta;EN=1.4)</li><li onclick="pick(this,'w')"><span class="ol">E</span>S&minus;Cl (&Delta;EN=0.5)</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">Largest &Delta;EN = most polar. O&minus;H: 3.5&minus;2.1 = <b>1.4 (greatest polarity)</b><div class="ar-arabic">أكبر فرق في الكهرسالبية = أعلى قطبية. O-H: 3.5-2.1 = 1.4 هو الأكبر</div></div></div></div>
+</section>
+
+<!-- ═══ CH 10 ═══ -->
+<section class="tab" id="ch10">
+  <div class="sh c-teal" data-icon="🔬">
+    <div class="stag">Chapter 10 &middot; 7 Questions in Exam</div>
+    <h2>Chemical Bonding II &mdash; Geometry &amp; Hybridization</h2>
+    <p>VSEPR &middot; Molecular geometry &middot; Polar/nonpolar &middot; Hybridization &middot; &sigma; &amp; &pi; bonds</p>
+    <div class="pills"><span>VSEPR</span><span>AB&#8322; &rarr; AB&#8323;E</span><span>sp, sp&#178;, sp&#179;</span><span>&sigma; &amp; &pi; bonds</span></div>
+  </div>
+  <div class="card">
+    <h3>&#128208; VSEPR Summary Table</h3>
+    <table class="st">
+      <tr><th>Class</th><th>Example</th><th>Electron Geometry</th><th>Molecular Geometry</th><th>Angle</th><th>Hybrid</th><th>Arabic</th></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8322;</b></td><td>CO&#8322;, BeCl&#8322;</td><td>Linear</td><td>Linear</td><td>180&deg;</td><td>sp</td><td style="direction:rtl;font-size:.75rem">خطي</td></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8323;</b></td><td>BF&#8323;, SO&#8323;</td><td>Trig. Planar</td><td>Trig. Planar</td><td>120&deg;</td><td>sp&#178;</td><td style="direction:rtl;font-size:.75rem">مثلثي مستوي</td></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8324;</b></td><td>CH&#8324;, SiF&#8324;</td><td>Tetrahedral</td><td>Tetrahedral</td><td>109.5&deg;</td><td>sp&#179;</td><td style="direction:rtl;font-size:.75rem">رباعي الأوجه</td></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8322;E</b></td><td>SO&#8322;, O&#8323;</td><td>Trig. Planar</td><td>Bent</td><td>~120&deg;</td><td>sp&#178;</td><td style="direction:rtl;font-size:.75rem">منحني</td></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8323;E</b></td><td>NH&#8323;, PCl&#8323;</td><td>Tetrahedral</td><td>Trig. Pyramidal</td><td>~107&deg;</td><td>sp&#179;</td><td style="direction:rtl;font-size:.75rem">هرمي مثلثي</td></tr>
+      <tr><td><b style="color:var(--goldL)">AB&#8322;E&#8322;</b></td><td>H&#8322;O, SCl&#8322;</td><td>Tetrahedral</td><td>Bent</td><td>~104.5&deg;</td><td>sp&#179;</td><td style="direction:rtl;font-size:.75rem">منحني</td></tr>
+    </table>
+  </div>
+  <div class="tcol">
+    <div class="card">
+      <h3>&#129514; Hybridization Rules</h3>
+      <ul class="bl">
+        <li>Count <b>electron groups</b> (bonds + lone pairs) around central atom</li>
+        <li>2 groups &rarr; <b>sp</b> (180&deg;) | 3 groups &rarr; <b>sp&#178;</b> (120&deg;) | 4 groups &rarr; <b>sp&#179;</b> (109.5&deg;)</li>
+        <li>Single bond = 1&sigma; | Double bond = 1&sigma;+1&pi; | Triple bond = 1&sigma;+2&pi;</li>
+        <li>All bonds start with 1&sigma;. Only &pi; bonds make multiple bonds.</li>
+        <li><span class="arabic-note">Hybridization = نوع التهجين. نحسب مجاميع الإلكترونات حول الذرة المركزية</span></li>
+      </ul>
+      <div class="tip">H&#8323;O&#8314;: O has 3 bonds + 1 lone pair = 4 groups &rarr; sp&#179;, trigonal pyramidal<br><span class="arabic-note">H&#8323;O&#8314;: 3 روابط + زوج منفرد = 4 مجاميع &rarr; sp&#179; &rarr; شكل هرمي مثلثي</span></div>
+    </div>
+    <div class="card">
+      <h3>&#128302; Molecular Shapes</h3>
+      <div class="diagram">
+        <svg width="270" height="190" viewBox="0 0 270 190" font-family="Inter,sans-serif">
+          <text x="40" y="14" text-anchor="middle" fill="var(--gold)" font-size="9" font-weight="700">Linear (sp)</text>
+          <circle cx="10" cy="32" r="7" fill="rgba(239,68,68,.5)" stroke="#f87171" stroke-width="1"/>
+          <line x1="17" y1="32" x2="33" y2="32" stroke="#a78bfa" stroke-width="2"/>
+          <circle cx="40" cy="32" r="9" fill="rgba(124,58,237,.5)" stroke="#a78bfa" stroke-width="1"/>
+          <line x1="47" y1="32" x2="63" y2="32" stroke="#a78bfa" stroke-width="2"/>
+          <circle cx="70" cy="32" r="7" fill="rgba(239,68,68,.5)" stroke="#f87171" stroke-width="1"/>
+          <text x="40" y="50" text-anchor="middle" fill="#6ee7b7" font-size="8">180&deg; | BeCl&#8322;, CO&#8322;</text>
+
+          <text x="175" y="14" text-anchor="middle" fill="var(--gold)" font-size="9" font-weight="700">Trig. Planar (sp&#178;)</text>
+          <circle cx="175" cy="40" r="9" fill="rgba(124,58,237,.5)" stroke="#a78bfa" stroke-width="1"/>
+          <line x1="175" y1="31" x2="175" y2="16" stroke="#a78bfa" stroke-width="2"/>
+          <circle cx="175" cy="9" r="7" fill="rgba(59,130,246,.5)" stroke="#60a5fa" stroke-width="1"/>
+          <line x1="167" y1="46" x2="152" y2="62" stroke="#a78bfa" stroke-width="2"/>
+          <circle cx="145" cy="66" r="7" fill="rgba(59,130,246,.5)" stroke="#60a5fa" stroke-width="1"/>
+          <line x1="183" y1="46" x2="198" y2="62" stroke="#a78bfa" stroke-width="2"/>
+          <circle cx="205" cy="66" r="7" fill="rgba(59,130,246,.5)" stroke="#60a5fa" stroke-width="1"/>
+          <text x="175" y="84" text-anchor="middle" fill="#6ee7b7" font-size="8">120&deg; | BF&#8323;, SO&#8323;</text>
+
+          <text x="50" y="105" text-anchor="middle" fill="var(--gold)" font-size="9" font-weight="700">Tetrahedral (sp&#179;)</text>
+          <circle cx="50" cy="130" r="9" fill="rgba(124,58,237,.5)" stroke="#a78bfa" stroke-width="1"/>
+          <line x1="50" y1="121" x2="50" y2="108" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="50" cy="102" r="6" fill="rgba(16,185,129,.5)" stroke="#6ee7b7" stroke-width="1"/>
+          <line x1="42" y1="136" x2="24" y2="153" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="18" cy="157" r="6" fill="rgba(16,185,129,.5)" stroke="#6ee7b7" stroke-width="1"/>
+          <line x1="58" y1="136" x2="76" y2="153" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="82" cy="157" r="6" fill="rgba(16,185,129,.5)" stroke="#6ee7b7" stroke-width="1"/>
+          <line x1="50" y1="139" x2="50" y2="157" stroke="#a78bfa" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <circle cx="50" cy="162" r="6" fill="rgba(16,185,129,.4)" stroke="#6ee7b7" stroke-width="1" opacity=".6"/>
+          <text x="50" y="180" text-anchor="middle" fill="#6ee7b7" font-size="8">109.5&deg; | CH&#8324;</text>
+
+          <text x="195" y="105" text-anchor="middle" fill="var(--gold)" font-size="9" font-weight="700">Trig. Pyramidal (sp&#179;)</text>
+          <circle cx="195" cy="130" r="9" fill="rgba(124,58,237,.5)" stroke="#a78bfa" stroke-width="1"/>
+          <text x="183" y="118" fill="#fcd34d" font-size="8">LP</text>
+          <line x1="187" y1="136" x2="167" y2="155" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="160" cy="159" r="6" fill="rgba(245,158,11,.5)" stroke="#fcd34d" stroke-width="1"/>
+          <line x1="195" y1="139" x2="195" y2="158" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="195" cy="163" r="6" fill="rgba(245,158,11,.5)" stroke="#fcd34d" stroke-width="1"/>
+          <line x1="203" y1="136" x2="223" y2="155" stroke="#a78bfa" stroke-width="1.5"/>
+          <circle cx="230" cy="159" r="6" fill="rgba(245,158,11,.5)" stroke="#fcd34d" stroke-width="1"/>
+          <text x="195" y="180" text-anchor="middle" fill="#6ee7b7" font-size="8">~107&deg; | NH&#8323;</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="qt-title">Past Exam Questions</div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q1</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">According to VSEPR theory, the molecular geometry of BF&#8323; is:</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>Pyramidal</li><li onclick="pick(this,'c')"><span class="ol">B</span>Trigonal planar</li><li onclick="pick(this,'w')"><span class="ol">C</span>Tetrahedral</li><li onclick="pick(this,'w')"><span class="ol">D</span>Distorted tetrahedron (seesaw)</li><li onclick="pick(this,'w')"><span class="ol">E</span>Square planar</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">BF&#8323;: AB&#8323; (3 bonds, 0 lone pairs) &rarr; <b>Trigonal Planar</b>, 120&deg;, sp&#178;<div class="ar-arabic">BF&#8323; = AB&#8323;: 3 روابط بدون أزواج منفردة &rarr; مثلثي مستوي</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q2</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">Give the number of lone pairs around the central atom and the molecular geometry of CH&#8324;.</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>0 lone pairs, square planar</li><li onclick="pick(this,'c')"><span class="ol">B</span>0 lone pairs, tetrahedral</li><li onclick="pick(this,'w')"><span class="ol">C</span>1 lone pair, square pyramidal</li><li onclick="pick(this,'w')"><span class="ol">D</span>1 lone pair, trigonal bipyramidal</li><li onclick="pick(this,'w')"><span class="ol">E</span>2 lone pairs, square planar</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">CH&#8324;: AB&#8324; &rarr; <b>0 lone pairs, Tetrahedral</b>, 109.5&deg;, sp&#179;<div class="ar-arabic">CH&#8324; = AB&#8324;: 4 روابط بدون أزواج منفردة &rarr; رباعي الأوجه</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q3</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">What is the hybridization predicted by Valence Bond Theory on the central atom in NH&#8323;?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>sp</li><li onclick="pick(this,'w')"><span class="ol">B</span>sp&#178;</li><li onclick="pick(this,'c')"><span class="ol">C</span>sp&#179;</li><li onclick="pick(this,'w')"><span class="ol">D</span>sp&#179;d</li><li onclick="pick(this,'w')"><span class="ol">E</span>sp&#179;d&#178;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">NH&#8323;: 3 bonds + 1 lone pair = 4 electron groups &rarr; <b>sp&#179;</b>, trigonal pyramidal, ~107&deg;<div class="ar-arabic">NH&#8323; = AB&#8323;E: 3 روابط + زوج منفرد = 4 مجاميع &rarr; sp&#179;. الزاوية ~107&deg; (أقل من 109.5 بسبب الزوج المنفرد)</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q4</span><span class="qtag">Spring 2023</span></div>
+  <p class="qt2">Indicate the type of hybrid orbitals on the central atom in hydronium ion, H&#8323;O&#8314;.</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>sp</li><li onclick="pick(this,'w')"><span class="ol">B</span>sp&#178;</li><li onclick="pick(this,'c')"><span class="ol">C</span>sp&#179;</li><li onclick="pick(this,'w')"><span class="ol">D</span>sp&#8308;</li><li onclick="pick(this,'w')"><span class="ol">E</span>sp&#8309;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">H&#8323;O&#8314;: O has 3 bonds + 1 lone pair = 4 groups &rarr; <b>sp&#179;</b>, trigonal pyramidal<div class="ar-arabic">H&#8323;O&#8314; مثل NH&#8323;: 3 روابط + زوج منفرد = 4 مجاميع &rarr; sp&#179;</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q5</span><span class="qtag">Makeup Fall 2025</span></div>
+  <p class="qt2">The number of &pi; (pi) bonds in the molecule H&mdash;C&equiv;C&mdash;CH&#8322;&mdash;C&equiv;C&mdash;H is:</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>1</li><li onclick="pick(this,'c')"><span class="ol">B</span>4</li><li onclick="pick(this,'w')"><span class="ol">C</span>3</li><li onclick="pick(this,'w')"><span class="ol">D</span>5</li><li onclick="pick(this,'w')"><span class="ol">E</span>9</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">2 triple bonds (C&equiv;C) &times; 2&pi; each = <b>4 &pi; bonds</b><div class="ar-arabic">كل triple bond = 1&sigma; + 2&pi;. عندنا 2 triple bonds &rarr; 2&times;2 = 4 روابط &pi;</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q6</span><span class="qtag">Spring 2025 &middot; Answers Sheet</span></div>
+  <p class="qt2">Which has polar bonds but is a NONPOLAR substance? BCl&#8323;, PCl&#8323;, NCl&#8323;, SO&#8323;</p>
+  <ul class="opts"><li onclick="pick(this,'c')"><span class="ol">A</span>BCl&#8323; and SO&#8323;</li><li onclick="pick(this,'w')"><span class="ol">B</span>PCl&#8323; and SO&#8323;</li><li onclick="pick(this,'w')"><span class="ol">C</span>All four</li><li onclick="pick(this,'w')"><span class="ol">D</span>NCl&#8323; and SO&#8323;</li><li onclick="pick(this,'w')"><span class="ol">E</span>PCl&#8323; and NCl&#8323;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">BCl&#8323; (AB&#8323;): trigonal planar &rarr; nonpolar &#10003; | SO&#8323; (AB&#8323;): trig. planar &rarr; nonpolar &#10003;<br>PCl&#8323; &amp; NCl&#8323; (AB&#8323;E): pyramidal &rarr; polar &#10007;<div class="ar-arabic">BCl&#8323; وSO&#8323; شكلهم مثلثي مستوي &rarr; العزوم تلغي بعضها &rarr; غير قطبي</div></div></div></div>
+
+  <div class="qc"><div class="qm"><span class="qn">Q7</span><span class="qtag">Multiple Exams</span></div>
+  <p class="qt2">What are the correct hybridization and approximate bond angle around N in NH&#8323;?</p>
+  <ul class="opts"><li onclick="pick(this,'w')"><span class="ol">A</span>sp&#179;, 109.5&deg;</li><li onclick="pick(this,'c')"><span class="ol">B</span>sp&#179;, 107&deg;</li><li onclick="pick(this,'w')"><span class="ol">C</span>sp, 180&deg;</li><li onclick="pick(this,'w')"><span class="ol">D</span>sp&#178;, 107&deg;</li><li onclick="pick(this,'w')"><span class="ol">E</span>sp&#178;, 120&deg;</li></ul>
+  <div class="qfoot"><button class="abtn" onclick="tog(this)">Show Solution</button><div class="ar">NH&#8323;: sp&#179; hybridization. Lone pair compresses angle below 109.5&deg; &rarr; <b>sp&#179;, ~107&deg;</b><div class="ar-arabic">الزوج المنفرد يضغط على الروابط ويقلل الزاوية من 109.5 إلى ~107 درجة</div></div></div></div>
+</section>
+
+<!-- ═══ PAST EXAMS ═══ -->
+<section class="tab" id="ex">
+  <div class="sh c-dark" style="border:1px solid rgba(245,158,11,.3)" data-icon="📋">
+    <div class="stag">Exam Simulation Mode</div>
+    <h2>&#128203; Past Exams &mdash; Full Timed Simulation</h2>
+    <p>Choose an exam &rarr; answer all questions &rarr; submit to get your score with full Arabic &amp; English explanations.</p>
+    <div class="pills"><span>&#9200;&#65039; Countdown Timer</span><span>&#127941; Score &amp; Grade</span><span>&#10003; Correct Answer Reveal</span><span>&#128218; Arabic + English Explanation</span></div>
+  </div>
+  <div class="esel">
+    <button class="epbtn" onclick="loadExam('mk2025',this)"><span class="epy">Fall 2025</span><span class="epn">Makeup Final Exam &middot; 24 Qs from Ch 5&ndash;10</span></button>
+    <button class="epbtn" onclick="loadExam('sp2025',this)"><span class="epy">Spring 2025</span><span class="epn">Final Exam (A) &middot; 13 Qs from Ch 5&ndash;10</span></button>
+    <button class="epbtn" onclick="loadExam('sp2024',this)"><span class="epy">Spring 2024</span><span class="epn">Final Exam (A) &middot; 14 Qs from Ch 5&ndash;10</span></button>
+    <button class="epbtn" onclick="loadExam('sp2023',this)"><span class="epy">Spring 2023</span><span class="epn">Final Exam (D1) &middot; 16 Qs from Ch 5&ndash;10</span></button>
+  </div>
+  <div id="examArea"></div>
+</section>
+
+</div><!-- end wrap -->
+<script>
+/* ═══ EXAM DATA ═══ */
+const EX = {
+mk2025:{title:"Makeup Final Exam &mdash; Fall 2025",date:"20 January 2025",duration:120,questions:[
+{ch:5,text:"Calculate the density (g/L) of SF&#8326; gas at 27&deg;C and 0.500 atm. (MM SF&#8326; = 146 g/mol)",opts:["3.38&times;10&#8315;&sup3; g/L","22.4 g/L","32.9 g/L","2.96 g/L","3.38 kg/L"],ans:3,en:"d = P&times;MM/(R&times;T) = (0.500&times;146)/(0.0821&times;300) = <b>2.96 g/L</b>",ar:"الكثافة = (ضغط &times; الكتلة المولية) / (R &times; T)"},
+{ch:5,text:"Calculate moles of gas in a 10.0 L tank at 22&deg;C and 105 atm.",opts:["0.0231 mol","43.3 mol","1.03 mol","582 mol","1.71&times;10&#8315;&sup3; mol"],ans:1,en:"n = PV/RT = (105&times;10)/(0.0821&times;295) = <b>43.3 mol</b>",ar:"T = 22+273 = 295K. نطبق n = PV/RT"},
+{ch:5,text:"What is the identity of a gas with density 3.74 g/L at STP?",opts:["Cl&#8322; (70.9)","AsH&#8323; (78.0)","Kr (83.8)","SO&#8322; (64.1)","CF&#8324; (88.0)"],ans:2,en:"MM = dRT/P = (3.74&times;0.0821&times;273)/1 = <b>83.8 g/mol &rarr; Kr</b>",ar:"عند STP: MM = d&times;22.4 = 3.74&times;22.4 &asymp; 83.8 &rarr; Kr"},
+{ch:5,text:"KClO&#8323; (122.6 g/mol) &rarr; KCl + O&#8322;. 91.95 g heated at 500K and 900 mmHg. Volume of O&#8322;?",opts:["39.0 L","26.0 L","78.0 L","117 L","52.0 L"],ans:0,en:"n(KClO&#8323;)=0.75 mol &rarr; n(O&#8322;)=1.125 mol. P=900/760=1.184 atm &rarr; V = <b>39.0 L</b>",ar:"Gas stoichiometry: حول الكتلة لـ moles ثم استخدم النسبة المولية ثم PV=nRT"},
+{ch:5,text:"Container holds O&#8322; (3.00 atm), CO&#8322; (2.00 atm), He (4.00 atm). Total pressure?",opts:["9.00 atm","7.00 atm","4.00 atm","3.00 atm","2.00 atm"],ans:0,en:"Dalton's Law: P<sub>T</sub> = 3+2+4 = <b>9.00 atm</b>",ar:"قانون دالتون: الضغط الكلي = مجموع الضغوط الجزئية"},
+{ch:6,text:"135 g H&#8322;O at 85&deg;C loses 15 kJ. Final temperature? (s=4.184 J/g&middot;&deg;C)",opts:["27&deg;C","58&deg;C","70&deg;C","84&deg;C","112&deg;C"],ans:1,en:"&Delta;T = &minus;15000/(135&times;4.184) = &minus;26.6&deg;C &rarr; T_f = 85&minus;26.6 = <b>58&deg;C</b>",ar:"q سالبة لأن الماء يفقد حرارة. T_final = T_initial + &Delta;T"},
+{ch:6,text:"Calculate &Delta;H&deg;rxn for: 2C&#8328;H&#8321;&#8328;+17O&#8322;&rarr;16CO+18H&#8322;O. Given: (1) 2C&#8328;H&#8321;&#8328;+25O&#8322;&rarr;16CO&#8322;+18H&#8322;O &Delta;H&#8321;=&minus;11020 kJ; (2) 2CO+O&#8322;&rarr;2CO&#8322; &Delta;H&#8322;=&minus;566 kJ",opts:["&minus;10,450 kJ","&plus;6,492 kJ","&minus;6,492 kJ","&plus;10,450 kJ","&minus;15,550 kJ"],ans:2,en:"Eq(1) &minus; 8&times;Eq(2): &Delta;H = &minus;11020+4528 = <b>&minus;6,492 kJ</b>",ar:"نطبق قانون هيس: Eq(1) &minus; 8&times;Eq(2)"},
+{ch:6,text:"&Delta;H&deg; for: 2H&#8322;O(l)&rarr;2H&#8322;(g)+O&#8322;(g)? Given H&#8322;+&frac12;O&#8322;&rarr;H&#8322;O, &Delta;H&deg;=&minus;285.8 kJ",opts:["&minus;572 kJ","&plus;98.2 kJ","&plus;572 kJ","&plus;196.4 kJ","&minus;396.4 kJ"],ans:2,en:"Reverse and &times;2: &Delta;H = +285.8&times;2 = <b>+572 kJ</b>",ar:"نعكس المعادلة (نغير الإشارة) ثم نضرب في 2"},
+{ch:7,text:"Wavelength of radiation with frequency 3.4&times;10&#185;&#185; s&#8315;&#185;?",opts:["8.8&times;10&#8309; nm","8.8&times;10&#8315;&#8308; nm","8.8&times;10&#8315;&#185;&#179; nm","1.0&times;10&#185;&#185; nm","1.0&times;10&#8315;&#8313; nm"],ans:0,en:"&lambda; = c/&nu; = 3&times;10&#8328;/3.4&times;10&#185;&#185; = 8.82&times;10&#8315;&#8308; m = <b>8.8&times;10&#8309; nm</b>",ar:"&lambda; = c/&nu; ثم حول من m إلى nm بالضرب في 10&#8313;"},
+{ch:7,text:"'No two electrons can have the same four quantum numbers' is a statement of:",opts:["Pauli Exclusion Principle","Bohr's equation","Hund's rule","De Broglie's relation","Dalton's theory"],ans:0,en:"This is the exact definition of <b>Pauli Exclusion Principle</b>",ar:"تعريف مبدأ باولي للإقصاء حرفياً. احفظه!"},
+{ch:7,text:"Which set of quantum numbers is NOT possible? I:n=4,l=3,m&#8343;=&minus;2 | II:n=3,l=0,m&#8343;=1 | III:n=3,l=0,m&#8343;=0 | IV:n=2,l=1,m&#8343;=1",opts:["Set I","Set II","Set III","Set IV","All possible"],ans:1,en:"Set II: l=0 &rarr; m&#8343; must be 0. m&#8343;=1 is <b>NOT valid!</b>",ar:"لو l=0، فـ m&#8343; لازم يساوي 0 فقط. m&#8343;=1 غير ممكن!"},
+{ch:7,text:"Max electrons with n=3 and l=2?",opts:["0","1","2","6","10"],ans:4,en:"n=3, l=2 = 3d subshell &rarr; 5 orbitals &times; 2 = <b>10 electrons</b>",ar:"n=3, l=2 = المجموعة الفرعية 3d = 5 مجالات &times; 2 = 10 إلكترون"},
+{ch:7,text:"Electron configuration of Arsenic (As, Z=33)?",opts:["[Ar]4s&#178;3d&#8328;4p&#8309;","[Ne]3s&#178;3d&#185;&#8304;3p&#179;","[Ar]4s&#178;3d&#185;&#8304;4p&#179;","[Kr]5s&#178;4d&#185;&#8304;5p&#179;","[Ar]4s&#178;3d&#8313;4p&#8308;"],ans:2,en:"[Ar]&#8321;&#8328; + 4s&#178;(2) + 3d&#185;&#8304;(10) + 4p&#179;(3) = 33 &#10003; &rarr; <b>[Ar]4s&#178;3d&#185;&#8304;4p&#179;</b>",ar:"33 = 18+2+10+3. الترتيب: [Ar] ثم 4s&#178; ثم 3d&#185;&#8304; ثم 4p&#179;"},
+{ch:8,text:"Greatest electron affinity? N, Ar, F, Mg, K",opts:["N","Ar","F","Mg","K"],ans:2,en:"Halogens highest EA. Cl not listed &rarr; <b>F has greatest EA</b>",ar:"Halogens لها أعلى EA. F هو halogen هنا"},
+{ch:8,text:"Which is a transition element?",opts:["Mg (Group 2)","Mn (d-block, Group 7)","Ba (Group 2)","K (Group 1)","Se (p-block)"],ans:1,en:"Transition metals = d-block (Groups 3&ndash;12). Mn = [Ar]4s&#178;3d&#8309;",ar:"المعادن الانتقالية = d-block. Mn رقم 25 في المجموعة 7"},
+{ch:8,text:"Isoelectronic pair: Cl&#8315;, O&#178;&#8315;, F, Ca&#178;&#8314;, Fe&#179;&#8314;?",opts:["Cl&#8315; and Ca&#178;&#8314;","Ca&#178;&#8314; and Fe&#179;&#8314;","O&#178;&#8315; and F","F and Cl&#8315;","None"],ans:2,en:"Per official exam key: <b>Answer C (O&#178;&#8315; and F)</b>",ar:"حسب إجابات الامتحانات الرسمية: الإجابة C"},
+{ch:8,text:"Smallest first ionization energy? Li, Na, Be, K, Rb",opts:["Li","Na","Be","K","Rb"],ans:4,en:"IE decreases down group. Rb lowest in Group 1 &rarr; <b>Rb</b>",ar:"IE تنخفض نزولاً في المجموعة. Rb أسفل عنصر في المجموعة 1 هنا"},
+{ch:9,text:"Lewis structure for CS&#8322;?",opts:["C=S&minus;S (wrong connectivity)",":S&minus;C&minus;S: (single bonds)",":S=C=S: (double bonds, correct)","S=C&minus;S: (asymmetric)","None correct"],ans:2,en:"CS&#8322; isoelectronic with CO&#8322;: <b>:S=C=S:</b> linear, 2 double bonds",ar:"CS&#8322; مثل CO&#8322;: :S=C=S: خطي مع رابطتين مزدوجتين"},
+{ch:9,text:"Arrange F, P, Cl in INCREASING electronegativity:",opts:["F&lt;P&lt;Cl","Cl&lt;P&lt;F","P&lt;Cl&lt;F","P&lt;F&lt;Cl","Cl&lt;F&lt;P"],ans:2,en:"EN: P=2.1, Cl=3.0, F=4.0 &rarr; <b>P &lt; Cl &lt; F</b>",ar:"قيم EN: P=2.1, Cl=3.0, F=4.0"},
+{ch:9,text:"How many resonance structures for SO&#8323; (octet rule)?",opts:["Only one","Two","Three","Four","None"],ans:2,en:"SO&#8323; has 3 equivalent O atoms &rarr; <b>3 resonance structures</b>",ar:"SO&#8323; له 3 أوكسجينات متكافئة &rarr; 3 resonance structures"},
+{ch:9,text:"Formal charge on Br in BrO&#8323;&#8315; (3 single bonds)?",opts:["+2","&minus;1","0","+1","&minus;2"],ans:0,en:"FC = VE&minus;lone&minus;&frac12;bond = 7&minus;4&minus;&frac12;(6) = <b>+2</b>",ar:"FC = 7 &minus; 4 &minus; 3 = +2"},
+{ch:9,text:"Which has POLAR bonds but is NONPOLAR molecule?",opts:["CO&#8322;","CO","CHCl&#8323;","Cl&#8322;","HCl"],ans:0,en:"CO&#8322;: linear &rarr; dipoles cancel &rarr; <b>nonpolar</b>",ar:"CO&#8322; شكله خطي &rarr; العزوم تلغي بعضها &rarr; غير قطبي"},
+{ch:10,text:"Geometry of BF&#8323; (VSEPR)?",opts:["Pyramidal","Trigonal planar","Tetrahedral","Seesaw","Square planar"],ans:1,en:"BF&#8323;: AB&#8323; &rarr; <b>Trigonal Planar</b>, 120&deg;, sp&#178;",ar:"BF&#8323; = AB&#8323;: 3 روابط بدون أزواج منفردة &rarr; مثلثي مستوي"},
+{ch:10,text:"&pi; bonds in H&mdash;C&equiv;C&mdash;CH&#8322;&mdash;C&equiv;C&mdash;H?",opts:["1","4","3","5","9"],ans:1,en:"2 triple bonds &times; 2&pi; each = <b>4 &pi; bonds</b>",ar:"كل triple bond فيه 2&pi;. عندنا 2 triple bonds &rarr; 4 روابط &pi;"},
+{ch:10,text:"Hybridization of central atom in NH&#8323;?",opts:["sp","sp&#178;","sp&#179;","sp&#179;d","sp&#179;d&#178;"],ans:2,en:"NH&#8323;: 3 bonds + 1 lone pair = 4 groups &rarr; <b>sp&#179;</b>",ar:"NH&#8323;: 3 روابط + زوج منفرد = 4 مجاميع &rarr; sp&#179;"}
+]},
+
+sp2025:{title:"Final Exam (A) &mdash; Spring 2025",date:"10 May 2025",duration:120,questions:[
+{ch:7,text:"Energy of photon with wavelength 502 nm?",opts:["4.25&times;10&#8315;&#178;&#185; J","3.78&times;10&#8315;&#185;&#8328; J","2.13&times;10&#8315;&#178;&#8304; J","3.96&times;10&#8315;&#185;&#8313; J","7.34&times;10&#8315;&#185;&#8311; J"],ans:3,en:"E = hc/&lambda; = (6.63&times;10&#8315;&#179;&#8308;&times;3&times;10&#8328;)/(502&times;10&#8315;&#8313;) = <b>3.96&times;10&#8315;&#185;&#8313; J</b>",ar:"حول nm لـ m أولاً (×10⁻⁹) ثم طبق E=hc/λ"},
+{ch:7,text:"Which set of quantum numbers could NOT describe an electron? A:n=3,l=3,m&#8343;=2 | B:n=5,l=1,m&#8343;=0 | C:n=3,l=2,m&#8343;=&minus;1 | D:n=2,l=1,m&#8343;=0 | E:n=4,l=3,m&#8343;=&minus;3",opts:["Set A &mdash; n=3, l=3 impossible","Set B","Set C","Set D","Set E"],ans:0,en:"Set A: n=3 &rarr; l can only be 0,1,2. l=3 is <b>NOT allowed!</b>",ar:"n=3 &rarr; l يمكن أن يكون 0, 1, أو 2 فقط. l=3 ممنوع!"},
+{ch:7,text:"Electron configuration of As (Z=33)?",opts:["[Ar]4s&#178;3d&#8328;4p&#8309;","[Ne]3s&#178;3d&#185;&#8304;3p&#179;","[Ar]4s&#178;3d&#185;&#8304;4p&#179;","[Kr]5s&#178;4d&#185;&#8304;5p&#179;","[Ar]4s&#178;3d&#8313;4p&#8308;"],ans:2,en:"[Ar]+4s&#178;+3d&#185;&#8304;+4p&#179; = 33 &#10003; &rarr; <b>[Ar]4s&#178;3d&#185;&#8304;4p&#179;</b>",ar:"As ذرة 33: [Ar]18 + 4s&#178;(2) + 3d&#185;&#8304;(10) + 4p&#179;(3) = 33"},
+{ch:7,text:"Max electrons with n=3 and l=2?",opts:["8","14","6","10","18"],ans:3,en:"n=3, l=2 = 3d &rarr; 5 orbitals &times; 2 = <b>10 electrons</b>",ar:"3d = 5 مجالات × 2 = 10 إلكترون"},
+{ch:7,text:"No two e&#8315; same 4 QNs &mdash; this is:",opts:["Pauli Exclusion Principle","Bohr's equation","Hund's rule","De Broglie","Dalton"],ans:0,en:"<b>Pauli Exclusion Principle</b>",ar:"مبدأ باولي للإقصاء"},
+{ch:6,text:"&Delta;H for: 2H&#8322;O&#8322;(l)&rarr;2H&#8322;O(l)+O&#8322;(g)? Given &Delta;Hf&deg;[H&#8322;O]=&minus;285.8, &Delta;Hf&deg;[H&#8322;O&#8322;]=&minus;187.6 kJ/mol",opts:["&minus;196.4 kJ","&plus;98.2 kJ","&minus;98.2 kJ","&plus;196.4 kJ","&minus;396.4 kJ"],ans:0,en:"&Delta;H = [2(&minus;285.8)+0]&minus;[2(&minus;187.6)] = &minus;571.6+375.2 = <b>&minus;196.4 kJ</b>",ar:"&Delta;H = &Sigma;&Delta;Hf(products) &minus; &Sigma;&Delta;Hf(reactants). O&#8322; element: &Delta;Hf=0"},
+{ch:5,text:"Volume of H&#8322; at 273K and 1 atm from 6.0g Al (27 g/mol) + excess NaOH? 2NaOH+2Al+6H&#8322;O&rarr;2NaAl(OH)&#8324;+3H&#8322;",opts:["6.5 L","7.5 L","8.5 L","9.5 L","None"],ans:1,en:"n(Al)=6/27=0.222 mol &rarr; n(H&#8322;)=0.222&times;3/2=0.333 mol. At STP: V=0.333&times;22.4=<b>7.5 L</b>",ar:"احسب n(Al) ثم استخدم النسبة المولية ثم V=n×22.4 عند STP"},
+{ch:8,text:"Lowest IE: Cl, O, F, S, P?",opts:["Cl","O","F","S","P"],ans:4,en:"All period 3. P (half-filled 3p, extra stable) has lower IE than S &rarr; <b>P</b>",ar:"P له 3p نصف ممتلئ (استقرار) &rarr; IE أقل من S المجاور"},
+{ch:8,text:"Least electron affinity: Si, As, I, Br, N?",opts:["Si","As","I","Br","N"],ans:4,en:"N has half-filled 2p (very stable) &rarr; resists gaining e&#8315; &rarr; <b>N lowest EA</b>",ar:"N لديه 2p نصف ممتلئ &rarr; لا يريد أن يكسب إلكترون &rarr; EA منخفضة"},
+{ch:9,text:"Most polar bond: H&minus;I, H&minus;Br, H&minus;F, H&minus;Cl, H&minus;C?",opts:["H&minus;I","H&minus;Br","H&minus;F","H&minus;Cl","H&minus;C"],ans:2,en:"Largest &Delta;EN: F(4.0)&minus;H(2.1) = 1.9 &rarr; <b>H&minus;F most polar</b>",ar:"أكبر فرق كهرسالبية: F-H = 4.0-2.1 = 1.9 هو الأكبر"},
+{ch:9,text:"Greatest electronegativity: Se, As, Br, Ga, Ge?",opts:["Se","As","Br","Ga","Ge"],ans:2,en:"All period 4. EN increases left&rarr;right: Ga&lt;Ge&lt;As&lt;Se&lt;Br &rarr; <b>Br</b>",ar:"كلهم في الدورة 4. الكهرسالبية تزيد يساراً &rarr; يميناً: Br هو الأعلى"},
+{ch:10,text:"Hybridization and bond angle around N in NH&#8323;?",opts:["sp&#179;, 109.5&deg;","sp&#179;, 107&deg;","sp, 180&deg;","sp&#178;, 107&deg;","sp&#178;, 120&deg;"],ans:1,en:"sp&#179;. Lone pair compresses angle &rarr; <b>sp&#179;, ~107&deg;</b>",ar:"sp&#179;. الزوج المنفرد يضغط على الروابط ويقلل الزاوية لـ ~107&deg;"},
+{ch:10,text:"Hybrid orbitals on central atom in H&#8323;O&#8314;?",opts:["sp","sp&#178;","sp&#179;","sp&#8308;","sp&#8309;"],ans:2,en:"H&#8323;O&#8314;: 3 bonds + 1 lone pair = 4 groups &rarr; <b>sp&#179;</b>",ar:"H&#8323;O&#8314;: 3 روابط + زوج منفرد = 4 مجاميع &rarr; sp&#179;"}
+]},
+
+sp2024:{title:"Final Exam (A) &mdash; Spring 2024",date:"11 May 2024",duration:120,questions:[
+{ch:5,text:"Density (g/L) of SF&#8326; at 27&deg;C and 0.500 atm? (MM=146 g/mol)",opts:["3.38&times;10&#8315;&sup3;","2.96 g/L","22.4 g/L","32.9 g/L","3.38 kg/L"],ans:1,en:"d = P&times;MM/(R&times;T) = <b>2.96 g/L</b>",ar:"d = (0.5×146)/(0.0821×300) = 2.96 g/L"},
+{ch:5,text:"Moles of gas in 10.0 L tank at 22&deg;C and 105 atm?",opts:["0.0231 mol","43.3 mol","1.03 mol","582 mol","1.71&times;10&#8315;&sup3;"],ans:1,en:"n = PV/RT = (105&times;10)/(0.0821&times;295) = <b>43.3 mol</b>",ar:"n = PV/RT = 1050/24.22 = 43.3 mol"},
+{ch:6,text:"135 g H&#8322;O at 85&deg;C loses 15 kJ. Final temperature? (s=4.184 J/g&middot;&deg;C)",opts:["27&deg;C","58&deg;C","70&deg;C","84&deg;C","112&deg;C"],ans:1,en:"&Delta;T = &minus;15000/(135&times;4.184) = &minus;26.6&deg;C &rarr; T_f = <b>58&deg;C</b>",ar:"T_f = 85 - 26.6 = 58°C"},
+{ch:6,text:"&Delta;H for: 2C&#8328;H&#8321;&#8328;+17O&#8322;&rarr;16CO+18H&#8322;O (Hess's Law)?",opts:["&minus;10,450","&plus;6,492","&minus;6,492","&plus;10,450","&minus;15,550"],ans:2,en:"Eq(1) &minus; 8&times;Eq(2): &Delta;H = <b>&minus;6,492 kJ/mol</b>",ar:"Hess's Law: نستخدم المعادلتين المعطاتين للحصول على المعادلة المطلوبة"},
+{ch:7,text:"Wavelength of radiation with frequency 3.4&times;10&#185;&#185; s&#8315;&#185;?",opts:["8.8&times;10&#8315;&#8308; nm","8.8&times;10&#8309; nm","8.8&times;10&#8315;&#185;&#179; nm","1.0&times;10&#185;&#185; nm","1.0&times;10&#8315;&#8313; nm"],ans:1,en:"&lambda; = c/&nu; = 3&times;10&#8328;/3.4&times;10&#185;&#185; = 8.82&times;10&#8315;&#8308; m = <b>8.8&times;10&#8309; nm</b>",ar:"λ = c/ν ثم حول من m لـ nm (×10⁹)"},
+{ch:7,text:"NOT possible quantum numbers? I:n=4,l=3,m&#8343;=&minus;2 | II:n=3,l=0,m&#8343;=1 | III:n=3,l=0,m&#8343;=0 | IV:n=2,l=1,m&#8343;=1 | V:n=2,l=0,m&#8343;=0",opts:["I","II &mdash; l=0 means m&#8343; must be 0","III","IV","V"],ans:1,en:"Set II: l=0 &rarr; m&#8343; must be 0 only. m&#8343;=1 is <b>INVALID!</b>",ar:"l=0 &rarr; m_l لازم يساوي 0 فقط"},
+{ch:7,text:"Pauli Exclusion Principle states:",opts:["No two e&#8315; same 4 QNs","Aufbau filling order","Fill singly before pairing","Wave nature of e&#8315;","Atoms indivisible"],ans:0,en:"<b>Pauli Exclusion Principle</b>: No two electrons can have the same four quantum numbers",ar:"مبدأ باولي: لا يمكن لإلكترونين أن يكون لهما نفس الأرقام الكمية الأربعة"},
+{ch:8,text:"Electron config of Co&#178;&#8314; (Z=27)?",opts:["[Ar]3d&#8311;","[Ar]4s&#178;3d&#8311;","[Ar]4s&#185;3d&#8310;","[Ar]3d&#8310;","[Ar]4s&#178;3d&#8313;"],ans:0,en:"Co: [Ar]4s&#178;3d&#8311; &rarr; remove 4s&#178; &rarr; Co&#178;&#8314;: <b>[Ar]3d&#8311;</b>",ar:"نشيل 4s&#178; أولاً عند تكوين الكاتيون"},
+{ch:8,text:"DECREASING ionic radius: Al&#179;&#8314;, Mg&#178;&#8314;, Na&#8314;, O&#178;&#8315; (largest first)?",opts:["Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;O&#178;&#8315;&gt;Na&#8314;","Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;Na&#8314;&gt;O&#178;&#8315;","Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;&gt;O&#178;&#8315;","O&#178;&#8315;&gt;Al&#179;&#8314;&gt;Mg&#178;&#8314;&gt;Na&#8314;","O&#178;&#8315;&gt;Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;"],ans:4,en:"All 10 e&#8315;. More protons = smaller &rarr; <b>O&#178;&#8315;&gt;Na&#8314;&gt;Mg&#178;&#8314;&gt;Al&#179;&#8314;</b>",ar:"كلهم 10 إلكترون. أكثر بروتونات = أصغر حجم"},
+{ch:9,text:"Lewis structure for CS&#8322;?",opts:["C=S&minus;S","S&minus;C&minus;S (singles)","S=C=S (doubles, correct)","S=C&minus;S","None"],ans:2,en:"CS&#8322; like CO&#8322;: <b>:S=C=S:</b> linear, 2 double bonds",ar:"CS&#8322; مثل CO&#8322;: خطي مع رابطتين مزدوجتين"},
+{ch:9,text:"POLAR bonds but NONPOLAR molecule?",opts:["CO&#8322;","CO","CHCl&#8323;","Cl&#8322;","HCl"],ans:0,en:"CO&#8322;: linear, dipoles cancel &rarr; <b>nonpolar</b>",ar:"CO&#8322; خطي &rarr; العزوم تلغي بعضها"},
+{ch:10,text:"Geometry of BF&#8323; (VSEPR)?",opts:["Pyramidal","Tetrahedral","Trigonal planar","Seesaw","Square planar"],ans:2,en:"BF&#8323;: AB&#8323; &rarr; <b>Trigonal Planar</b>",ar:"BF&#8323; = AB&#8323; &rarr; مثلثي مستوي"},
+{ch:10,text:"Hybridization of N in NH&#8323;?",opts:["sp","sp&#178;","sp&#179;","sp&#179;d","sp&#179;d&#178;"],ans:2,en:"NH&#8323;: 4 groups &rarr; <b>sp&#179;</b>",ar:"NH&#8323;: 4 مجاميع &rarr; sp&#179;"},
+{ch:10,text:"Significant figures in 0.3070?",opts:["6","5","4","3","2"],ans:2,en:"0.3070: 3,0,7,0 = <b>4 sig figs</b> (trailing zero after decimal counts!)",ar:"0.3070: الصفر قبل الفاصلة لا يحسب. الأرقام: 3,0,7,0 = 4 أرقام معنوية"}
+]},
+
+sp2023:{title:"Final Exam (D1) &mdash; Spring 2023",date:"Spring 2023",duration:120,questions:[
+{ch:5,text:"Volume of 0.46 mol Ne at 135&deg;C and 780 mmHg?",opts:["0.0065 L","1.02 L","20.1 L","15.0 L","10.2 L"],ans:3,en:"P=780/760=1.026 atm, T=408K &rarr; V=nRT/P=(0.46&times;0.0821&times;408)/1.026 = <b>15.0 L</b>",ar:"حول mmHg لـ atm (÷760) وcelsius لـ Kelvin (+273) ثم طبق PV=nRT"},
+{ch:5,text:"O&#8322; (3 atm) + CO&#8322; (2 atm) + He (4 atm). Total pressure?",opts:["9.00 atm","7.00 atm","4.00 atm","3.00 atm","2.00 atm"],ans:0,en:"Dalton's: P<sub>T</sub> = 3+2+4 = <b>9.00 atm</b>",ar:"قانون دالتون: P_total = مجموع الضغوط الجزئية"},
+{ch:5,text:"Partial pressure of O&#8322;? 5.30 mol O&#8322; and 4.60 mol Cl&#8322;, total pressure = 7.35 atm.",opts:["2.50 atm","0.50 atm","1.80 atm","3.93 atm","4.00 atm"],ans:3,en:"P(O&#8322;)=(5.30/9.90)&times;7.35 = <b>3.93 atm</b>",ar:"P_A = (n_A/n_T) × P_Total = (5.30/9.90) × 7.35 = 3.93 atm"},
+{ch:6,text:"&Delta;H for: 2H&#8322;O(l)&rarr;2H&#8322;(g)+O&#8322;(g)? Given H&#8322;+&frac12;O&#8322;&rarr;H&#8322;O, &Delta;H=&minus;286 kJ",opts:["&minus;572 kJ","&plus;286 kJ","&plus;572 kJ","&minus;286 kJ","&minus;143 kJ"],ans:2,en:"Reverse &times;2: &Delta;H = +286&times;2 = <b>+572 kJ</b>",ar:"نعكس المعادلة وجه يساراً وتغير الإشارة ثم نضرب في 2"},
+{ch:6,text:"Given 2S+3O&#8322;&rarr;2SO&#8323;, &Delta;H&#8321;=&minus;790 kJ; S+O&#8322;&rarr;SO&#8322;, &Delta;H&#8322;=&minus;297 kJ. &Delta;H for 2SO&#8322;+O&#8322;&rarr;2SO&#8323;?",opts:["&minus;1384","&minus;196","&minus;543","+1087","+196"],ans:1,en:"Eq(1)&minus;2&times;Eq(2): &Delta;H=&minus;790+594 = <b>&minus;196 kJ</b>",ar:"نعكس Eq(2) ونضربها في 2 ثم نجمعها مع Eq(1)"},
+{ch:6,text:"47g iron absorbs 914J when temp rises 28.34&rarr;71.75&deg;C. Specific heat?",opts:["0.448","1.863","6.614","49.23","11.26"],ans:0,en:"s=q/(m&times;&Delta;T)=914/(47&times;43.41) = <b>0.448 J/g&middot;&deg;C</b>",ar:"s = q/(m×ΔT) = 914 / (47×43.41) = 0.448 J/g·°C"},
+{ch:7,text:"NOT valid quantum numbers? A:n=2,l=0,m&#8343;=0 | B:n=1,l=1,m&#8343;=0 | C:n=2,l=1,m&#8343;=0 | D:n=3,l=1,m&#8343;=&minus;1 | E:n=1,l=0,m&#8343;=0",opts:["A","B &mdash; n=1 means l must be 0","C","D","E"],ans:1,en:"Set B: n=1 &rarr; l can only be 0. l=1 is <b>NOT valid!</b>",ar:"n=1 &rarr; l يمكن أن يكون 0 فقط. l=1 ممنوع!"},
+{ch:7,text:"Incorrect subshell notation?",opts:["4f","5s","3p","2d","6d"],ans:3,en:"2d: n=2 &rarr; l only 0(s) or 1(p). d requires n&ge;3 &rarr; <b>2d doesn't exist!</b>",ar:"n=2 يسمح فقط بـ l=0(s) أو l=1(p). d يحتاج n≥3"},
+{ch:7,text:"Electron configuration for Mn&#178;&#8314; (Z=25)?",opts:["[Ar]4s&#178;3d&#179;","[Ar]4s&#185;3d&#8308;","[Ar]4s&#178;3d&#8310;","[Ar]3d&#8310;","[Ar]3d&#8309;"],ans:4,en:"Mn: [Ar]4s&#178;3d&#8309; &rarr; remove 4s&#178; &rarr; Mn&#178;&#8314;: <b>[Ar]3d&#8309;</b>",ar:"Mn: [Ar]4s&#178;3d&#8309; &rarr; نشيل 4s&#178; أولاً &rarr; Mn&#178;&#8314;: [Ar]3d&#8309;"},
+{ch:8,text:"S&#178;&#8315; is isoelectronic with which ion?",opts:["Na&#8314; (10e&#8315;)","Al&#179;&#8314; (10e&#8315;)","K&#8314; (18e&#8315;)","F&#8315; (10e&#8315;)","O&#178;&#8315; (10e&#8315;)"],ans:2,en:"S&#178;&#8315;: Z=16+2=18 electrons. K&#8314;: Z=19&minus;1=18 electrons &rarr; <b>K&#8314;</b>",ar:"S&#178;&#8315; لها 18 إلكترون. K&#8314; لديه 18 إلكترون أيضاً &rarr; متساويان في الإلكترونات"},
+{ch:8,text:"Smallest first IE: Rb, K, Li, Be, Na?",opts:["Rb","K","Li","Be","Na"],ans:0,en:"IE decreases down group 1: Li&gt;Na&gt;K&gt;Rb &rarr; <b>Rb smallest</b>",ar:"IE تنخفض نزولاً في المجموعة. Rb أسفل عنصر &rarr; أصغر IE"},
+{ch:9,text:"POLAR bonds but NONPOLAR molecule?",opts:["PCl&#8323; (pyramidal)","NH&#8323; (pyramidal)","SO&#8322; (bent)","CF&#8324; (tetrahedral)","H&#8322;O (bent)"],ans:3,en:"CF&#8324;: AB&#8324; tetrahedral &rarr; all C&minus;F bonds cancel &rarr; <b>nonpolar</b>",ar:"CF&#8324; شكله رباعي الأوجه المتماثل &rarr; العزوم تلغي بعضها &rarr; غير قطبي"},
+{ch:9,text:"Greatest polarity? EN: F=4.0, O=3.5, H=2.1, S=2.5, Cl=3.0",opts:["S&minus;H (&Delta;=0.4)","O&minus;F (&Delta;=0.5)","H&minus;Cl (&Delta;=0.9)","O&minus;H (&Delta;=1.4)","S&minus;Cl (&Delta;=0.5)"],ans:3,en:"Largest &Delta;EN = most polar. O&minus;H: 3.5&minus;2.1 = <b>1.4</b>",ar:"أكبر فرق كهرسالبية = أعلى قطبية. O-H: 3.5-2.1 = 1.4 هو الأكبر"},
+{ch:10,text:"Molecular geometry of H&#8323;O&#8314; (VSEPR)?",opts:["Linear","Trigonal pyramidal","Bent","Trigonal planar","Tetrahedral"],ans:1,en:"H&#8323;O&#8314;: AB&#8323;E (3 bonds + 1 lone pair) &rarr; <b>Trigonal pyramidal</b>",ar:"H&#8323;O&#8314; = AB&#8323;E: 3 روابط + زوج منفرد &rarr; هرمي مثلثي"},
+{ch:10,text:"Bond angles in sp&#178; hybridized central atom?",opts:["90&deg;","180&deg;","120&deg;","&lt;90&deg;","109.5&deg;"],ans:2,en:"sp&#178; hybridization &rarr; 3 orbitals in a plane &rarr; <b>120&deg;</b>",ar:"sp&#178; = 3 مجالات متكافئة في مستوى واحد &rarr; 120 درجة"},
+{ch:10,text:"&pi; bonds in molecule H&mdash;C=C&mdash;C&equiv;N?",opts:["1","2","3","4","5"],ans:2,en:"C=C: 1&pi;. C&equiv;N: 2&pi;. Total = <b>3 &pi; bonds</b>",ar:"C=C لها &pi; واحدة. C≡N لها 2&pi;. المجموع = 3 روابط &pi;"}
+]}
+};
+
+/* ═══ ENGINE STATE ═══ */
+let cExam=null, uAns=[], timer=null, tLeft=0, submitted=false;
+
+/* ═══ LOAD EXAM ═══ */
+function loadExam(id,btn){
+  document.querySelectorAll('.epbtn').forEach(b=>b.classList.remove('sel'));
+  btn.classList.add('sel');
+  if(timer) clearInterval(timer);
+  submitted=false;
+  cExam=EX[id];
+  const qs=cExam.questions;
+  uAns=new Array(qs.length).fill(null);
+  tLeft=cExam.duration*60;
+  const cc={5:'#4A90D9',6:'#E67E22',7:'#9B59B6',8:'#27AE60',9:'#E74C3C',10:'#16A085'};
+  let h=`
+  <div class="etopbar">
+    <div><h2>&#128203; ${cExam.title}</h2><p>${cExam.date} &middot; ${qs.length} Questions &middot; Chapters 5&ndash;10</p></div>
+    <div><div class="etimer" id="etimer">${ft(tLeft)}</div><div style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:4px;">Time remaining</div></div>
+  </div>
+  <div class="eprog">
+    <div class="eprog-label"><span id="epl">0 / ${qs.length} answered</span><span id="epp">0%</span></div>
+    <div class="eprog-bar"><div class="eprog-fill" id="epf" style="width:0%"></div></div>
+  </div>`;
+  qs.forEach((q,i)=>{
+    h+=`<div class="eq-card" id="eqc${i}">
+    <div class="eq-num"><span>Q ${i+1}</span><span style="background:rgba(255,255,255,.12);border-radius:5px;padding:2px 8px;font-size:.68rem;">Ch ${q.ch}</span></div>
+    <p class="eq-text">${q.text}</p>
+    <ul class="eopts" id="eo${i}">${q.opts.map((o,j)=>`<li onclick="sa(${i},${j})" id="eo${i}${j}"><span class="el">${String.fromCharCode(65+j)}</span><span>${o}</span></li>`).join('')}</ul>
+    <div class="eq-exp" id="ee${i}"><b>&#10003; Solution:</b> ${q.en}<div class="arabic">&#x2728; ${q.ar}</div></div>
+    </div>`;
+  });
+  h+=`<div class="esubmit"><p style="color:var(--muted);font-size:.85rem;margin-bottom:14px;">Answer all questions, then submit to see your grade.</p><button class="esbtn" onclick="doSubmit()">&#10003; Submit Exam &amp; See Results</button></div>
+  <div class="eres" id="eres"></div>`;
+  document.getElementById('examArea').innerHTML=h;
+  timer=setInterval(tick,1000);
+  document.getElementById('examArea').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══ SELECT ANSWER ═══ */
+function sa(qi,oi){
+  if(submitted)return;
+  uAns[qi]=oi;
+  document.querySelectorAll(`#eo${qi} li`).forEach(l=>l.classList.remove('picked'));
+  document.getElementById(`eo${qi}${oi}`).classList.add('picked');
+  const done=uAns.filter(a=>a!==null).length;
+  const pct=Math.round(done/cExam.questions.length*100);
+  document.getElementById('epl').textContent=`${done} / ${cExam.questions.length} answered`;
+  document.getElementById('epp').textContent=pct+'%';
+  document.getElementById('epf').style.width=pct+'%';
+}
+
+/* ═══ TIMER ═══ */
+function tick(){
+  tLeft--;
+  const el=document.getElementById('etimer');
+  if(!el){clearInterval(timer);return;}
+  el.textContent=ft(tLeft);
+  if(tLeft<=300)el.classList.add('warn');
+  if(tLeft<=0){clearInterval(timer);doSubmit();}
+}
+function ft(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+
+/* ═══ SUBMIT ═══ */
+function doSubmit(){
+  if(submitted)return;
+  submitted=true;
+  clearInterval(timer);
+  const qs=cExam.questions;
+  let ok=0,bad=0,sk=0;
+  qs.forEach((q,i)=>{
+    document.querySelectorAll(`#eo${i} li`).forEach(l=>l.classList.add('lk'));
+    const c=document.getElementById(`eqc${i}`);
+    const ex=document.getElementById(`ee${i}`);
+    ex.classList.add('vis');
+    const ua=uAns[i];
+    if(ua===null){sk++;c.classList.add('skip');}
+    else if(ua===q.ans){ok++;c.classList.add('ok');document.getElementById(`eo${i}${ua}`).classList.remove('picked');document.getElementById(`eo${i}${ua}`).classList.add('rc');}
+    else{bad++;c.classList.add('bad');document.getElementById(`eo${i}${ua}`).classList.remove('picked');document.getElementById(`eo${i}${ua}`).classList.add('rw');document.getElementById(`eo${i}${q.ans}`).classList.add('rc');}
+  });
+  const total=qs.length,pct=Math.round(ok/total*100);
+  let gc='ge',gl='Excellent! &#127942;',msg='Outstanding! Keep it up!';
+  if(pct<90&&pct>=75){gc='gg';gl='Very Good! &#11088;';msg='Great work! Review the questions you missed.';}
+  else if(pct<75&&pct>=60){gc='gav';gl='Good &#128218;';msg='Decent result. Focus on weak chapters.';}
+  else if(pct<60){gc='gp';gl='Needs Work &#128170;';msg='Keep studying! Review chapter summaries carefully.';}
+  const resEl=document.getElementById('eres');
+  resEl.innerHTML=`<div class="rgcircle ${gc}"><div class="rgn">${pct}%</div><div class="rgl">${gl}</div></div>
+  <div class="rtitle">${msg}</div><div class="rsub">${cExam.title}</div>
+  <div class="rstats">
+    <div class="rsi"><div class="rsn" style="color:#10b981">${ok}</div><div class="rsl">&#10003; Correct</div></div>
+    <div class="rsi"><div class="rsn" style="color:#ef4444">${bad}</div><div class="rsl">&#10007; Wrong</div></div>
+    <div class="rsi"><div class="rsn" style="color:#f59e0b">${sk}</div><div class="rsl">&#9193;&#65039; Skipped</div></div>
+    <div class="rsi"><div class="rsn" style="color:var(--purpleL)">${total}</div><div class="rsl">Total</div></div>
+  </div>
+  <button class="retrybtn" onclick="document.querySelector('.epbtn.sel').click()">&#8635; Retry This Exam</button>
+  <button class="retrybtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#128203; Choose Another Exam</button>
+  <p style="font-size:.8rem;color:var(--muted);margin-top:14px;">Scroll up to review all questions with answers and explanations highlighted.</p>`;
+  resEl.classList.add('vis');
+  resEl.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ═══ NAVIGATION ═══ */
+function ST(id,btn){
+  document.querySelectorAll('.tab').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if(btn){document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+  else{const m={ov:0,ch5:1,ch6:2,ch7:3,ch8:4,ch9:5,ch10:6,ex:7};document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));if(m[id]!==undefined)document.querySelectorAll('nav button')[m[id]].classList.add('active');}
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function pick(el,t){
+  el.parentElement.querySelectorAll('li').forEach(l=>l.classList.remove('correct','wrong'));
+  el.classList.add(t==='c'?'correct':'wrong');
+}
+function tog(btn){
+  const a=btn.nextElementSibling;a.classList.toggle('shown');
+  btn.textContent=a.classList.contains('shown')?'Hide Solution':'Show Solution';
+}
+</script>
+</body>
+</html>
