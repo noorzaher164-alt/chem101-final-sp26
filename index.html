@@ -12,7 +12,7 @@
   --navy:#1E1B4B; --navy-tint:#E7E6F4;
   --magenta:#8B2D6E; --magenta-tint:#F8E4EF;
   --pink:#C4498C; --pink-tint:#FBE3EF;
-  --lavender:#F8F4FF; --border:#E2D9F3;
+  --lavender:#F3EEFF; --border:#E2D9F3;
   --teal:#0E7490; --teal-tint:#E0F2FE;
   --green:#15803D; --green-tint:#DCFCE7;
   --gold:#B45309; --gold-tint:#FEF3E2;
@@ -66,7 +66,7 @@ footer a{color:var(--pink);text-decoration:none;}
 
 /* ===== SECTION HEADER ===== */
 .section-header{border-radius:16px;padding:26px 30px;margin-bottom:22px;color:#fff;display:flex;align-items:center;gap:18px;}
-.section-header .icon{font-size:2.4rem;line-height:1;flex-shrink:0;}
+.section-header .icon{width:58px;height:58px;border-radius:50%;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center;font-size:1.9rem;line-height:1;flex-shrink:0;}
 .section-header h2{font-size:1.5rem;font-weight:800;}
 .section-header p{opacity:.92;margin-top:4px;font-size:.92rem;}
 .grad-1{background:linear-gradient(135deg,var(--navy),var(--purple));}
@@ -151,6 +151,14 @@ footer a{color:var(--pink);text-decoration:none;}
 .f-card .fname{font-weight:700;color:var(--navy);font-size:.8rem;text-transform:uppercase;letter-spacing:.5px;}
 .f-card .feq{font-family:"JetBrains Mono",monospace;font-size:1.05rem;color:var(--magenta);margin:7px 0;font-weight:600;}
 .f-card .fnote{font-size:.78rem;color:#5b5070;}
+
+/* ===== MUST-KNOW RULES PANEL ===== */
+.rules-panel{background:var(--navy);border-radius:16px;padding:26px 30px;margin-top:24px;color:#fff;}
+.rules-panel h3{font-size:1.05rem;font-weight:800;color:#fff;margin-bottom:16px;text-transform:none;letter-spacing:0;}
+.rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 24px;}
+@media(max-width:760px){.rules-grid{grid-template-columns:1fr;}}
+.rule-item{display:flex;gap:10px;padding:9px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.85rem;line-height:1.55;}
+.rule-item .rn{background:var(--pink);color:#fff;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px;}
 
 /* ===== QUICK CHECK ===== */
 .qcheck{background:#fff;border:1px solid var(--border);border-radius:10px;padding:11px 16px;margin:8px 0;}
@@ -1149,6 +1157,24 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="f-card"><div class="fname">M(NaOH) Titration</div><div class="feq">moles KHP / V(NaOH in L)</div><div class="fnote">moles KHP = mass / 204.2</div></div>
     <div class="f-card"><div class="fname">% ASA in Tablet</div><div class="feq">mass ASA / mass tablet × 100%</div><div class="fnote">C_stock = C_diluted × 50</div></div>
     <div class="f-card"><div class="fname">% Relative SD</div><div class="feq">SD / Mean × 100%</div><div class="fnote">Measures precision of measurements</div></div>
+  </div>
+
+  <div class="rules-panel">
+    <h3>🧭 Must-Know Rules — One Per Experiment</h3>
+    <div class="rules-grid">
+      <div class="rule-item"><span class="rn">1</span>Goggles worn at ALL times; read the bottom of the meniscus at eye level.</div>
+      <div class="rule-item"><span class="rn">2</span>Estimate one digit beyond the smallest marked graduation; use the same balance throughout.</div>
+      <div class="rule-item"><span class="rn">3</span>Subscript 1 is never written; net charge of a compound must equal zero.</div>
+      <div class="rule-item"><span class="rn">4</span>Filter while hot, cool slowly, wash with methanol — never water — before weighing dry crystals.</div>
+      <div class="rule-item"><span class="rn">5</span>Always use a NEW test tube for each anion group test, in order.</div>
+      <div class="rule-item"><span class="rn">M</span>Identify only ONE anion per unknown by following the 4-step flowchart in order.</div>
+      <div class="rule-item"><span class="rn">6</span>Spectator ions are never included in net ionic equations.</div>
+      <div class="rule-item"><span class="rn">7</span>Always subtract water vapour pressure from total pressure to get true P(H₂).</div>
+      <div class="rule-item"><span class="rn">8</span>Reversing a reaction flips the sign of ΔH; scaling multiplies ΔH by the same factor.</div>
+      <div class="rule-item"><span class="rn">9</span>Always measure at λ_max and rinse the cuvette with the next standard, never water.</div>
+      <div class="rule-item"><span class="rn">10</span>Use acidified FeCl₃, not water, as the blank — Fe³⁺ itself absorbs at 530 nm.</div>
+      <div class="rule-item"><span class="rn">11</span>NaOH must be standardised against KHP — it is hygroscopic and reacts with CO₂.</div>
+    </div>
   </div>
 </section>
 
