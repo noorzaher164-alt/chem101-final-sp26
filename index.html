@@ -168,32 +168,6 @@ footer a{color:var(--pink);text-decoration:none;}
 ul.plain{list-style:none;}
 ul.plain li{padding:4px 0;font-size:.87rem;}
 ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
-
-/* ===== INTERACTIVE SIMULATIONS ===== */
-.sim-card{border:1px solid var(--border);}
-.sim-card h3{display:flex;align-items:center;gap:6px;}
-.sim-intro{font-size:.85rem;color:#5b5070;margin-bottom:14px;}
-.sim-row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;}
-.sim-visual{flex-shrink:0;}
-.sim-controls{flex:1;min-width:220px;display:flex;flex-direction:column;gap:10px;}
-.sim-label{font-size:.83rem;color:var(--navy);display:flex;flex-direction:column;gap:4px;font-weight:600;}
-.sim-label input[type=number],.sim-label select,select{padding:7px 10px;border:1px solid var(--border);border-radius:8px;font-size:.85rem;font-family:inherit;background:#fff;color:var(--navy);}
-.sim-slider-row{display:flex;align-items:center;gap:10px;font-size:.82rem;margin:6px 0;}
-.sim-slider-row span:first-child{min-width:140px;color:var(--navy);font-weight:600;}
-.sim-slider-row input[type=range]{flex:1;accent-color:var(--purple);}
-.sim-slider-row .val{font-family:"JetBrains Mono",monospace;font-weight:700;color:var(--purple);min-width:70px;text-align:right;}
-.btn{background:var(--purple);color:#fff;border:none;border-radius:999px;padding:9px 18px;font-size:.8rem;font-weight:700;cursor:pointer;transition:background .15s;}
-.btn:hover{background:var(--navy);}
-.btn-secondary{background:var(--magenta);}
-.btn-secondary:hover{background:var(--navy);}
-.btn-row{display:flex;gap:8px;flex-wrap:wrap;}
-.sim-feedback{font-size:.85rem;}
-.sim-display{background:var(--lavender);border-radius:10px;padding:10px 14px;font-family:"JetBrains Mono",monospace;font-size:.82rem;color:var(--navy);line-height:1.7;}
-.cylinder{width:74px;height:230px;border:3px solid var(--navy);border-radius:0 0 12px 12px;position:relative;margin:0 auto;background:repeating-linear-gradient(to top,#fff 0,#fff 19px,var(--border) 19px,var(--border) 20px);overflow:hidden;}
-.cyl-liquid{position:absolute;bottom:0;left:0;width:100%;height:0;background:linear-gradient(var(--teal),#38bdf8);transition:height .4s ease;}
-.flask-vis{width:96px;height:96px;border-radius:10px 10px 50% 50%;border:3px solid var(--navy);background:#fff;margin:0 auto;transition:background .3s;}
-.color-swatch{width:70px;height:70px;border-radius:12px;border:2px solid var(--border);margin:0 auto;transition:background .3s;background:#fff;}
-@media(max-width:760px){.sim-row{flex-direction:column;}.sim-visual{margin:0 auto;}.sim-slider-row span:first-child{min-width:110px;}}
 </style>
 </head>
 <body>
@@ -296,20 +270,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="callout info"><span class="ci">ℹ️</span><div><b>Meniscus Rule:</b> Always read the BOTTOM of the concave meniscus with eye level at the liquid surface. Viewing from above or below causes parallax error.</div></div>
   </div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Read the Meniscus</h3>
-    <p class="sim-intro">A graduated cylinder has been filled with liquid. Read the volume at the bottom of the meniscus, type your reading, then check.</p>
-    <div class="sim-row">
-      <div class="sim-visual"><div class="cylinder"><div class="cyl-liquid" id="s1-liquid"></div></div></div>
-      <div class="sim-controls">
-        <button class="btn" onclick="sim1New()">🔄 New Sample</button>
-        <label class="sim-label">Your reading (mL, max 50)<input type="number" id="s1-guess" step="0.1" placeholder="e.g. 24.5"></label>
-        <button class="btn btn-secondary" onclick="sim1Check()">✅ Check Reading</button>
-        <div class="sim-feedback" id="s1-feedback"></div>
-      </div>
-    </div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Why is mouth pipetting forbidden?</summary><div class="qa">Mouth suction can draw toxic or corrosive liquid directly into the mouth/lungs. A rubber suction bulb must always be used instead.</div></details>
@@ -363,17 +323,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       </table>
     </div>
     <div class="callout note"><span class="ci">🧮</span><div><b>Micropipette experiment:</b> Deliver 5 × 100 μL = theoretical 500 μL. Calculate volume = mass / density at that temperature. % error = |500 − actual μL| / 500 × 100%</div></div>
-  </div>
-
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Pipetting: Accuracy vs. Precision</h3>
-    <p class="sim-intro">Simulate delivering 100 μL with a micropipette up to 5 times. Watch how tightly the trials cluster (precision) and how far the average sits from the true 100 μL (accuracy).</p>
-    <div class="btn-row">
-      <button class="btn" onclick="sim2Run()">💧 Deliver 100 μL</button>
-      <button class="btn btn-secondary" onclick="sim2Reset()">🔄 Reset</button>
-    </div>
-    <div id="s2-list" style="margin:12px 0;"></div>
-    <div id="s2-stats" class="sim-display">Click "Deliver" to start collecting trials.</div>
   </div>
 
   <div class="card">
@@ -470,39 +419,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     </div>
   </div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Criss-Cross Formula Builder</h3>
-    <p class="sim-intro">Pick a cation and an anion, then combine them with the criss-cross rule to build the correct formula and name.</p>
-    <div class="grid-2">
-      <label class="sim-label">Cation
-        <select id="s3-cation" onchange="sim3Combine()">
-          <option value="0">Na⁺ Sodium</option>
-          <option value="1">K⁺ Potassium</option>
-          <option value="2">Ca²⁺ Calcium</option>
-          <option value="3">Mg²⁺ Magnesium</option>
-          <option value="4">Al³⁺ Aluminum</option>
-          <option value="5">Fe²⁺ Iron(II)</option>
-          <option value="6">Fe³⁺ Iron(III)</option>
-          <option value="7">Cu²⁺ Copper(II)</option>
-          <option value="8">NH₄⁺ Ammonium</option>
-        </select>
-      </label>
-      <label class="sim-label">Anion
-        <select id="s3-anion" onchange="sim3Combine()">
-          <option value="0">Cl⁻ chloride</option>
-          <option value="1">O²⁻ oxide</option>
-          <option value="2">SO₄²⁻ sulfate</option>
-          <option value="3">PO₄³⁻ phosphate</option>
-          <option value="4">NO₃⁻ nitrate</option>
-          <option value="5">CO₃²⁻ carbonate</option>
-          <option value="6">OH⁻ hydroxide</option>
-        </select>
-      </label>
-    </div>
-    <button class="btn" onclick="sim3Combine()" style="margin-top:10px;">⚡ Combine</button>
-    <div id="s3-result" style="margin-top:10px;"></div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Name (NH₄)₂SO₄ and explain the parentheses.</summary><div class="qa">Ammonium sulfate. Parentheses are required around NH₄ because its subscript (2) is greater than 1.</div></details>
@@ -590,14 +506,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     </div>
   </div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — % Yield Calculator</h3>
-    <p class="sim-intro">Adjust the mass of aluminum used, then enter the actual mass of alum crystals recovered, to calculate % yield live.</p>
-    <div class="sim-slider-row"><span>Mass Al used (g)</span><input type="range" id="s4-mass" min="0.30" max="0.80" step="0.01" value="0.50" oninput="sim4Calc()"><span class="val" id="s4-mass-val"></span></div>
-    <label class="sim-label">Actual mass of alum recovered (g)<input type="number" id="s4-actual" step="0.01" value="3.20" oninput="sim4Calc()"></label>
-    <div id="s4-result" class="sim-display" style="margin-top:10px;"></div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Why must the alum crystals be completely dry before weighing?</summary><div class="qa">Residual solvent adds extra mass, which would make the calculated % yield falsely high.</div></details>
@@ -667,23 +575,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   </div>
 
   <div class="callout warning"><span class="ci">⚠️</span><div><b>Safety:</b> AgNO₃ stains skin dark-brown/black. Conc. H₂SO₄ is extremely corrosive — wash immediately with large amounts of water on skin contact. Use ice bath for the NO₃⁻ test.</div></div>
-
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Mystery Anion Tester</h3>
-    <p class="sim-intro">A hidden anion has been assigned. Run the group tests in order, then submit your guess.</p>
-    <div class="btn-row">
-      <button class="btn" onclick="sim5New()">🔄 New Mystery Anion</button>
-      <button class="btn btn-secondary" onclick="sim5Test('g1')">Add 6M H₂SO₄</button>
-      <button class="btn btn-secondary" onclick="sim5Test('g2')">Add 1M BaCl₂</button>
-      <button class="btn btn-secondary" onclick="sim5Test('g3')">Add AgNO₃</button>
-      <button class="btn btn-secondary" onclick="sim5Test('ring')">Brown Ring Test</button>
-      <button class="btn btn-secondary" onclick="sim5Test('vinegar')">Vinegar Smell Test</button>
-    </div>
-    <div id="s5-log" class="sim-display" style="margin:10px 0;">Run a test to see the result.</div>
-    <label class="sim-label">Your guess<select id="s5-guess"></select></label>
-    <button class="btn" onclick="sim5Check()" style="margin-top:8px;">✅ Submit Guess</button>
-    <div id="s5-feedback" style="margin-top:8px;"></div>
-  </div>
 
   <div class="card">
     <h3>Quick Check</h3>
@@ -825,25 +716,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="callout tip"><span class="ci">✅</span><div><b>Final ranking:</b> Zn &gt; Fe &gt; Cu &gt; Ag</div></div>
   </div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Metal Displacement Reactions</h3>
-    <p class="sim-intro">Pick a metal strip and a solution's cation, then react them to see whether displacement occurs.</p>
-    <div class="grid-2">
-      <label class="sim-label">Metal strip
-        <select id="s6-metal">
-          <option value="Mg">Mg</option><option value="Al">Al</option><option value="Zn">Zn</option><option value="Fe">Fe</option><option value="Sn">Sn</option><option value="Pb">Pb</option><option value="Cu">Cu</option><option value="Ag">Ag</option><option value="Au">Au</option>
-        </select>
-      </label>
-      <label class="sim-label">Solution cation
-        <select id="s6-solution">
-          <option value="Mg">Mg²⁺</option><option value="Al">Al³⁺</option><option value="Zn">Zn²⁺</option><option value="Fe">Fe²⁺</option><option value="Sn">Sn²⁺</option><option value="Pb">Pb²⁺</option><option value="Cu">Cu²⁺</option><option value="Ag">Ag⁺</option><option value="Au">Au³⁺</option>
-        </select>
-      </label>
-    </div>
-    <button class="btn" onclick="sim6React()" style="margin-top:10px;">⚡ React</button>
-    <div id="s6-result" style="margin-top:10px;"></div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>If Ag shows no reaction in CuSO₄ but Fe does react in CuSO₄, what does this tell you?</summary><div class="qa">Fe is more active than Cu (Fe &gt; Cu), while Cu is more active than Ag (Cu &gt; Ag) — consistent with the reactivity series Fe &gt; Cu &gt; Ag.</div></details>
@@ -899,16 +771,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       </table>
     </div>
     <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H₂ is highly flammable — no open flames near the experiment.</div></div>
-  </div>
-
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Calculate R Live</h3>
-    <p class="sim-intro">Adjust the trial conditions below and watch R recalculate in real time using PV = nRT.</p>
-    <div class="sim-slider-row"><span>Mass Mg (g)</span><input type="range" id="s7-mass" min="0.020" max="0.050" step="0.001" value="0.030" oninput="sim7Calc()"><span class="val" id="s7-mass-val"></span></div>
-    <div class="sim-slider-row"><span>Volume H₂ (mL)</span><input type="range" id="s7-vol" min="30" max="60" step="0.5" value="45" oninput="sim7Calc()"><span class="val" id="s7-vol-val"></span></div>
-    <div class="sim-slider-row"><span>Temperature (°C)</span><input type="range" id="s7-temp" min="15" max="30" step="1" value="22" oninput="sim7Calc()"><span class="val" id="s7-temp-val"></span></div>
-    <div class="sim-slider-row"><span>Atmospheric P (mmHg)</span><input type="range" id="s7-patm" min="740" max="770" step="1" value="758" oninput="sim7Calc()"><span class="val" id="s7-patm-val"></span></div>
-    <div id="s7-result" class="sim-display" style="margin-top:10px;"></div>
   </div>
 
   <div class="card">
@@ -983,16 +845,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   </div>
 
   <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H₂ is flammable — no open flames near the experiment.</div></div>
-
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Hess's Law Calculator</h3>
-    <p class="sim-intro">Adjust the temperature changes measured in Part A (Mg) and Part B (MgO) and watch ΔHf°(MgO) recalculate live. (MgO molar mass = 40.3 g/mol)</p>
-    <div class="sim-slider-row"><span>Mass Mg (g)</span><input type="range" id="s8-massMg" min="0.020" max="0.050" step="0.001" value="0.030" oninput="sim8Calc()"><span class="val" id="s8-massMg-val"></span></div>
-    <div class="sim-slider-row"><span>ΔT Part A (°C)</span><input type="range" id="s8-dt1" min="3" max="15" step="0.1" value="8" oninput="sim8Calc()"><span class="val" id="s8-dt1-val"></span></div>
-    <div class="sim-slider-row"><span>Mass MgO (g)</span><input type="range" id="s8-massMgO" min="0.030" max="0.080" step="0.001" value="0.050" oninput="sim8Calc()"><span class="val" id="s8-massMgO-val"></span></div>
-    <div class="sim-slider-row"><span>ΔT Part B (°C)</span><input type="range" id="s8-dt2" min="1" max="8" step="0.1" value="3" oninput="sim8Calc()"><span class="val" id="s8-dt2-val"></span></div>
-    <div id="s8-result" class="sim-display" style="margin-top:10px;"></div>
-  </div>
 
   <div class="card">
     <h3>Quick Check</h3>
@@ -1080,18 +932,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   </div>
 
   <div class="callout tip"><span class="ci">✅</span><div><b>Key points:</b> Always blank with distilled water before each measurement · rinse cuvette with the NEXT standard between measurements · measure at λ_max for maximum sensitivity · slope of A vs C = ε (when l = 1 cm).</div></div>
-
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Beer-Lambert Visualizer</h3>
-    <p class="sim-intro">Drag the concentration slider and watch absorbance and color intensity change together, as predicted by A = ε·l·C. (Demo assumes ε = 2200 L·mol⁻¹·cm⁻¹, l = 1 cm.)</p>
-    <div class="sim-row">
-      <div class="sim-visual"><div class="color-swatch" id="s9-swatch"></div></div>
-      <div class="sim-controls">
-        <div class="sim-slider-row"><span>Concentration (M)</span><input type="range" id="s9-conc" min="0" max="0.0008" step="0.00001" value="0.0004" oninput="sim9Calc()"><span class="val" id="s9-conc-val"></span></div>
-        <div id="s9-result" class="sim-display"></div>
-      </div>
-    </div>
-  </div>
 
   <div class="card">
     <h3>Quick Check</h3>
@@ -1197,14 +1037,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="callout warning"><span class="ci">⚠️</span><div>1.0M NaOH is caustic. Heat carefully with a watch glass to prevent spattering. Wear gloves and goggles.</div></div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — % ASA Back-Calculator</h3>
-    <p class="sim-intro">Enter the measured absorbance of the dissolved tablet and its mass to calculate % active ingredient live. (Demo assumes a calibration slope of 2700 L·mol⁻¹·cm⁻¹.)</p>
-    <div class="sim-slider-row"><span>Absorbance (A)</span><input type="range" id="s10-abs" min="0.05" max="0.60" step="0.01" value="0.30" oninput="sim10Calc()"><span class="val" id="s10-abs-val"></span></div>
-    <label class="sim-label">Tablet mass (g)<input type="number" id="s10-mass" step="0.01" value="0.32" oninput="sim10Calc()"></label>
-    <div id="s10-result" class="sim-display" style="margin-top:10px;"></div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Why is the factor of 50 used when back-calculating C_stock from C_diluted for ASA?</summary><div class="qa">Only 200 μL of stock was diluted to 10.0 mL (a 50× dilution), so the stock concentration is 50 times the diluted concentration measured by the spectrophotometer.</div></details>
@@ -1291,24 +1123,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="callout info"><span class="ci">ℹ️</span><div><b>Burette technique:</b> Use both hands — one on the stopcock, one swirling the flask. Read to 0.01 mL. Don't waste time aligning the meniscus exactly at 0.00 mL.</div></div>
   </div>
 
-  <div class="card sim-card">
-    <h3>🧪 Interactive Simulation — Virtual Titration</h3>
-    <p class="sim-intro">Add NaOH from the burette and watch for the color change. Stop at the faintest persistent pink!</p>
-    <div class="sim-row">
-      <div class="sim-visual"><div class="flask-vis" id="s11-flask"></div></div>
-      <div class="sim-controls">
-        <div>Volume added: <b id="s11-vol">0.00 mL</b></div>
-        <div class="btn-row">
-          <button class="btn" onclick="sim11Add(1)">+1 mL</button>
-          <button class="btn" onclick="sim11Add(0.1)">+0.1 mL</button>
-          <button class="btn btn-secondary" onclick="sim11Stop()">🩷 Stop — Persistent Pink!</button>
-          <button class="btn" onclick="sim11New()">🔄 New Titration</button>
-        </div>
-        <div id="s11-result"></div>
-      </div>
-    </div>
-  </div>
-
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Why can't NaOH be weighed directly and used as a primary standard?</summary><div class="qa">NaOH is hygroscopic (absorbs water from air, making its mass unreliable) and reacts with atmospheric CO₂ to form Na₂CO₃, which changes its effective concentration.</div></details>
@@ -1374,279 +1188,6 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 </footer>
 
 <script>
-/* ===== SIM 1 — Read the Meniscus ===== */
-let s1Actual = 0;
-function sim1New(){
-  s1Actual = Math.round((Math.random()*40+5)*10)/10;
-  document.getElementById('s1-liquid').style.height = (s1Actual/50*100)+'%';
-  document.getElementById('s1-feedback').innerHTML = '';
-  document.getElementById('s1-guess').value = '';
-}
-function sim1Check(){
-  const guess = parseFloat(document.getElementById('s1-guess').value);
-  const fb = document.getElementById('s1-feedback');
-  if(isNaN(guess)){ fb.innerHTML = '<div class="callout warning"><span class="ci">⚠️</span><div>Enter a number first.</div></div>'; return; }
-  const err = Math.abs(guess - s1Actual);
-  if(err <= 0.5){
-    fb.innerHTML = `<div class="callout tip"><span class="ci">✅</span><div>Correct! Actual volume = ${s1Actual.toFixed(1)} mL. Remember: read the BOTTOM of the meniscus at eye level.</div></div>`;
-  } else {
-    fb.innerHTML = `<div class="callout warning"><span class="ci">⚠️</span><div>Not quite — actual volume = ${s1Actual.toFixed(1)} mL (you said ${guess.toFixed(1)}). Estimate one digit beyond the smallest graduation and read the bottom of the meniscus.</div></div>`;
-  }
-}
-
-/* ===== SIM 2 — Pipetting Accuracy vs Precision ===== */
-let s2trials = [];
-function sim2Run(){
-  if(s2trials.length >= 5) return;
-  const val = 97 + Math.random()*6;
-  s2trials.push(val);
-  sim2Render();
-}
-function sim2Reset(){ s2trials = []; sim2Render(); }
-function sim2Render(){
-  const list = document.getElementById('s2-list');
-  list.innerHTML = s2trials.map((v,i)=>`<span class="badge badge-teal">Trial ${i+1}: ${v.toFixed(2)} μL</span>`).join(' ');
-  const out = document.getElementById('s2-stats');
-  if(s2trials.length === 0){ out.innerHTML = 'Click "Deliver" to start collecting trials.'; return; }
-  const mean = s2trials.reduce((a,b)=>a+b,0) / s2trials.length;
-  let sd = 0;
-  if(s2trials.length > 1){
-    sd = Math.sqrt(s2trials.reduce((a,b)=>a+(b-mean)**2,0) / (s2trials.length-1));
-  }
-  const rsd = mean ? (sd/mean*100) : 0;
-  const err = Math.abs(100-mean)/100*100;
-  out.innerHTML = `Mean = ${mean.toFixed(2)} μL<br>SD = ${sd.toFixed(2)} μL &nbsp; %RSD = ${rsd.toFixed(2)}% (precision)<br>% Error = ${err.toFixed(2)}% (accuracy, true = 100 μL)`;
-}
-
-/* ===== SIM 3 — Criss-Cross Formula Builder ===== */
-const SIM3_CATIONS = [
-  {disp:'Na',charge:1,name:'Sodium',poly:false},
-  {disp:'K',charge:1,name:'Potassium',poly:false},
-  {disp:'Ca',charge:2,name:'Calcium',poly:false},
-  {disp:'Mg',charge:2,name:'Magnesium',poly:false},
-  {disp:'Al',charge:3,name:'Aluminum',poly:false},
-  {disp:'Fe',charge:2,name:'Iron(II)',poly:false},
-  {disp:'Fe',charge:3,name:'Iron(III)',poly:false},
-  {disp:'Cu',charge:2,name:'Copper(II)',poly:false},
-  {disp:'NH₄',charge:1,name:'Ammonium',poly:true},
-];
-const SIM3_ANIONS = [
-  {disp:'Cl',charge:1,name:'chloride',poly:false},
-  {disp:'O',charge:2,name:'oxide',poly:false},
-  {disp:'SO₄',charge:2,name:'sulfate',poly:true},
-  {disp:'PO₄',charge:3,name:'phosphate',poly:true},
-  {disp:'NO₃',charge:1,name:'nitrate',poly:true},
-  {disp:'CO₃',charge:2,name:'carbonate',poly:true},
-  {disp:'OH',charge:1,name:'hydroxide',poly:true},
-];
-function sim3Sub(n){ const m={0:'₀',1:'₁',2:'₂',3:'₃',4:'₄',5:'₅',6:'₆',7:'₇',8:'₈',9:'₉'}; return String(n).split('').map(d=>m[d]).join(''); }
-function sim3Sup(n,neg){ const m={1:'',2:'²',3:'³'}; return m[n]+(neg?'⁻':'⁺'); }
-function sim3Gcd(a,b){ return b ? sim3Gcd(b,a%b) : a; }
-function sim3Combine(){
-  const c = SIM3_CATIONS[+document.getElementById('s3-cation').value];
-  const a = SIM3_ANIONS[+document.getElementById('s3-anion').value];
-  let cSub = a.charge, aSub = c.charge;
-  const g = sim3Gcd(cSub,aSub);
-  cSub /= g; aSub /= g;
-  const cPart = (c.poly && cSub>1) ? `(${c.disp})${sim3Sub(cSub)}` : c.disp+(cSub>1?sim3Sub(cSub):'');
-  const aPart = (a.poly && aSub>1) ? `(${a.disp})${sim3Sub(aSub)}` : a.disp+(aSub>1?sim3Sub(aSub):'');
-  document.getElementById('s3-result').innerHTML = `<div class="formula-box"><div class="eq">${c.disp}${sim3Sup(c.charge)} + ${a.disp}${sim3Sup(a.charge,true)} → ${cPart}${aPart}</div><div class="note">${c.name} ${a.name}</div></div>`;
-}
-
-/* ===== SIM 4 — % Yield Calculator ===== */
-function sim4Calc(){
-  const massAl = +document.getElementById('s4-mass').value;
-  document.getElementById('s4-mass-val').textContent = massAl.toFixed(2)+' g';
-  const actual = +document.getElementById('s4-actual').value || 0;
-  const molesAl = massAl/26.98;
-  const theoretical = molesAl*474.4;
-  const yieldPct = theoretical>0 ? (actual/theoretical*100) : 0;
-  document.getElementById('s4-result').innerHTML = `Moles Al = ${molesAl.toFixed(4)} mol<br>Theoretical mass = ${theoretical.toFixed(2)} g<br><b>% Yield = ${yieldPct.toFixed(1)}%</b>`;
-}
-
-/* ===== SIM 5 — Mystery Anion Tester ===== */
-const SIM5_ANIONS = [
-  {id:'CO3',name:'Carbonate (CO₃²⁻)'},
-  {id:'SO4',name:'Sulfate (SO₄²⁻)'},
-  {id:'PO4',name:'Phosphate (PO₄³⁻)'},
-  {id:'SCN',name:'Thiocyanate (SCN⁻)'},
-  {id:'Cl',name:'Chloride (Cl⁻)'},
-  {id:'Br',name:'Bromide (Br⁻)'},
-  {id:'I',name:'Iodide (I⁻)'},
-  {id:'NO3',name:'Nitrate (NO₃⁻)'},
-  {id:'OAc',name:'Acetate (CH₃COO⁻)'},
-];
-const SIM5_RESULTS = {
-  CO3:{g1:'Effervescence! CO₂ gas bubbles vigorously. (This alone identifies CO₃²⁻.)',g2:'No precipitate.',g3:'No precipitate.',ring:'No ring.',vinegar:'No smell.'},
-  SO4:{g1:'No reaction.',g2:'White precipitate forms (BaSO₄). Adding 6M HCl: precipitate does NOT dissolve.',g3:'No precipitate.',ring:'No ring.',vinegar:'No smell.'},
-  PO4:{g1:'No reaction.',g2:'White precipitate forms. Adding 6M HCl: precipitate DISSOLVES.',g3:'No precipitate.',ring:'No ring.',vinegar:'No smell.'},
-  SCN:{g1:'No reaction.',g2:'No precipitate.',g3:'White precipitate (AgSCN). Adding Fe(NO₃)₃: blood-red color appears.',ring:'No ring.',vinegar:'No smell.'},
-  Cl:{g1:'No reaction.',g2:'No precipitate.',g3:'White precipitate (AgCl). Confirmatory: pale yellow hexane layer.',ring:'No ring.',vinegar:'No smell.'},
-  Br:{g1:'No reaction.',g2:'No precipitate.',g3:'Pale yellow precipitate (AgBr). Confirmatory: orange hexane layer.',ring:'No ring.',vinegar:'No smell.'},
-  I:{g1:'No reaction.',g2:'No precipitate.',g3:'Yellow precipitate (AgI). Confirmatory: purple hexane layer.',ring:'No ring.',vinegar:'No smell.'},
-  NO3:{g1:'No reaction.',g2:'No precipitate.',g3:'No precipitate.',ring:'Brown ring forms at the interface!',vinegar:'No smell.'},
-  OAc:{g1:'No reaction.',g2:'No precipitate.',g3:'No precipitate.',ring:'No ring.',vinegar:'Strong vinegar smell (fruity with ethanol).'},
-};
-let s5Secret = '';
-function sim5New(){
-  s5Secret = SIM5_ANIONS[Math.floor(Math.random()*SIM5_ANIONS.length)].id;
-  document.getElementById('s5-log').textContent = 'New mystery anion assigned. Run a test to see the result.';
-  document.getElementById('s5-feedback').innerHTML = '';
-}
-function sim5Test(test){
-  if(!s5Secret) sim5New();
-  document.getElementById('s5-log').textContent = SIM5_RESULTS[s5Secret][test];
-}
-function sim5PopulateGuess(){
-  document.getElementById('s5-guess').innerHTML = SIM5_ANIONS.map(a=>`<option value="${a.id}">${a.name}</option>`).join('');
-}
-function sim5Check(){
-  const guess = document.getElementById('s5-guess').value;
-  const fb = document.getElementById('s5-feedback');
-  const correctName = SIM5_ANIONS.find(a=>a.id===s5Secret).name;
-  if(guess === s5Secret){
-    fb.innerHTML = `<div class="callout tip"><span class="ci">✅</span><div>Correct! It was ${correctName}.</div></div>`;
-  } else {
-    fb.innerHTML = `<div class="callout warning"><span class="ci">⚠️</span><div>Not quite — it was actually ${correctName}. Try "New Mystery Anion" to try again.</div></div>`;
-  }
-}
-
-/* ===== SIM 6 — Metal Displacement ===== */
-const SIM6_ACTIVITY = {Mg:4,Al:5,Zn:6,Fe:7,Sn:8,Pb:9,Cu:11,Ag:12,Au:13};
-const SIM6_VALENCE = {Mg:2,Al:3,Zn:2,Fe:2,Sn:2,Pb:2,Cu:2,Ag:1,Au:3};
-function sim6Gcd(a,b){ return b ? sim6Gcd(b,a%b) : a; }
-function sim6Lcm(a,b){ return a*b/sim6Gcd(a,b); }
-function sim6Sup(n){ const m={1:'',2:'²',3:'³'}; return m[n]+'⁺'; }
-function sim6React(){
-  const m = document.getElementById('s6-metal').value;
-  const s = document.getElementById('s6-solution').value;
-  const out = document.getElementById('s6-result');
-  if(m === s){ out.innerHTML = '<div class="callout info"><span class="ci">ℹ️</span><div>Same metal — no displacement possible.</div></div>'; return; }
-  if(!(SIM6_ACTIVITY[m] < SIM6_ACTIVITY[s])){
-    out.innerHTML = `<div class="callout warning"><span class="ci">⚠️</span><div><b>No reaction.</b> ${m} is LESS active than ${s} — it cannot displace ${s} from solution.</div></div>`;
-    return;
-  }
-  const vm = SIM6_VALENCE[m], vs = SIM6_VALENCE[s];
-  const L = sim6Lcm(vm,vs);
-  const cm = L/vm, cs = L/vs;
-  const eq = `${cm>1?cm:''}${m}(s) + ${cs>1?cs:''}${s}${sim6Sup(vs)}(aq) → ${cm>1?cm:''}${m}${sim6Sup(vm)}(aq) + ${cs>1?cs:''}${s}(s)`;
-  out.innerHTML = `<div class="callout tip"><span class="ci">✅</span><div><b>Reaction occurs!</b> ${m} is more active than ${s}.</div></div><div class="formula-box"><div class="eq">${eq}</div></div>`;
-}
-
-/* ===== SIM 7 — Calculate R Live ===== */
-const SIM7_PH2O = {15:12.8,16:13.6,17:14.5,18:15.5,19:16.5,20:17.5,21:18.7,22:19.8,23:21.1,24:22.4,25:23.8,26:25.2,27:26.7,28:28.3,29:30.0,30:31.8};
-function sim7Calc(){
-  const mass = +document.getElementById('s7-mass').value;
-  const vol = +document.getElementById('s7-vol').value;
-  const temp = +document.getElementById('s7-temp').value;
-  const patm = +document.getElementById('s7-patm').value;
-  document.getElementById('s7-mass-val').textContent = mass.toFixed(3)+' g';
-  document.getElementById('s7-vol-val').textContent = vol.toFixed(1)+' mL';
-  document.getElementById('s7-temp-val').textContent = temp+' °C';
-  document.getElementById('s7-patm-val').textContent = patm+' mmHg';
-  const moles = mass/24.3;
-  const pH2O = SIM7_PH2O[temp];
-  const pH2 = patm - pH2O;
-  const pAtm = pH2/760;
-  const V_L = vol/1000;
-  const T_K = temp+273.15;
-  const R = (pAtm*V_L)/(moles*T_K);
-  const err = Math.abs(0.08206-R)/0.08206*100;
-  document.getElementById('s7-result').innerHTML = `Moles Mg = ${moles.toFixed(5)} mol<br>P(H₂O) = ${pH2O} mmHg → P(H₂) = ${pH2.toFixed(1)} mmHg = ${pAtm.toFixed(4)} atm<br><b>R = ${R.toFixed(5)} L·atm/mol·K</b> (% error vs 0.08206 = ${err.toFixed(1)}%)`;
-}
-
-/* ===== SIM 8 — Hess's Law Calculator ===== */
-function sim8Calc(){
-  const massMg = +document.getElementById('s8-massMg').value;
-  const dt1 = +document.getElementById('s8-dt1').value;
-  const massMgO = +document.getElementById('s8-massMgO').value;
-  const dt2 = +document.getElementById('s8-dt2').value;
-  document.getElementById('s8-massMg-val').textContent = massMg.toFixed(3)+' g';
-  document.getElementById('s8-dt1-val').textContent = dt1.toFixed(1)+' °C';
-  document.getElementById('s8-massMgO-val').textContent = massMgO.toFixed(3)+' g';
-  document.getElementById('s8-dt2-val').textContent = dt2.toFixed(1)+' °C';
-  const C = 836.8;
-  const q1 = -C*dt1, q2 = -C*dt2;
-  const molesMg = massMg/24.3, molesMgO = massMgO/40.3;
-  const dH1 = (q1/1000)/molesMg;
-  const dH2 = (q2/1000)/molesMgO;
-  const dH3 = -285.6;
-  const dHf = dH1-dH2+dH3;
-  const err = Math.abs(-601.7-dHf)/601.7*100;
-  document.getElementById('s8-result').innerHTML = `ΔH₁ (Mg+HCl) = ${dH1.toFixed(1)} kJ/mol<br>ΔH₂ (MgO+HCl) = ${dH2.toFixed(1)} kJ/mol<br><b>ΔHf°(MgO) = ${dHf.toFixed(1)} kJ/mol</b> (literature = −601.7, % error = ${err.toFixed(1)}%)`;
-}
-
-/* ===== SIM 9 — Beer-Lambert Visualizer ===== */
-function sim9Calc(){
-  const C = +document.getElementById('s9-conc').value;
-  document.getElementById('s9-conc-val').textContent = C.toFixed(5)+' M';
-  const eps = 2200, l = 1;
-  const A = eps*l*C;
-  document.getElementById('s9-result').innerHTML = `A = ε·l·C = ${eps} × ${l} × ${C.toFixed(5)} = <b>${A.toFixed(3)}</b>`;
-  const intensity = Math.min(A/0.8,1);
-  const r = Math.round(235-150*intensity), g = Math.round(225-180*intensity), b = Math.round(245-50*intensity);
-  document.getElementById('s9-swatch').style.background = `rgb(${r},${g},${b})`;
-}
-
-/* ===== SIM 10 — % ASA Back-Calculator ===== */
-function sim10Calc(){
-  const A = +document.getElementById('s10-abs').value;
-  document.getElementById('s10-abs-val').textContent = A.toFixed(2);
-  const tabletMass = +document.getElementById('s10-mass').value || 0.32;
-  const slope = 2700;
-  const Cdiluted = A/slope;
-  const Cstock = Cdiluted*50;
-  const moles = Cstock*0.100;
-  const massASA_g = moles*180.0;
-  const pct = tabletMass>0 ? (massASA_g/tabletMass*100) : 0;
-  document.getElementById('s10-result').innerHTML = `C(diluted) = ${Cdiluted.toExponential(2)} M → C(stock) = ${Cstock.toExponential(2)} M<br>Mass ASA = ${(massASA_g*1000).toFixed(1)} mg<br><b>% ASA = ${pct.toFixed(1)}%</b> of ${tabletMass.toFixed(2)} g tablet`;
-}
-
-/* ===== SIM 11 — Virtual Titration ===== */
-let s11Veq = 19.6, s11Vol = 0, s11TrueM = 0.1000;
-const s11Mass = 0.400;
-function sim11New(){
-  s11TrueM = +(Math.random()*0.02+0.09).toFixed(4);
-  s11Veq = (s11Mass/204.2)/s11TrueM*1000;
-  s11Vol = 0;
-  document.getElementById('s11-result').innerHTML = '';
-  sim11Render();
-}
-function sim11Add(amt){
-  s11Vol = Math.round((s11Vol+amt)*100)/100;
-  if(s11Vol < 0) s11Vol = 0;
-  sim11Render();
-}
-function sim11Render(){
-  document.getElementById('s11-vol').textContent = s11Vol.toFixed(2)+' mL';
-  const flask = document.getElementById('s11-flask');
-  const diff = s11Vol - s11Veq;
-  let color;
-  if(diff < -0.3) color = '#ffffff';
-  else if(diff < 0.3) color = '#ffd6ec';
-  else color = `rgb(${Math.max(196-diff*20,140)},${Math.max(70-diff*10,20)},${Math.max(140-diff*10,90)})`;
-  flask.style.background = color;
-}
-function sim11Stop(){
-  const moles = s11Mass/204.2;
-  const Mexp = moles/(s11Vol/1000);
-  const err = Math.abs(s11TrueM-Mexp)/s11TrueM*100;
-  document.getElementById('s11-result').innerHTML = `<div class="formula-box"><div class="eq">M(NaOH) = ${Mexp.toFixed(4)} M</div><div class="note">From V = ${s11Vol.toFixed(2)} mL, moles KHP = ${moles.toFixed(5)}</div></div><div class="callout ${err<2?'tip':'warning'}"><span class="ci">${err<2?'✅':'⚠️'}</span><div>True molarity was ${s11TrueM.toFixed(4)} M → % error = ${err.toFixed(2)}%</div></div>`;
-}
-
-/* ===== INITIALIZE ALL SIMULATIONS ===== */
-sim1New();
-sim2Render();
-sim3Combine();
-sim4Calc();
-sim5PopulateGuess();
-sim5New();
-sim7Calc();
-sim8Calc();
-sim9Calc();
-sim10Calc();
-sim11New();
-
 const navItems = document.querySelectorAll('.nav-item');
 const sections = document.querySelectorAll('.exp-section');
 const observer = new IntersectionObserver((entries)=>{
