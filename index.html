@@ -169,6 +169,13 @@ ul.plain{list-style:none;}
 ul.plain li{padding:4px 0;font-size:.87rem;}
 ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
+/* ===== COLOR RESULTS GRID (Midterm) ===== */
+.cr-grid{display:flex;flex-direction:column;gap:8px;}
+.cr-row{display:flex;align-items:center;gap:14px;}
+.cr-swatch{width:36px;height:36px;border-radius:8px;flex-shrink:0;}
+.cr-info{display:flex;flex-direction:column;gap:2px;font-size:.85rem;}
+.cr-info b{color:var(--navy);}
+.cr-info span{color:#5b5070;}
 /* ===== VIDEO EMBEDS ===== */
 .vid-card h3{margin-bottom:12px;}
 .vid-wrap{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;}
@@ -278,7 +285,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card vid-card">
     <h3>Lab Video</h3>
     <div class="vid-wrap">
-      <iframe src="https://www.youtube.com/embed/nGN6teNAKU0" title="How to Read Measurements & Determine Significant Figures" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/VRWRmIEHr3A" title="Lab Techniques & Safety: Crash Course Chemistry" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
@@ -341,6 +348,20 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <h3>Lab Video</h3>
     <div class="vid-wrap">
       <iframe src="https://www.youtube.com/embed/zghJTOVwRLk" title="Chemical/Laboratory Techniques: Micropipettes" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="card vid-card">
+    <h3>Lab Video — Significant Figures & Std Dev</h3>
+    <div class="vid-wrap">
+      <iframe src="https://www.youtube.com/embed/mN4lMkI-PL4" title="Significant Figures, Standard Deviation, Propagation of Error" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="card vid-card">
+    <h3>Lab Video — Density, Average & % Error</h3>
+    <div class="vid-wrap">
+      <iframe src="https://www.youtube.com/embed/BkR4ytwjGXA" title="Mass & Volume Measurements — Density and Percentage Error" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
@@ -684,6 +705,31 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   </div>
 
   <div class="card">
+    <h3>Expected Colors &amp; Observations</h3>
+    <div class="cr-grid">
+      <div class="cr-row"><div class="cr-swatch" style="background:#f0f0f0;border:2px dashed #bbb;"></div><div class="cr-info"><b>CO₃²⁻ + H₂SO₄</b><span>Effervescence — colorless gas (CO₂ bubbles)</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SO₄²⁻ + BaCl₂</b><span>White precipitate (BaSO₄) — does NOT dissolve in HCl</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>PO₄³⁻ + BaCl₂</b><span>White precipitate — DISSOLVES in 6M HCl</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SCN⁻ + AgNO₃</b><span>White AgSCN precipitate → + Fe(NO₃)₃ gives blood-red solution</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#8b0000;border:2px solid #600;"></div><div class="cr-info"><b>SCN⁻ confirmatory</b><span>Blood-red color with Fe(NO₃)₃</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #aaa;"></div><div class="cr-info"><b>Cl⁻ + AgNO₃</b><span>White AgCl precipitate → hexane layer turns pale yellow</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#f5e04a;border:2px solid #bbb;"></div><div class="cr-info"><b>Br⁻ + AgNO₃</b><span>Pale yellow AgBr precipitate → hexane layer turns orange</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#f97316;border:2px solid #c05a00;"></div><div class="cr-info"><b>Br⁻ hexane layer</b><span>Orange color after chlorine water</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#d4a017;border:2px solid #997a00;"></div><div class="cr-info"><b>I⁻ + AgNO₃</b><span>Yellow AgI precipitate → hexane layer turns purple/violet</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#7c3aed;border:2px solid #4a0099;"></div><div class="cr-info"><b>I⁻ hexane layer</b><span>Purple/violet color after chlorine water</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#78350f;border:2px solid #3d1a00;"></div><div class="cr-info"><b>NO₃⁻ brown ring test</b><span>Brown ring at interface of FeSO₄ and conc. H₂SO₄ layers</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#fef3c7;border:2px solid #d97706;"></div><div class="cr-info"><b>CH₃COO⁻</b><span>No color change — distinct vinegar smell on heating with H₂SO₄</span></div></div>
+    </div>
+  </div>
+
+  <div class="card vid-card">
+    <h3>Lab Video — Full Anion Identification Demo</h3>
+    <div class="vid-wrap">
+      <iframe src="https://www.youtube.com/embed/fhIyeLqTHqo" title="Qualitative Analysis of Anions — Lab Demonstration" allowfullscreen loading="lazy"></iframe>
+    </div>
+  </div>
+
+  <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>An unknown gives no gas with H₂SO₄, no precipitate with BaCl₂, and a yellow precipitate with AgNO₃ that turns the hexane layer purple after the confirmatory test. What is it?</summary><div class="qa">I⁻ (iodide) — yellow AgI precipitate and a purple hexane layer are diagnostic for iodide.</div></details>
   </div>
@@ -997,7 +1043,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card vid-card">
     <h3>Lab Video</h3>
     <div class="vid-wrap">
-      <iframe src="https://www.youtube.com/embed/fJRJLUYZe9c" title="Spectrophotometry and Beer-Lambert Law - Khan Academy" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/6VkOKpvEyP8" title="Spectrophotometric Analysis of Potassium Permanganate (KMnO₄) — Gen Chem 103" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
@@ -1108,7 +1154,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card vid-card">
     <h3>Lab Video</h3>
     <div class="vid-wrap">
-      <iframe src="https://www.youtube.com/embed/v5vZQ-6NTWs" title="Aspirin Synthesis Introduction" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/Yw4WK1me8yE" title="Spectrophotometric Analysis of a Commercial Aspirin Tablet — Gen Chem 103" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
@@ -1201,7 +1247,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card vid-card">
     <h3>Lab Video</h3>
     <div class="vid-wrap">
-      <iframe src="https://www.youtube.com/embed/H58Dyhb6Siw" title="VIRTUAL LAB: Standardization of NaOH with KHP" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/LuyJE73Mgp0" title="Titration of KHP with NaOH — Real Lab with Color Change & Phenolphthalein Endpoint" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
