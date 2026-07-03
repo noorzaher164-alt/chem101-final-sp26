@@ -169,6 +169,12 @@ ul.plain{list-style:none;}
 ul.plain li{padding:4px 0;font-size:.87rem;}
 ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
+
+/* ===== FRACTION & CHEM MATH FORMATTING ===== */
+.fr{display:inline-flex;flex-direction:column;align-items:center;vertical-align:middle;margin:0 4px;line-height:1.25;}
+.fr>span:first-child{border-bottom:2px solid currentColor;padding:0 6px 3px;text-align:center;white-space:nowrap;}
+.fr>span:last-child{padding:3px 6px 0;text-align:center;white-space:nowrap;}
+.eq sub,.eq sup,.feq sub,.feq sup{font-size:.7em;font-family:"JetBrains Mono",monospace;}
 /* ===== COLOR RESULTS GRID (Midterm) ===== */
 .cr-grid{display:flex;flex-direction:column;gap:8px;}
 .cr-row{display:flex;align-items:center;gap:14px;}
@@ -218,7 +224,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <a class="nav-item" href="#exp6" data-target="exp6">6 · Redox &amp; Activity</a>
   <a class="nav-item" href="#exp7" data-target="exp7">7 · Gas Constant R</a>
   <a class="nav-item" href="#exp8" data-target="exp8">8 · Hess's Law / MgO</a>
-  <a class="nav-item" href="#exp9" data-target="exp9">9 · KMnO₄ Spectro</a>
+  <a class="nav-item" href="#exp9" data-target="exp9">9 · KMnO<sub>4</sub> Spectro</a>
   <a class="nav-item" href="#exp10" data-target="exp10">10 · Aspirin Spectro</a>
   <a class="nav-item" href="#exp11" data-target="exp11">11 · NaOH Titration</a>
   <div class="side-label">Reference</div>
@@ -365,10 +371,10 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="grid-2">
     <div class="card">
       <h3>Key Formulas</h3>
-      <div class="formula-box"><div class="eq">d = m / V</div><div class="note">g/mL for liquids, g/cm³ for solids. Rearranged: m = d×V or V = m/d</div></div>
-      <div class="formula-box"><div class="eq">% Error = |True − Experimental| / True × 100%</div><div class="note">Transfer pipet: |10.00 − V_average| / 10.00 × 100%</div></div>
-      <div class="formula-box"><div class="eq">SD = √[Σ(xᵢ − x̄)² / (n−1)]</div><div class="note">Standard deviation — measures precision</div></div>
-      <div class="formula-box"><div class="eq">%RSD = SD / Mean × 100%</div><div class="note">% Relative standard deviation (precision)</div></div>
+      <div class="formula-box"><div class="eq">d = <span class="fr"><span>m</span><span>V</span></span></div><div class="note">g/mL for liquids, g/cm<sup>3</sup> for solids. Rearranged: m = d×V or V = m/d</div></div>
+      <div class="formula-box"><div class="eq">% Error = <span class="fr"><span>|True − Experimental|</span><span>True</span></span> × 100%</div><div class="note">Transfer pipet: |10.00 − V_average| / 10.00 × 100%</div></div>
+      <div class="formula-box"><div class="eq">SD = √[Σ(xᵢ − x̄)<sup>2</sup> / (n−1)]</div><div class="note">Standard deviation — measures precision</div></div>
+      <div class="formula-box"><div class="eq">%RSD = <span class="fr"><span>SD</span><span>Mean</span></span> × 100%</div><div class="note">% Relative standard deviation (precision)</div></div>
     </div>
 
     <div class="card">
@@ -465,12 +471,12 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Five Types of Inorganic Compounds</h3>
     <div class="rule-list">
-      <div class="rule-row"><span class="badge badge-navy">Type 1</span> <b>Binary Ionic (fixed charge):</b> Metal (Group IA, IIA, Al, Ga, In, Zn, Cd, Ag) + non-metal. Name: [Metal] + [anion root] + -ide. Ex: CaCl₂ = Calcium chloride, Na₂O = Sodium oxide.</div>
-      <div class="rule-row"><span class="badge badge-purple">Type 2</span> <b>Binary Ionic (variable charge):</b> Transition metal + non-metal. Cation charge = (anion charge × anion subscript) ÷ cation subscript. Name: Metal + (Roman numeral) + -ide. Ex: FeCl₃ = Iron(III) chloride, PbO₂ = Lead(IV) oxide. Classical: -ous = lower charge (Fe²⁺ Ferrous, Cu⁺ Cuprous), -ic = higher charge (Fe³⁺ Ferric, Cu²⁺ Cupric).</div>
-      <div class="rule-row"><span class="badge badge-magenta">Polyatomic</span> <b>Metal + polyatomic anion:</b> Use parentheses when subscript &gt; 1. Ex: (NH₄)₂SO₄ = Ammonium sulfate, Fe(NO₃)₃ = Iron(III) nitrate.</div>
-      <div class="rule-row"><span class="badge badge-teal">Type 3</span> <b>Molecular (covalent):</b> Two non-metals, Greek prefixes; mono- dropped for first element only. Ex: N₂O₅ = Dinitrogen pentoxide, CCl₄ = Carbon tetrachloride.</div>
-      <div class="rule-row"><span class="badge badge-red">Binary Acid</span> H⁺ + non-metal in water (aq). Name: hydro + [root] + ic acid. Ex: HCl(aq) = Hydrochloric acid, HBr(aq) = Hydrobromic acid.</div>
-      <div class="rule-row"><span class="badge badge-orange">Oxyacid</span> H⁺ + oxygen-containing polyatomic anion. -ate → ic acid; -ite → ous acid. Ex: H₂SO₄ = Sulfuric acid, H₂SO₃ = Sulfurous acid, HNO₃ = Nitric acid, HNO₂ = Nitrous acid.</div>
+      <div class="rule-row"><span class="badge badge-navy">Type 1</span> <b>Binary Ionic (fixed charge):</b> Metal (Group IA, IIA, Al, Ga, In, Zn, Cd, Ag) + non-metal. Name: [Metal] + [anion root] + -ide. Ex: CaCl<sub>2</sub> = Calcium chloride, Na<sub>2</sub>O = Sodium oxide.</div>
+      <div class="rule-row"><span class="badge badge-purple">Type 2</span> <b>Binary Ionic (variable charge):</b> Transition metal + non-metal. Cation charge = (anion charge × anion subscript) ÷ cation subscript. Name: Metal + (Roman numeral) + -ide. Ex: FeCl<sub>3</sub> = Iron(III) chloride, PbO<sub>2</sub> = Lead(IV) oxide. Classical: -ous = lower charge (Fe<sup>2+</sup> Ferrous, Cu<sup>+</sup> Cuprous), -ic = higher charge (Fe<sup>3+</sup> Ferric, Cu<sup>2+</sup> Cupric).</div>
+      <div class="rule-row"><span class="badge badge-magenta">Polyatomic</span> <b>Metal + polyatomic anion:</b> Use parentheses when subscript &gt; 1. Ex: (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> = Ammonium sulfate, Fe(NO<sub>3</sub>)<sub>3</sub> = Iron(III) nitrate.</div>
+      <div class="rule-row"><span class="badge badge-teal">Type 3</span> <b>Molecular (covalent):</b> Two non-metals, Greek prefixes; mono- dropped for first element only. Ex: N<sub>2</sub>O<sub>5</sub> = Dinitrogen pentoxide, CCl<sub>4</sub> = Carbon tetrachloride.</div>
+      <div class="rule-row"><span class="badge badge-red">Binary Acid</span> H<sup>+</sup> + non-metal in water (aq). Name: hydro + [root] + ic acid. Ex: HCl(aq) = Hydrochloric acid, HBr(aq) = Hydrobromic acid.</div>
+      <div class="rule-row"><span class="badge badge-orange">Oxyacid</span> H<sup>+</sup> + oxygen-containing polyatomic anion. -ate → ic acid; -ite → ous acid. Ex: H<sub>2</sub>SO<sub>4</sub> = Sulfuric acid, H<sub>2</sub>SO<sub>3</sub> = Sulfurous acid, HNO<sub>3</sub> = Nitric acid, HNO<sub>2</sub> = Nitrous acid.</div>
     </div>
   </div>
 
@@ -488,9 +494,9 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
         <div class="flow-arrow">→</div>
         <div class="flow-step"><span class="num">5</span>Net charge of compound must equal zero</div>
       </div>
-      <div class="formula-box"><div class="eq">Ca²⁺ + Cl⁻ → CaCl₂</div></div>
-      <div class="formula-box"><div class="eq">Na⁺ + O²⁻ → Na₂O</div></div>
-      <div class="formula-box"><div class="eq">NH₄⁺ + SO₄²⁻ → (NH₄)₂SO₄</div></div>
+      <div class="formula-box"><div class="eq">Ca<sup>2+</sup> + Cl<sup>−</sup> → CaCl<sub>2</sub></div></div>
+      <div class="formula-box"><div class="eq">Na<sup>+</sup> + O<sup>2−</sup> → Na<sub>2</sub>O</div></div>
+      <div class="formula-box"><div class="eq">NH<sub>4</sub><sup>+</sup> + SO<sub>4</sub><sup>2−</sup> → (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub></div></div>
     </div>
 
     <div class="card">
@@ -503,14 +509,14 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="tbl-wrap">
         <table class="tbl">
           <tr><th>Metal</th><th>Charges (Modern / Classical)</th></tr>
-          <tr><td>Fe</td><td>Fe²⁺ Iron(II)/Ferrous · Fe³⁺ Iron(III)/Ferric</td></tr>
-          <tr><td>Cu</td><td>Cu⁺ Copper(I)/Cuprous · Cu²⁺ Copper(II)/Cupric</td></tr>
-          <tr><td>Pb</td><td>Pb²⁺ Lead(II)/Plumbous · Pb⁴⁺ Lead(IV)/Plumbic</td></tr>
-          <tr><td>Hg</td><td>Hg⁺ Mercury(I)/Mercurous · Hg²⁺ Mercury(II)/Mercuric</td></tr>
-          <tr><td>Sn</td><td>Sn²⁺ Tin(II)/Stannous · Sn⁴⁺ Tin(IV)/Stannic</td></tr>
-          <tr><td>Cr</td><td>Cr²⁺ Chromium(II)/Chromous · Cr³⁺ Chromium(III)/Chromic</td></tr>
-          <tr><td>Co</td><td>Co²⁺ Cobalt(II)/Cobaltous · Co³⁺ Cobalt(III)/Cobaltic</td></tr>
-          <tr><td>Au</td><td>Au⁺ Gold(I)/Aurous · Au³⁺ Gold(III)/Auric</td></tr>
+          <tr><td>Fe</td><td>Fe<sup>2+</sup> Iron(II)/Ferrous · Fe<sup>3+</sup> Iron(III)/Ferric</td></tr>
+          <tr><td>Cu</td><td>Cu<sup>+</sup> Copper(I)/Cuprous · Cu<sup>2+</sup> Copper(II)/Cupric</td></tr>
+          <tr><td>Pb</td><td>Pb<sup>2+</sup> Lead(II)/Plumbous · Pb<sup>4+</sup> Lead(IV)/Plumbic</td></tr>
+          <tr><td>Hg</td><td>Hg<sup>+</sup> Mercury(I)/Mercurous · Hg<sup>2+</sup> Mercury(II)/Mercuric</td></tr>
+          <tr><td>Sn</td><td>Sn<sup>2+</sup> Tin(II)/Stannous · Sn<sup>4+</sup> Tin(IV)/Stannic</td></tr>
+          <tr><td>Cr</td><td>Cr<sup>2+</sup> Chromium(II)/Chromous · Cr<sup>3+</sup> Chromium(III)/Chromic</td></tr>
+          <tr><td>Co</td><td>Co<sup>2+</sup> Cobalt(II)/Cobaltous · Co<sup>3+</sup> Cobalt(III)/Cobaltic</td></tr>
+          <tr><td>Au</td><td>Au<sup>+</sup> Gold(I)/Aurous · Au<sup>3+</sup> Gold(III)/Auric</td></tr>
         </table>
       </div>
     </div>
@@ -519,25 +525,25 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Key Polyatomic Ions (Memorize All)</h3>
     <div class="grid-4">
-      <div class="ion-tile"><div class="f">NH₄⁺</div><div class="n">Ammonium (only + ion)</div></div>
-      <div class="ion-tile"><div class="f">OH⁻</div><div class="n">Hydroxide</div></div>
-      <div class="ion-tile"><div class="f">NO₃⁻</div><div class="n">Nitrate</div></div>
-      <div class="ion-tile"><div class="f">NO₂⁻</div><div class="n">Nitrite</div></div>
-      <div class="ion-tile"><div class="f">SO₄²⁻</div><div class="n">Sulfate</div></div>
-      <div class="ion-tile"><div class="f">SO₃²⁻</div><div class="n">Sulfite</div></div>
-      <div class="ion-tile"><div class="f">CO₃²⁻</div><div class="n">Carbonate</div></div>
-      <div class="ion-tile"><div class="f">HCO₃⁻</div><div class="n">Bicarbonate</div></div>
-      <div class="ion-tile"><div class="f">PO₄³⁻</div><div class="n">Phosphate</div></div>
-      <div class="ion-tile"><div class="f">HPO₄²⁻</div><div class="n">Hydrogen phosphate</div></div>
-      <div class="ion-tile"><div class="f">CH₃COO⁻</div><div class="n">Acetate</div></div>
-      <div class="ion-tile"><div class="f">CN⁻</div><div class="n">Cyanide</div></div>
-      <div class="ion-tile"><div class="f">ClO₄⁻</div><div class="n">Perchlorate</div></div>
-      <div class="ion-tile"><div class="f">ClO₃⁻</div><div class="n">Chlorate</div></div>
-      <div class="ion-tile"><div class="f">ClO₂⁻</div><div class="n">Chlorite</div></div>
-      <div class="ion-tile"><div class="f">ClO⁻</div><div class="n">Hypochlorite</div></div>
-      <div class="ion-tile"><div class="f">MnO₄⁻</div><div class="n">Permanganate</div></div>
-      <div class="ion-tile"><div class="f">Cr₂O₇²⁻</div><div class="n">Dichromate</div></div>
-      <div class="ion-tile"><div class="f">O₂²⁻</div><div class="n">Peroxide</div></div>
+      <div class="ion-tile"><div class="f">NH<sub>4</sub><sup>+</sup></div><div class="n">Ammonium (only + ion)</div></div>
+      <div class="ion-tile"><div class="f">OH<sup>−</sup></div><div class="n">Hydroxide</div></div>
+      <div class="ion-tile"><div class="f">NO<sub>3</sub><sup>−</sup></div><div class="n">Nitrate</div></div>
+      <div class="ion-tile"><div class="f">NO<sub>2</sub><sup>−</sup></div><div class="n">Nitrite</div></div>
+      <div class="ion-tile"><div class="f">SO<sub>4</sub><sup>2−</sup></div><div class="n">Sulfate</div></div>
+      <div class="ion-tile"><div class="f">SO<sub>3</sub><sup>2−</sup></div><div class="n">Sulfite</div></div>
+      <div class="ion-tile"><div class="f">CO<sub>3</sub><sup>2−</sup></div><div class="n">Carbonate</div></div>
+      <div class="ion-tile"><div class="f">HCO<sub>3</sub><sup>−</sup></div><div class="n">Bicarbonate</div></div>
+      <div class="ion-tile"><div class="f">PO<sub>4</sub><sup>3−</sup></div><div class="n">Phosphate</div></div>
+      <div class="ion-tile"><div class="f">HPO<sub>4</sub><sup>2−</sup></div><div class="n">Hydrogen phosphate</div></div>
+      <div class="ion-tile"><div class="f">CH<sub>3</sub>COO<sup>−</sup></div><div class="n">Acetate</div></div>
+      <div class="ion-tile"><div class="f">CN<sup>−</sup></div><div class="n">Cyanide</div></div>
+      <div class="ion-tile"><div class="f">ClO<sub>4</sub><sup>−</sup></div><div class="n">Perchlorate</div></div>
+      <div class="ion-tile"><div class="f">ClO<sub>3</sub><sup>−</sup></div><div class="n">Chlorate</div></div>
+      <div class="ion-tile"><div class="f">ClO<sub>2</sub><sup>−</sup></div><div class="n">Chlorite</div></div>
+      <div class="ion-tile"><div class="f">ClO<sup>−</sup></div><div class="n">Hypochlorite</div></div>
+      <div class="ion-tile"><div class="f">MnO<sub>4</sub><sup>−</sup></div><div class="n">Permanganate</div></div>
+      <div class="ion-tile"><div class="f">Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup></div><div class="n">Dichromate</div></div>
+      <div class="ion-tile"><div class="f">O<sub>2</sub><sup>2−</sup></div><div class="n">Peroxide</div></div>
     </div>
   </div>
 
@@ -550,8 +556,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>Name (NH₄)₂SO₄ and explain the parentheses.</summary><div class="qa">Ammonium sulfate. Parentheses are required around NH₄ because its subscript (2) is greater than 1.</div></details>
-    <details class="qcheck"><summary>How do you distinguish HNO₃ from HNO₂ in naming?</summary><div class="qa">HNO₃ contains nitrate (-ate) → nitric acid. HNO₂ contains nitrite (-ite) → nitrous acid.</div></details>
+    <details class="qcheck"><summary>Name (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> and explain the parentheses.</summary><div class="qa">Ammonium sulfate. Parentheses are required around NH<sub>4</sub> because its subscript (2) is greater than 1.</div></details>
+    <details class="qcheck"><summary>How do you distinguish HNO<sub>3</sub> from HNO<sub>2</sub> in naming?</summary><div class="qa">HNO<sub>3</sub> contains nitrate (-ate) → nitric acid. HNO<sub>2</sub> contains nitrite (-ite) → nitrous acid.</div></details>
   </div>
 </section>
 
@@ -592,7 +598,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Overview</h3>
     <div class="grid-3">
-      <div class="formula-box"><div class="eq">AlK(SO₄)₂·12H₂O</div><div class="note">Molar mass = 474.4 g/mol</div></div>
+      <div class="formula-box"><div class="eq">AlK(SO<sub>4</sub>)<sub>2</sub>·12H<sub>2</sub>O</div><div class="note">Molar mass = 474.4 g/mol</div></div>
       <div class="formula-box"><div class="eq">Starting material</div><div class="note">Aluminum metal from a beverage can or foil (~0.5–0.6 g)</div></div>
       <div class="formula-box"><div class="eq">1 mol Al → 1 mol alum</div><div class="note">1:1 stoichiometry</div></div>
     </div>
@@ -603,12 +609,12 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="flow">
       <div class="flow-step"><span class="num">1</span>Sand Al can with steel wool → cut into ~0.5×0.5 cm pieces</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="num">2</span>Add 25 mL 1.5M KOH in fume hood → heat gently (don't boil) until Al dissolves (~10–15 min); H₂ evolves</div>
+      <div class="flow-step"><span class="num">2</span>Add 25 mL 1.5M KOH in fume hood → heat gently (don't boil) until Al dissolves (~10–15 min); H<sub>2</sub> evolves</div>
       <div class="flow-arrow">→</div>
       <div class="flow-step"><span class="num">3</span>Filter hot solution → filtrate should be clear and colorless</div>
     </div>
     <div class="flow">
-      <div class="flow-step"><span class="num">4</span>Slowly add 10 mL 9M H₂SO₄ with stirring — generates considerable heat</div>
+      <div class="flow-step"><span class="num">4</span>Slowly add 10 mL 9M H<sub>2</sub>SO<sub>4</sub> with stirring — generates considerable heat</div>
       <div class="flow-arrow">→</div>
       <div class="flow-step"><span class="num">5</span>Ice bath → cool below 5°C with stirring → alum crystals form</div>
       <div class="flow-arrow">→</div>
@@ -621,19 +627,19 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="grid-2">
     <div class="card">
       <h3>Key Reactions</h3>
-      <div class="formula-box"><div class="eq" style="font-size:.92rem;">2Al(s) + 2OH⁻(aq) + 6H₂O(l) → 2Al(OH)₄⁻(aq) + 3H₂(g)</div><div class="note">Step 1 redox — Al oxidised (0→+3); water reduced (H: +1→0)</div></div>
-      <div class="formula-box"><div class="eq" style="font-size:.92rem;">2KOH + H₂SO₄ → K₂SO₄ + 2H₂O</div><div class="note">Step 2a</div></div>
-      <div class="formula-box"><div class="eq" style="font-size:.85rem;">2KAl(OH)₄ + 4H₂SO₄ → Al₂(SO₄)₃ + K₂SO₄ + 8H₂O</div><div class="note">Step 2b</div></div>
-      <div class="formula-box"><div class="eq" style="font-size:.8rem;">2Al(s)+2KOH+4H₂SO₄+10H₂O → 2AlK(SO₄)₂·12H₂O+3H₂(g)</div><div class="note">Overall reaction</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.92rem;">2Al(s) + 2OH<sup>−</sup>(aq) + 6H<sub>2</sub>O(l) → 2Al(OH)<sub>4</sub><sup>−</sup>(aq) + 3H<sub>2</sub>(g)</div><div class="note">Step 1 redox — Al oxidised (0→+3); water reduced (H: +1→0)</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.92rem;">2KOH + H<sub>2</sub>SO<sub>4</sub> → K<sub>2</sub>SO<sub>4</sub> + 2H<sub>2</sub>O</div><div class="note">Step 2a</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.85rem;">2KAl(OH)<sub>4</sub> + 4H<sub>2</sub>SO<sub>4</sub> → Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub> + K<sub>2</sub>SO<sub>4</sub> + 8H<sub>2</sub>O</div><div class="note">Step 2b</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.8rem;">2Al(s)+2KOH+4H<sub>2</sub>SO<sub>4</sub>+10H<sub>2</sub>O → 2AlK(SO<sub>4</sub>)<sub>2</sub>·12H<sub>2</sub>O+3H<sub>2</sub>(g)</div><div class="note">Overall reaction</div></div>
     </div>
 
     <div class="card">
       <h3>% Yield Calculation</h3>
-      <div class="formula-box"><div class="eq">% Yield = (Actual mass / Theoretical mass) × 100%</div><div class="note">Theoretical mass = moles Al × 474.4 g/mol</div></div>
+      <div class="formula-box"><div class="eq">% Yield = <span class="fr"><span>Actual mass</span><span>Theoretical mass</span></span> × 100%</div><div class="note">Theoretical mass = moles Al × 474.4 g/mol</div></div>
       <div class="callout note"><span class="ci">🧮</span><div><b>Sample calculation:</b> 0.325 g Al → 0.0120 mol Al → theoretical = 0.0120 × 474.4 = 5.69 g</div></div>
       <h4>Key Points</h4>
       <ul class="plain">
-        <li><b>Why methanol wash?</b> Alum is insoluble in methanol → removes excess H₂SO₄/K₂SO₄ without dissolving product</li>
+        <li><b>Why methanol wash?</b> Alum is insoluble in methanol → removes excess H<sub>2</sub>SO<sub>4</sub>/K<sub>2</sub>SO<sub>4</sub> without dissolving product</li>
         <li><b>Why slow cooling?</b> Produces larger, purer, more beautiful crystals</li>
         <li><b>Why filter while hot?</b> Prevents early crystallization of impurities in the beaker</li>
         <li><b>Drying:</b> Crystals must be completely dry before weighing — wet crystals give falsely high yield</li>
@@ -644,10 +650,10 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="grid-2">
     <div class="card">
       <h3>Safety</h3>
-      <div class="callout warning"><span class="ci">⚠️</span><div>KOH and H₂SO₄ are highly corrosive — wear goggles and gloves at all times.</div></div>
-      <div class="callout warning"><span class="ci">⚠️</span><div>Adding H₂SO₄ to KOH releases considerable heat — add slowly with stirring.</div></div>
+      <div class="callout warning"><span class="ci">⚠️</span><div>KOH and H<sub>2</sub>SO<sub>4</sub> are highly corrosive — wear goggles and gloves at all times.</div></div>
+      <div class="callout warning"><span class="ci">⚠️</span><div>Adding H<sub>2</sub>SO<sub>4</sub> to KOH releases considerable heat — add slowly with stirring.</div></div>
       <div class="callout warning"><span class="ci">⚠️</span><div>Methanol is toxic if swallowed and highly flammable — NO open flames.</div></div>
-      <div class="callout warning"><span class="ci">⚠️</span><div>H₂ gas is flammable — keep fume hood on during Step 1.</div></div>
+      <div class="callout warning"><span class="ci">⚠️</span><div>H<sub>2</sub> gas is flammable — keep fume hood on during Step 1.</div></div>
     </div>
     <div class="card">
       <h3>Uses of Alum</h3>
@@ -671,7 +677,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Quick Check</h3>
     <details class="qcheck"><summary>Why must the alum crystals be completely dry before weighing?</summary><div class="qa">Residual solvent adds extra mass, which would make the calculated % yield falsely high.</div></details>
-    <details class="qcheck"><summary>What is being oxidised and reduced in Step 1?</summary><div class="qa">Al is oxidised (0 → +3); water is reduced (H goes from +1 to 0 as H₂ gas is released).</div></details>
+    <details class="qcheck"><summary>What is being oxidised and reduced in Step 1?</summary><div class="qa">Al is oxidised (0 → +3); water is reduced (H goes from +1 to 0 as H<sub>2</sub> gas is released).</div></details>
   </div>
 </section>
 
@@ -725,10 +731,10 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="tbl-wrap">
       <table class="tbl">
         <tr><th>Anion</th><th>Test</th><th>Observation</th><th>Net Ionic Equation</th></tr>
-        <tr><td>CO₃²⁻</td><td>Add 6M H₂SO₄</td><td>Effervescence / CO₂ bubbles</td><td>CO₃²⁻(aq) + 2H⁺(aq) → H₂O(l) + CO₂(g)</td></tr>
+        <tr><td>CO<sub>3</sub><sup>2−</sup></td><td>Add 6M H<sub>2</sub>SO<sub>4</sub></td><td>Effervescence / CO<sub>2</sub> bubbles</td><td>CO<sub>3</sub><sup>2−</sup>(aq) + 2H<sup>+</sup>(aq) → H<sub>2</sub>O(l) + CO<sub>2</sub>(g)</td></tr>
       </table>
     </div>
-    <div class="callout info"><span class="ci">ℹ️</span><div>H₂CO₃ is unstable → decomposes immediately to CO₂ + H₂O.</div></div>
+    <div class="callout info"><span class="ci">ℹ️</span><div>H<sub>2</sub>CO<sub>3</sub> is unstable → decomposes immediately to CO<sub>2</sub> + H<sub>2</sub>O.</div></div>
   </div>
 
   <div class="card">
@@ -736,39 +742,39 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="tbl-wrap">
       <table class="tbl">
         <tr><th>Anion</th><th>Test</th><th>Precipitate</th><th>Confirmatory (6M HCl)</th></tr>
-        <tr><td>SO₄²⁻</td><td>1M BaCl₂</td><td>White (BaSO₄)</td><td>Does NOT dissolve → confirms SO₄²⁻</td></tr>
-        <tr><td>PO₄³⁻</td><td>1M BaCl₂</td><td>White (Ba₃(PO₄)₂)</td><td>DISSOLVES → confirms PO₄³⁻</td></tr>
+        <tr><td>SO<sub>4</sub><sup>2−</sup></td><td>1M BaCl<sub>2</sub></td><td>White (BaSO<sub>4</sub>)</td><td>Does NOT dissolve → confirms SO<sub>4</sub><sup>2−</sup></td></tr>
+        <tr><td>PO<sub>4</sub><sup>3−</sup></td><td>1M BaCl<sub>2</sub></td><td>White (Ba<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>)</td><td>DISSOLVES → confirms PO<sub>4</sub><sup>3−</sup></td></tr>
       </table>
     </div>
-    <div class="formula-box"><div class="eq" style="font-size:.85rem;">Ba²⁺(aq)+SO₄²⁻(aq)→BaSO₄(s) &nbsp;|&nbsp; 3Ba²⁺(aq)+2PO₄³⁻(aq)→Ba₃(PO₄)₂(s)</div></div>
+    <div class="formula-box"><div class="eq" style="font-size:.85rem;">Ba<sup>2+</sup>(aq)+SO<sub>4</sub><sup>2−</sup>(aq)→BaSO<sub>4</sub>(s) &nbsp;|&nbsp; 3Ba<sup>2+</sup>(aq)+2PO<sub>4</sub><sup>3−</sup>(aq)→Ba<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>(s)</div></div>
   </div>
 
   <div class="card">
     <h3>Group III — Silver Precipitate Group</h3>
     <div class="tbl-wrap">
       <table class="tbl">
-        <tr><th>Anion</th><th>AgNO₃ Precipitate</th><th>Confirmatory Test</th><th>Result</th></tr>
-        <tr><td>SCN⁻</td><td>White (AgSCN)</td><td>0.1M Fe(NO₃)₃</td><td>Blood-red complex [Fe(SCN)]²⁺</td></tr>
-        <tr><td>Cl⁻</td><td>White (AgCl)</td><td>6M HCl + hexane + Cl₂ water</td><td>Pale yellow hexane layer</td></tr>
-        <tr><td>Br⁻</td><td>Pale yellow (AgBr)</td><td>6M HCl + hexane + Cl₂ water</td><td>Orange hexane layer</td></tr>
-        <tr><td>I⁻</td><td>Yellow (AgI)</td><td>Acetic acid + hexane + Cl₂ water</td><td>Purple/violet hexane layer</td></tr>
+        <tr><th>Anion</th><th>AgNO<sub>3</sub> Precipitate</th><th>Confirmatory Test</th><th>Result</th></tr>
+        <tr><td>SCN<sup>−</sup></td><td>White (AgSCN)</td><td>0.1M Fe(NO<sub>3</sub>)<sub>3</sub></td><td>Blood-red complex [Fe(SCN)]<sup>2+</sup></td></tr>
+        <tr><td>Cl<sup>−</sup></td><td>White (AgCl)</td><td>6M HCl + hexane + Cl<sub>2</sub> water</td><td>Pale yellow hexane layer</td></tr>
+        <tr><td>Br<sup>−</sup></td><td>Pale yellow (AgBr)</td><td>6M HCl + hexane + Cl<sub>2</sub> water</td><td>Orange hexane layer</td></tr>
+        <tr><td>I<sup>−</sup></td><td>Yellow (AgI)</td><td>Acetic acid + hexane + Cl<sub>2</sub> water</td><td>Purple/violet hexane layer</td></tr>
       </table>
     </div>
-    <div class="formula-box"><div class="eq" style="font-size:.85rem;">Fe³⁺(aq)+SCN⁻(aq)→[Fe(SCN)]²⁺(aq) blood-red</div></div>
-    <div class="formula-box"><div class="eq" style="font-size:.85rem;">2Br⁻(aq)+Cl₂(aq)→Br₂(hexane)+2Cl⁻(aq) &nbsp;|&nbsp; 2I⁻(aq)+Cl₂(aq)→I₂(hexane)+2Cl⁻(aq)</div></div>
+    <div class="formula-box"><div class="eq" style="font-size:.85rem;">Fe<sup>3+</sup>(aq)+SCN<sup>−</sup>(aq)→[Fe(SCN)]<sup>2+</sup>(aq) blood-red</div></div>
+    <div class="formula-box"><div class="eq" style="font-size:.85rem;">2Br<sup>−</sup>(aq)+Cl<sub>2</sub>(aq)→Br<sub>2</sub>(hexane)+2Cl<sup>−</sup>(aq) &nbsp;|&nbsp; 2I<sup>−</sup>(aq)+Cl<sub>2</sub>(aq)→I<sub>2</sub>(hexane)+2Cl<sup>−</sup>(aq)</div></div>
   </div>
 
   <div class="card">
     <h3>Group IV — Soluble Group</h3>
     <div class="rule-list">
-      <div class="rule-row"><b>NO₃⁻:</b> Add 10 drops 0.2M FeSO₄, cool in ice bath. In fume hood, carefully pour 1–1.5 mL conc. H₂SO₄ down the side of the test tube. Observe: <b>brown ring</b> at the interface.</div>
-      <div class="rule-row"><b>CH₃COO⁻:</b> Add 4 drops conc. H₂SO₄ → heat in hot water bath → vinegar-like smell. Confirmatory: add 10 drops ethanol + heat → fruity smell (ethyl acetate).</div>
+      <div class="rule-row"><b>NO<sub>3</sub><sup>−</sup>:</b> Add 10 drops 0.2M FeSO<sub>4</sub>, cool in ice bath. In fume hood, carefully pour 1–1.5 mL conc. H<sub>2</sub>SO<sub>4</sub> down the side of the test tube. Observe: <b>brown ring</b> at the interface.</div>
+      <div class="rule-row"><b>CH<sub>3</sub>COO<sup>−</sup>:</b> Add 4 drops conc. H<sub>2</sub>SO<sub>4</sub> → heat in hot water bath → vinegar-like smell. Confirmatory: add 10 drops ethanol + heat → fruity smell (ethyl acetate).</div>
     </div>
-    <div class="formula-box"><div class="eq" style="font-size:.85rem;">3Fe²⁺(aq)+NO₃⁻(aq)+4H⁺(aq)→3Fe³⁺(aq)+NO(aq)+2H₂O</div><div class="note">NO(aq)+Fe²⁺(aq)→Fe(NO)²⁺(aq) (brown)</div></div>
+    <div class="formula-box"><div class="eq" style="font-size:.85rem;">3Fe<sup>2+</sup>(aq)+NO<sub>3</sub><sup>−</sup>(aq)+4H<sup>+</sup>(aq)→3Fe<sup>3+</sup>(aq)+NO(aq)+2H<sub>2</sub>O</div><div class="note">NO(aq)+Fe<sup>2+</sup>(aq)→Fe(NO)<sup>2+</sup>(aq) (brown)</div></div>
     <div class="callout info"><span class="ci">ℹ️</span><div><b>Why no mixing?</b> Heat of dilution destroys the brown Fe complex.</div></div>
   </div>
 
-  <div class="callout warning"><span class="ci">⚠️</span><div><b>Safety:</b> AgNO₃ stains skin dark-brown/black. Conc. H₂SO₄ is extremely corrosive — wash immediately with large amounts of water on skin contact. Use ice bath for the NO₃⁻ test.</div></div>
+  <div class="callout warning"><span class="ci">⚠️</span><div><b>Safety:</b> AgNO<sub>3</sub> stains skin dark-brown/black. Conc. H<sub>2</sub>SO<sub>4</sub> is extremely corrosive — wash immediately with large amounts of water on skin contact. Use ice bath for the NO<sub>3</sub><sup>−</sup> test.</div></div>
 
   <div class="card vid-card">
     <h3>Lab Video</h3>
@@ -779,8 +785,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>How do you distinguish SO₄²⁻ from PO₄³⁻ after both give a white precipitate with BaCl₂?</summary><div class="qa">Add 6M HCl: BaSO₄ does not dissolve (confirms SO₄²⁻), while Ba₃(PO₄)₂ dissolves (confirms PO₄³⁻).</div></details>
-    <details class="qcheck"><summary>Why is the NO₃⁻ brown ring test done in an ice bath without mixing the layers?</summary><div class="qa">The heat of dilution generated by mixing conc. H₂SO₄ with the aqueous layer would destroy the brown Fe(NO)²⁺ complex, so the layers must stay separated and cold.</div></details>
+    <details class="qcheck"><summary>How do you distinguish SO<sub>4</sub><sup>2−</sup> from PO<sub>4</sub><sup>3−</sup> after both give a white precipitate with BaCl<sub>2</sub>?</summary><div class="qa">Add 6M HCl: BaSO<sub>4</sub> does not dissolve (confirms SO<sub>4</sub><sup>2−</sup>), while Ba<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub> dissolves (confirms PO<sub>4</sub><sup>3−</sup>).</div></details>
+    <details class="qcheck"><summary>Why is the NO<sub>3</sub><sup>−</sup> brown ring test done in an ice bath without mixing the layers?</summary><div class="qa">The heat of dilution generated by mixing conc. H<sub>2</sub>SO<sub>4</sub> with the aqueous layer would destroy the brown Fe(NO)<sup>2+</sup> complex, so the layers must stay separated and cold.</div></details>
   </div>
 </section>
 
@@ -834,30 +840,30 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Decision Flowchart</h3>
     <div class="flow">
-      <div class="flow-step"><span class="num">1</span><b>Group 1 Test:</b> NEW tube: 10 drops unknown + 1–2 drops 6M H₂SO₄ → gas/effervescence? → <b>CO₃²⁻</b> STOP. No gas → next step</div>
+      <div class="flow-step"><span class="num">1</span><b>Group 1 Test:</b> NEW tube: 10 drops unknown + 1–2 drops 6M H<sub>2</sub>SO<sub>4</sub> → gas/effervescence? → <b>CO<sub>3</sub><sup>2−</sup></b> STOP. No gas → next step</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="num">2</span><b>Group 2 Test:</b> NEW tube: 10 drops unknown + 10 drops 1M BaCl₂ → white precipitate? Add 6 drops 6M HCl: dissolves → <b>PO₄³⁻</b>; doesn't dissolve → <b>SO₄²⁻</b>. No precipitate → next step</div>
+      <div class="flow-step"><span class="num">2</span><b>Group 2 Test:</b> NEW tube: 10 drops unknown + 10 drops 1M BaCl<sub>2</sub> → white precipitate? Add 6 drops 6M HCl: dissolves → <b>PO<sub>4</sub><sup>3−</sup></b>; doesn't dissolve → <b>SO<sub>4</sub><sup>2−</sup></b>. No precipitate → next step</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="num">3</span><b>Group 3 Test:</b> NEW tube: 10 drops unknown + 10 drops AgNO₃ → identify precipitate color, then confirm. No precipitate → next step</div>
+      <div class="flow-step"><span class="num">3</span><b>Group 3 Test:</b> NEW tube: 10 drops unknown + 10 drops AgNO<sub>3</sub> → identify precipitate color, then confirm. No precipitate → next step</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="num">4</span><b>Group 4 Test:</b> Two NEW tubes — brown ring test for NO₃⁻; vinegar-smell test for CH₃COO⁻</div>
+      <div class="flow-step"><span class="num">4</span><b>Group 4 Test:</b> Two NEW tubes — brown ring test for NO<sub>3</sub><sup>−</sup>; vinegar-smell test for CH<sub>3</sub>COO<sup>−</sup></div>
     </div>
   </div>
 
   <div class="card">
     <h3>Step 3 Detail — Silver Precipitate Branch</h3>
     <div class="rule-list">
-      <div class="rule-row"><b>White precipitate:</b> Add 1 mL DW + 2 drops 0.1M Fe(NO₃)₃ → Blood-red color → <b>SCN⁻</b></div>
-      <div class="rule-row"><b>White precipitate, no blood-red:</b> Confirmatory for Cl⁻ (Cl₂ water + hexane → pale yellow hexane layer)</div>
-      <div class="rule-row"><b>Yellow / pale-yellow precipitate:</b> Confirmatory test — Cl₂ water + hexane → orange layer = <b>Br⁻</b>; purple layer = <b>I⁻</b></div>
+      <div class="rule-row"><b>White precipitate:</b> Add 1 mL DW + 2 drops 0.1M Fe(NO<sub>3</sub>)<sub>3</sub> → Blood-red color → <b>SCN<sup>−</sup></b></div>
+      <div class="rule-row"><b>White precipitate, no blood-red:</b> Confirmatory for Cl<sup>−</sup> (Cl<sub>2</sub> water + hexane → pale yellow hexane layer)</div>
+      <div class="rule-row"><b>Yellow / pale-yellow precipitate:</b> Confirmatory test — Cl<sub>2</sub> water + hexane → orange layer = <b>Br<sup>−</sup></b>; purple layer = <b>I<sup>−</sup></b></div>
     </div>
   </div>
 
   <div class="card">
     <h3>Step 4 Detail — Group 4 Tests</h3>
     <div class="grid-2">
-      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Test tube 1: 10 drops unknown + 10 drops FeSO₄ → ice → conc. H₂SO₄ down the side</div><div class="note">Brown ring = NO₃⁻</div></div>
-      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Test tube 2: 20 drops unknown + conc. H₂SO₄ → heat</div><div class="note">Vinegar smell = CH₃COO⁻</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Test tube 1: 10 drops unknown + 10 drops FeSO<sub>4</sub> → ice → conc. H<sub>2</sub>SO<sub>4</sub> down the side</div><div class="note">Brown ring = NO<sub>3</sub><sup>−</sup></div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Test tube 2: 20 drops unknown + conc. H<sub>2</sub>SO<sub>4</sub> → heat</div><div class="note">Vinegar smell = CH<sub>3</sub>COO<sup>−</sup></div></div>
     </div>
   </div>
 
@@ -866,10 +872,10 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="tbl-wrap">
       <table class="tbl">
         <tr><th>Anion</th><th>Procedure</th><th>Result</th></tr>
-        <tr><td>Cl⁻</td><td>10 drops unknown + 8 drops 6M HCl + 2 mL hexane + chlorine water → shake</td><td>Pale yellow hexane layer</td></tr>
-        <tr><td>Br⁻</td><td>10 drops unknown + 8 drops 6M HCl + 2 mL hexane + 4 drops chlorine water → shake</td><td>Orange hexane layer</td></tr>
-        <tr><td>I⁻</td><td>10 drops unknown + 10 drops acetic acid + 2 mL hexane + 4 drops chlorine water → shake</td><td>Purple hexane layer</td></tr>
-        <tr><td>Acetate</td><td>12 drops unknown + 4 drops conc. H₂SO₄ → heat</td><td>Smell of vinegar</td></tr>
+        <tr><td>Cl<sup>−</sup></td><td>10 drops unknown + 8 drops 6M HCl + 2 mL hexane + chlorine water → shake</td><td>Pale yellow hexane layer</td></tr>
+        <tr><td>Br<sup>−</sup></td><td>10 drops unknown + 8 drops 6M HCl + 2 mL hexane + 4 drops chlorine water → shake</td><td>Orange hexane layer</td></tr>
+        <tr><td>I<sup>−</sup></td><td>10 drops unknown + 10 drops acetic acid + 2 mL hexane + 4 drops chlorine water → shake</td><td>Purple hexane layer</td></tr>
+        <tr><td>Acetate</td><td>12 drops unknown + 4 drops conc. H<sub>2</sub>SO<sub>4</sub> → heat</td><td>Smell of vinegar</td></tr>
       </table>
     </div>
   </div>
@@ -878,26 +884,26 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <h3>Critical Exam Rules</h3>
     <div class="callout warning"><span class="ci">⚠️</span><div>Always use a NEW test tube for each group test.</div></div>
     <div class="callout warning"><span class="ci">⚠️</span><div>Use only a small portion of unknown each time.</div></div>
-    <div class="callout warning"><span class="ci">⚠️</span><div>AgNO₃ stains skin black/brown.</div></div>
-    <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. H₂SO₄ with extreme care — use ice bath for the brown ring test.</div></div>
+    <div class="callout warning"><span class="ci">⚠️</span><div>AgNO<sub>3</sub> stains skin black/brown.</div></div>
+    <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. H<sub>2</sub>SO<sub>4</sub> with extreme care — use ice bath for the brown ring test.</div></div>
     <div class="callout warning"><span class="ci">⚠️</span><div>Hexane is flammable — NO open flames.</div></div>
   </div>
 
   <div class="card">
     <h3>Expected Colors &amp; Observations</h3>
     <div class="cr-grid">
-      <div class="cr-row"><div class="cr-swatch" style="background:#f0f0f0;border:2px dashed #bbb;"></div><div class="cr-info"><b>CO₃²⁻ + H₂SO₄</b><span>Effervescence — colorless gas (CO₂ bubbles)</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SO₄²⁻ + BaCl₂</b><span>White precipitate (BaSO₄) — does NOT dissolve in HCl</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>PO₄³⁻ + BaCl₂</b><span>White precipitate — DISSOLVES in 6M HCl</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SCN⁻ + AgNO₃</b><span>White AgSCN precipitate → + Fe(NO₃)₃ gives blood-red solution</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#8b0000;border:2px solid #600;"></div><div class="cr-info"><b>SCN⁻ confirmatory</b><span>Blood-red color with Fe(NO₃)₃</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #aaa;"></div><div class="cr-info"><b>Cl⁻ + AgNO₃</b><span>White AgCl precipitate → hexane layer turns pale yellow</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#f5e04a;border:2px solid #bbb;"></div><div class="cr-info"><b>Br⁻ + AgNO₃</b><span>Pale yellow AgBr precipitate → hexane layer turns orange</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#f97316;border:2px solid #c05a00;"></div><div class="cr-info"><b>Br⁻ hexane layer</b><span>Orange color after chlorine water</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#d4a017;border:2px solid #997a00;"></div><div class="cr-info"><b>I⁻ + AgNO₃</b><span>Yellow AgI precipitate → hexane layer turns purple/violet</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#7c3aed;border:2px solid #4a0099;"></div><div class="cr-info"><b>I⁻ hexane layer</b><span>Purple/violet color after chlorine water</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#78350f;border:2px solid #3d1a00;"></div><div class="cr-info"><b>NO₃⁻ brown ring test</b><span>Brown ring at interface of FeSO₄ and conc. H₂SO₄ layers</span></div></div>
-      <div class="cr-row"><div class="cr-swatch" style="background:#fef3c7;border:2px solid #d97706;"></div><div class="cr-info"><b>CH₃COO⁻</b><span>No color change — distinct vinegar smell on heating with H₂SO₄</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#f0f0f0;border:2px dashed #bbb;"></div><div class="cr-info"><b>CO<sub>3</sub><sup>2−</sup> + H<sub>2</sub>SO<sub>4</sub></b><span>Effervescence — colorless gas (CO<sub>2</sub> bubbles)</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SO<sub>4</sub><sup>2−</sup> + BaCl<sub>2</sub></b><span>White precipitate (BaSO<sub>4</sub>) — does NOT dissolve in HCl</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>PO<sub>4</sub><sup>3−</sup> + BaCl<sub>2</sub></b><span>White precipitate — DISSOLVES in 6M HCl</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #999;"></div><div class="cr-info"><b>SCN<sup>−</sup> + AgNO<sub>3</sub></b><span>White AgSCN precipitate → + Fe(NO<sub>3</sub>)<sub>3</sub> gives blood-red solution</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#8b0000;border:2px solid #600;"></div><div class="cr-info"><b>SCN<sup>−</sup> confirmatory</b><span>Blood-red color with Fe(NO<sub>3</sub>)<sub>3</sub></span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#ffffff;border:2px solid #aaa;"></div><div class="cr-info"><b>Cl<sup>−</sup> + AgNO<sub>3</sub></b><span>White AgCl precipitate → hexane layer turns pale yellow</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#f5e04a;border:2px solid #bbb;"></div><div class="cr-info"><b>Br<sup>−</sup> + AgNO<sub>3</sub></b><span>Pale yellow AgBr precipitate → hexane layer turns orange</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#f97316;border:2px solid #c05a00;"></div><div class="cr-info"><b>Br<sup>−</sup> hexane layer</b><span>Orange color after chlorine water</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#d4a017;border:2px solid #997a00;"></div><div class="cr-info"><b>I<sup>−</sup> + AgNO<sub>3</sub></b><span>Yellow AgI precipitate → hexane layer turns purple/violet</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#7c3aed;border:2px solid #4a0099;"></div><div class="cr-info"><b>I<sup>−</sup> hexane layer</b><span>Purple/violet color after chlorine water</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#78350f;border:2px solid #3d1a00;"></div><div class="cr-info"><b>NO<sub>3</sub><sup>−</sup> brown ring test</b><span>Brown ring at interface of FeSO<sub>4</sub> and conc. H<sub>2</sub>SO<sub>4</sub> layers</span></div></div>
+      <div class="cr-row"><div class="cr-swatch" style="background:#fef3c7;border:2px solid #d97706;"></div><div class="cr-info"><b>CH<sub>3</sub>COO<sup>−</sup></b><span>No color change — distinct vinegar smell on heating with H<sub>2</sub>SO<sub>4</sub></span></div></div>
     </div>
   </div>
 
@@ -910,7 +916,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>An unknown gives no gas with H₂SO₄, no precipitate with BaCl₂, and a yellow precipitate with AgNO₃ that turns the hexane layer purple after the confirmatory test. What is it?</summary><div class="qa">I⁻ (iodide) — yellow AgI precipitate and a purple hexane layer are diagnostic for iodide.</div></details>
+    <details class="qcheck"><summary>An unknown gives no gas with H<sub>2</sub>SO<sub>4</sub>, no precipitate with BaCl<sub>2</sub>, and a yellow precipitate with AgNO<sub>3</sub> that turns the hexane layer purple after the confirmatory test. What is it?</summary><div class="qa">I<sup>−</sup> (iodide) — yellow AgI precipitate and a purple hexane layer are diagnostic for iodide.</div></details>
   </div>
 </section>
 
@@ -972,7 +978,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <ul class="plain">
         <li>If metal A reacts with a solution of cation B → A is MORE active than B</li>
         <li>If no reaction → A is LESS active than B (or equal)</li>
-        <li>Spectator ions (like NO₃⁻) are NEVER included in net ionic equations</li>
+        <li>Spectator ions (like NO<sub>3</sub><sup>−</sup>) are NEVER included in net ionic equations</li>
       </ul>
     </div>
   </div>
@@ -980,9 +986,9 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Balancing Half-Reactions — Rules</h3>
     <div class="flow">
-      <div class="flow-step"><span class="num">1</span>Write the oxidation half-reaction (species losing e⁻)</div>
+      <div class="flow-step"><span class="num">1</span>Write the oxidation half-reaction (species losing e<sup>−</sup>)</div>
       <div class="flow-arrow">→</div>
-      <div class="flow-step"><span class="num">2</span>Write the reduction half-reaction (species gaining e⁻)</div>
+      <div class="flow-step"><span class="num">2</span>Write the reduction half-reaction (species gaining e<sup>−</sup>)</div>
       <div class="flow-arrow">→</div>
       <div class="flow-step"><span class="num">3</span>Multiply so electrons lost = electrons gained</div>
       <div class="flow-arrow">→</div>
@@ -991,8 +997,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="flow-step"><span class="num">5</span>Check atoms and charge are balanced</div>
     </div>
     <div class="grid-2">
-      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Ni(s) → Ni²⁺(aq) + 2e⁻<br>2Ag⁺(aq) + 2e⁻ → 2Ag(s)<br>Ni(s)+2Ag⁺(aq)→Ni²⁺(aq)+2Ag(s)</div><div class="note">Ni + Ag⁺ example</div></div>
-      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Fe(s) → Fe²⁺(aq) + 2e⁻<br>Cu²⁺(aq) + 2e⁻ → Cu(s)<br>Fe(s)+Cu²⁺(aq)→Fe²⁺(aq)+Cu(s)</div><div class="note">Fe is reducing agent; Cu²⁺ is oxidising agent</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Ni(s) → Ni<sup>2+</sup>(aq) + 2e<sup>−</sup><br>2Ag<sup>+</sup>(aq) + 2e<sup>−</sup> → 2Ag(s)<br>Ni(s)+2Ag<sup>+</sup>(aq)→Ni<sup>2+</sup>(aq)+2Ag(s)</div><div class="note">Ni + Ag<sup>+</sup> example</div></div>
+      <div class="formula-box"><div class="eq" style="font-size:.85rem;">Fe(s) → Fe<sup>2+</sup>(aq) + 2e<sup>−</sup><br>Cu<sup>2+</sup>(aq) + 2e<sup>−</sup> → Cu(s)<br>Fe(s)+Cu<sup>2+</sup>(aq)→Fe<sup>2+</sup>(aq)+Cu(s)</div><div class="note">Fe is reducing agent; Cu<sup>2+</sup> is oxidising agent</div></div>
     </div>
   </div>
 
@@ -1001,12 +1007,12 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="tbl-wrap">
       <table class="tbl">
         <tr><th>Metal in Solution</th><th>Observation</th><th>Conclusion</th><th>Net Ionic Equation</th></tr>
-        <tr><td>Cu in AgNO₃</td><td>Cu surface turns grey/silver deposit</td><td>Cu &gt; Ag</td><td>Cu(s)+2Ag⁺(aq)→Cu²⁺(aq)+2Ag(s)</td></tr>
-        <tr><td>Fe in CuSO₄</td><td>Fe darkens, copper deposit on surface</td><td>Fe &gt; Cu</td><td>Fe(s)+Cu²⁺(aq)→Fe²⁺(aq)+Cu(s)</td></tr>
-        <tr><td>Cu in Zn(NO₃)₂</td><td>No reaction</td><td>Zn &gt; Cu</td><td>—</td></tr>
-        <tr><td>Fe in Zn(NO₃)₂</td><td>No reaction</td><td>Zn &gt; Fe</td><td>—</td></tr>
-        <tr><td>Ag in CuSO₄</td><td>No reaction</td><td>Cu &gt; Ag</td><td>—</td></tr>
-        <tr><td>Ag in Zn(NO₃)₂</td><td>No reaction</td><td>Zn &gt; Ag</td><td>—</td></tr>
+        <tr><td>Cu in AgNO<sub>3</sub></td><td>Cu surface turns grey/silver deposit</td><td>Cu &gt; Ag</td><td>Cu(s)+2Ag<sup>+</sup>(aq)→Cu<sup>2+</sup>(aq)+2Ag(s)</td></tr>
+        <tr><td>Fe in CuSO<sub>4</sub></td><td>Fe darkens, copper deposit on surface</td><td>Fe &gt; Cu</td><td>Fe(s)+Cu<sup>2+</sup>(aq)→Fe<sup>2+</sup>(aq)+Cu(s)</td></tr>
+        <tr><td>Cu in Zn(NO<sub>3</sub>)<sub>2</sub></td><td>No reaction</td><td>Zn &gt; Cu</td><td>—</td></tr>
+        <tr><td>Fe in Zn(NO<sub>3</sub>)<sub>2</sub></td><td>No reaction</td><td>Zn &gt; Fe</td><td>—</td></tr>
+        <tr><td>Ag in CuSO<sub>4</sub></td><td>No reaction</td><td>Cu &gt; Ag</td><td>—</td></tr>
+        <tr><td>Ag in Zn(NO<sub>3</sub>)<sub>2</sub></td><td>No reaction</td><td>Zn &gt; Ag</td><td>—</td></tr>
       </table>
     </div>
     <div class="callout tip"><span class="ci">✅</span><div><b>Final ranking:</b> Zn &gt; Fe &gt; Cu &gt; Ag</div></div>
@@ -1021,7 +1027,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>If Ag shows no reaction in CuSO₄ but Fe does react in CuSO₄, what does this tell you?</summary><div class="qa">Fe is more active than Cu (Fe &gt; Cu), while Cu is more active than Ag (Cu &gt; Ag) — consistent with the reactivity series Fe &gt; Cu &gt; Ag.</div></details>
+    <details class="qcheck"><summary>If Ag shows no reaction in CuSO<sub>4</sub> but Fe does react in CuSO<sub>4</sub>, what does this tell you?</summary><div class="qa">Fe is more active than Cu (Fe &gt; Cu), while Cu is more active than Ag (Cu &gt; Ag) — consistent with the reactivity series Fe &gt; Cu &gt; Ag.</div></details>
   </div>
 </section>
 
@@ -1030,7 +1036,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="section-header grad-7">
     <div class="icon">🎈</div>
     <div><h2>Experiment 7 — Universal Gas Constant R</h2>
-    <p>Determining R by collecting H₂ gas from the reaction of Mg with HCl</p></div>
+    <p>Determining R by collecting H<sub>2</sub> gas from the reaction of Mg with HCl</p></div>
   </div>
 
   <div class="exp-photo">
@@ -1066,22 +1072,22 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Reaction &amp; Method</h3>
-    <div class="formula-box"><div class="eq">Mg(s) + 2HCl(aq) → MgCl₂(aq) + H₂(g)</div><div class="note">Collect H₂ in an inverted burette over dilute HCl. Measure volume, temperature, and pressure. Calculate R from PV = nRT.</div></div>
+    <div class="formula-box"><div class="eq">Mg(s) + 2HCl(aq) → MgCl<sub>2</sub>(aq) + H<sub>2</sub>(g)</div><div class="note">Collect H<sub>2</sub> in an inverted burette over dilute HCl. Measure volume, temperature, and pressure. Calculate R from PV = nRT.</div></div>
   </div>
 
   <div class="grid-2">
     <div class="card">
       <h3>Key Formulas</h3>
       <div class="formula-box"><div class="eq">PV = nRT</div><div class="note">R = 0.08206 L·atm/mol·K &nbsp;or&nbsp; 8.314 J/mol·K</div></div>
-      <div class="formula-box"><div class="eq">P(H₂) = P_atm − P(H₂O) − ΔP</div><div class="note">ΔP (mmHg) = level difference (mm water) ÷ 13.6</div></div>
+      <div class="formula-box"><div class="eq">P(H<sub>2</sub>) = P<sub>atm</sub> − P(H<sub>2</sub>O) − ΔP</div><div class="note">ΔP (mmHg) = level difference (mm water) ÷ 13.6</div></div>
       <div class="formula-box"><div class="eq">V(gas total) = V_dead + (50 mL − final reading)</div><div class="note">Dead volume below the 50 mL mark</div></div>
       <div class="formula-box"><div class="eq">T(K) = T(°C) + 273.15</div><div class="note">1 atm = 760 mmHg → P(atm) = P(mmHg) / 760</div></div>
-      <div class="formula-box"><div class="eq">R = P(atm)·V(L) / (n·T(K))</div><div class="note">n(H₂) = n(Mg) = mass Mg / 24.3 g/mol</div></div>
+      <div class="formula-box"><div class="eq">R = P(atm)·V(L) / (n·T(K))</div><div class="note">n(H<sub>2</sub>) = n(Mg) = mass Mg / 24.3 g/mol</div></div>
     </div>
 
     <div class="card">
       <h3>Pressure Corrections</h3>
-      <div class="callout info"><span class="ci">ℹ️</span><div><b>Why subtract P(H₂O)?</b> The collected gas is a mixture of H₂ AND water vapour. By Dalton's Law: P(total) = P(H₂) + P(H₂O). Must subtract to get true P(H₂).</div></div>
+      <div class="callout info"><span class="ci">ℹ️</span><div><b>Why subtract P(H<sub>2</sub>O)?</b> The collected gas is a mixture of H<sub>2</sub> AND water vapour. By Dalton's Law: P(total) = P(H<sub>2</sub>) + P(H<sub>2</sub>O). Must subtract to get true P(H<sub>2</sub>).</div></div>
       <div class="callout note"><span class="ci">📏</span><div><b>Level correction:</b> If water level inside the burette is ABOVE the beaker level → gas pressure is slightly higher than atmospheric → ΔP positive, subtracted. If BELOW → ΔP negative, added.</div></div>
     </div>
   </div>
@@ -1089,8 +1095,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Statistics (3 Trials Required)</h3>
     <div class="grid-2">
-      <div class="formula-box"><div class="eq">R_avg = (R₁+R₂+R₃)/3</div></div>
-      <div class="formula-box"><div class="eq">SD = √[Σ(Rᵢ−R_avg)²/(n−1)]</div></div>
+      <div class="formula-box"><div class="eq">R_avg = (R<sub>1</sub>+R<sub>2</sub>+R<sub>3</sub>)/3</div></div>
+      <div class="formula-box"><div class="eq">SD = √[Σ(Rᵢ−R_avg)<sup>2</sup>/(n−1)]</div></div>
       <div class="formula-box"><div class="eq">%RSD = (SD/R_avg)×100%</div><div class="note">Measures precision</div></div>
       <div class="formula-box"><div class="eq">%Error = |R_lit−R_exp|/R_lit×100%</div><div class="note">Measures accuracy</div></div>
     </div>
@@ -1104,7 +1110,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
         <tr><th>P (mmHg)</th><td>12.8</td><td>13.6</td><td>14.5</td><td>15.5</td><td>16.5</td><td>17.5</td><td>18.7</td><td>19.8</td><td>21.1</td><td>22.4</td><td>23.8</td><td>25.2</td><td>26.7</td><td>28.3</td><td>30.0</td><td>31.8</td></tr>
       </table>
     </div>
-    <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H₂ is highly flammable — no open flames near the experiment.</div></div>
+    <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H<sub>2</sub> is highly flammable — no open flames near the experiment.</div></div>
   </div>
 
   <div class="card vid-card">
@@ -1116,7 +1122,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>Why does forgetting to subtract P(H₂O) make the calculated R too high?</summary><div class="qa">Without subtracting P(H₂O), the pressure used (P_atm instead of true P(H₂)) is too high, which makes R = PV/nT come out too large.</div></details>
+    <details class="qcheck"><summary>Why does forgetting to subtract P(H<sub>2</sub>O) make the calculated R too high?</summary><div class="qa">Without subtracting P(H<sub>2</sub>O), the pressure used (P<sub>atm</sub> instead of true P(H<sub>2</sub>)) is too high, which makes R = PV/nT come out too large.</div></details>
   </div>
 </section>
 
@@ -1160,7 +1166,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="rule-list">
         <div class="rule-row"><b>Exothermic:</b> ΔH &lt; 0. Heat RELEASED. Temperature RISES. Products have less energy than reactants.</div>
         <div class="rule-row"><b>Endothermic:</b> ΔH &gt; 0. Heat ABSORBED. Temperature FALLS. Products have more energy than reactants.</div>
-        <div class="rule-row">At constant pressure: ΔH_reaction = q_p</div>
+        <div class="rule-row">At constant pressure: ΔH_reaction = q<sub>p</sub></div>
         <div class="rule-row">1 calorie = 4.184 J. Food Calorie (capital C) = 1 kcal = 1000 cal.</div>
         <div class="rule-row"><b>ΔHf°:</b> Heat change forming 1 mole of compound from elements in standard states. ΔHf° = 0 for all elements in standard states.</div>
       </div>
@@ -1168,9 +1174,9 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
     <div class="card">
       <h3>Styrofoam Cup Calorimeter</h3>
-      <div class="formula-box"><div class="eq">q_rxn + q_cal = 0 → q_rxn = −C·ΔT</div><div class="note">C = mass of solution (g) × 4.184 J/g·°C</div></div>
+      <div class="formula-box"><div class="eq">q<sub>rxn</sub> + q<sub>cal</sub> = 0  →  q<sub>rxn</sub> = −C·ΔT</div><div class="note">C = mass of solution (g) × 4.184 J g<sup>−1</sup> °C<sup>−1</sup></div></div>
       <div class="formula-box"><div class="eq">C (200 mL: 50 mL HCl + 150 mL water) = 836.8 J/°C</div></div>
-      <div class="formula-box"><div class="eq">ΔH_molar = q_p / moles of reactant</div><div class="note">Convert J → kJ by dividing by 1000. Density of solution assumed = 1.00 g/mL</div></div>
+      <div class="formula-box"><div class="eq">ΔH<sub>molar</sub> = <span class="fr"><span>q<sub>p</sub></span><span>moles of reactant</span></span></div><div class="note">Convert J → kJ by dividing by 1000. Density of solution assumed = 1.00 g/mL</div></div>
     </div>
   </div>
 
@@ -1188,30 +1194,30 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <h3>Hess's Law &amp; the Three Reactions</h3>
     <div class="callout info"><span class="ci">ℹ️</span><div>Heats of reaction are additive — enthalpy is a state function, path doesn't matter. Reversing a reaction flips the sign of ΔH. Scaling a reaction multiplies ΔH by the same factor.</div></div>
     <div class="rule-list">
-      <div class="rule-row"><b>Reaction 1 (Part A, measured):</b> Mg(s)+2HCl(aq)→MgCl₂(aq)+H₂(g) — ΔH₁</div>
-      <div class="rule-row"><b>Reaction 2 (Part B, measured):</b> MgO(s)+2HCl(aq)→MgCl₂(aq)+H₂O(l) — ΔH₂</div>
-      <div class="rule-row"><b>Reaction 3 (known):</b> H₂(g)+½O₂(g)→H₂O(l) — ΔH₃ = −285.6 kJ/mol</div>
+      <div class="rule-row"><b>Reaction 1 (Part A, measured):</b> Mg(s)+2HCl(aq)→MgCl<sub>2</sub>(aq)+H<sub>2</sub>(g) — ΔH<sub>1</sub></div>
+      <div class="rule-row"><b>Reaction 2 (Part B, measured):</b> MgO(s)+2HCl(aq)→MgCl<sub>2</sub>(aq)+H<sub>2</sub>O(l) — ΔH<sub>2</sub></div>
+      <div class="rule-row"><b>Reaction 3 (known):</b> H<sub>2</sub>(g)+½O<sub>2</sub>(g)→H<sub>2</sub>O(l) — ΔH<sub>3</sub> = −285.6 kJ/mol</div>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="card">
       <h3>Result — ΔHf°(MgO)</h3>
-      <div class="formula-box"><div class="eq">Mg(s) + ½O₂(g) → MgO(s)</div><div class="note">ΔHf°(MgO) = ΔH₁ − ΔH₂ + ΔH₃</div></div>
+      <div class="formula-box"><div class="eq">Mg(s) + ½O<sub>2</sub>(g) → MgO(s)</div><div class="note">ΔHf°(MgO) = ΔH<sub>1</sub> − ΔH<sub>2</sub> + ΔH<sub>3</sub></div></div>
       <div class="callout tip"><span class="ci">✅</span><div>Literature value: −601.7 kJ/mol</div></div>
     </div>
     <div class="card">
       <h3>How the Combination Works</h3>
       <div class="rule-list">
-        <div class="rule-row">Reaction 1 (as written): Mg + 2HCl → MgCl₂ + H₂ &nbsp;ΔH₁</div>
-        <div class="rule-row">Reaction 2 (reversed): MgCl₂ + H₂O → MgO + 2HCl &nbsp;−ΔH₂</div>
-        <div class="rule-row">Reaction 3 (as written): H₂ + ½O₂ → H₂O &nbsp;ΔH₃</div>
-        <div class="rule-row">MgCl₂ and 2HCl cancel → Net: Mg + ½O₂ → MgO</div>
+        <div class="rule-row">Reaction 1 (as written): Mg + 2HCl → MgCl<sub>2</sub> + H<sub>2</sub> &nbsp;ΔH<sub>1</sub></div>
+        <div class="rule-row">Reaction 2 (reversed): MgCl<sub>2</sub> + H<sub>2</sub>O → MgO + 2HCl &nbsp;−ΔH<sub>2</sub></div>
+        <div class="rule-row">Reaction 3 (as written): H<sub>2</sub> + ½O<sub>2</sub> → H<sub>2</sub>O &nbsp;ΔH<sub>3</sub></div>
+        <div class="rule-row">MgCl<sub>2</sub> and 2HCl cancel → Net: Mg + ½O<sub>2</sub> → MgO</div>
       </div>
     </div>
   </div>
 
-  <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H₂ is flammable — no open flames near the experiment.</div></div>
+  <div class="callout warning"><span class="ci">⚠️</span><div>Handle conc. HCl in fume hood only. H<sub>2</sub> is flammable — no open flames near the experiment.</div></div>
 
   <div class="card vid-card">
     <h3>Lab Video</h3>
@@ -1222,7 +1228,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>Why must Reaction 2 be reversed when combining the three reactions?</summary><div class="qa">Reaction 2 as measured produces MgCl₂ + H₂O from MgO, but the target reaction needs MgO as a product, so Reaction 2 is flipped (and its ΔH sign reversed) so MgO appears on the product side.</div></details>
+    <details class="qcheck"><summary>Why must Reaction 2 be reversed when combining the three reactions?</summary><div class="qa">Reaction 2 as measured produces MgCl<sub>2</sub> + H<sub>2</sub>O from MgO, but the target reaction needs MgO as a product, so Reaction 2 is flipped (and its ΔH sign reversed) so MgO appears on the product side.</div></details>
   </div>
 </section>
 
@@ -1230,8 +1236,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 <section class="exp-section" id="exp9">
   <div class="section-header grad-9">
     <div class="icon">🟣</div>
-    <div><h2>Experiment 9 — Spectrophotometric Analysis of KMnO₄</h2>
-    <p>Beer-Lambert Law, building a calibration curve, and finding λ_max</p></div>
+    <div><h2>Experiment 9 — Spectrophotometric Analysis of KMnO<sub>4</sub></h2>
+    <p>Beer-Lambert Law, building a calibration curve, and finding λ<sub>max</sub></p></div>
   </div>
 
   <div class="exp-photo">
@@ -1258,7 +1264,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <!-- Beer-Lambert -->
       <text x="630" y="75" text-anchor="middle" fill="#EDE7F6" font-size="18" font-family="JetBrains Mono,monospace" font-weight="700">A = εlC</text>
       <line x1="555" y1="90" x2="710" y2="90" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
-      <text x="630" y="113" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="12" font-family="Inter,sans-serif">λ_max = 525 nm</text>
+      <text x="630" y="113" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="12" font-family="Inter,sans-serif">λ<sub>max</sub> = 525 nm</text>
       <text x="630" y="135" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="12" font-family="Inter,sans-serif">purple solution</text>
       <text x="400" y="185" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="15" font-family="Inter,sans-serif" font-weight="600" letter-spacing="1">SPECTROPHOTOMETRIC ANALYSIS OF KMnO₄</text>
     
@@ -1268,24 +1274,24 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Introduction &amp; Beer-Lambert Law</h3>
     <p style="font-size:.88rem;margin-bottom:10px;">Spectrophotometry measures light absorbance by a solution to determine its concentration. UV/VIS uses the 200–700 nm range.</p>
-    <div class="formula-box"><div class="eq">A = ε · l · C</div><div class="note">A = absorbance (dimensionless) · ε = molar absorptivity (L·mol⁻¹·cm⁻¹) · l = path length (cm, usually 1) · C = concentration (mol/L). A is directly proportional to C.</div></div>
+    <div class="formula-box"><div class="eq">A = ε · l · C</div><div class="note">A = absorbance (dimensionless) · ε = molar absorptivity (L·mol<sup>−1</sup>·cm<sup>−1</sup>) · l = path length (cm, usually 1) · C = concentration (mol/L). A is directly proportional to C.</div></div>
   </div>
 
   <div class="grid-2">
     <div class="card">
       <h3>Key Relationships</h3>
-      <div class="formula-box"><div class="eq">T = I / I₀</div><div class="note">Transmittance (fraction of light transmitted)</div></div>
-      <div class="formula-box"><div class="eq">A = −log(T) = −log(I/I₀)</div><div class="note">A increases as T decreases</div></div>
+      <div class="formula-box"><div class="eq">T = I / I<sub>0</sub></div><div class="note">Transmittance (fraction of light transmitted)</div></div>
+      <div class="formula-box"><div class="eq">A = −log(T) = −log(I/I<sub>0</sub>)</div><div class="note">A increases as T decreases</div></div>
       <div class="formula-box"><div class="eq">ε = A / (C · l)</div><div class="note">Slope of the A vs C calibration curve</div></div>
       <div class="callout note"><span class="ci">💡</span><div>A varies LINEARLY with C. T does NOT vary linearly with C.</div></div>
     </div>
     <div class="card">
-      <h3>KMnO₄ Colour Explanation</h3>
+      <h3>KMnO<sub>4</sub> Colour Explanation</h3>
       <ul class="plain">
-        <li>KMnO₄ absorbs light in the green region (~520–530 nm)</li>
+        <li>KMnO<sub>4</sub> absorbs light in the green region (~520–530 nm)</li>
         <li>Transmits red and blue light → eye sees red + blue = purple</li>
-        <li>λ_max for KMnO₄ ≈ 520–525 nm</li>
-        <li>At λ_max: sensitivity is highest, Beer's Law is most linear, best for quantitative analysis</li>
+        <li>λ<sub>max</sub> for KMnO<sub>4</sub> ≈ 520–525 nm</li>
+        <li>At λ<sub>max</sub>: sensitivity is highest, Beer's Law is most linear, best for quantitative analysis</li>
       </ul>
     </div>
   </div>
@@ -1293,11 +1299,11 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Stock Solution Preparation</h3>
     <div class="rule-list">
-      <div class="rule-row">Weigh approximately 126 mg (0.1260 g) solid KMnO₄</div>
+      <div class="rule-row">Weigh approximately 126 mg (0.1260 g) solid KMnO<sub>4</sub></div>
       <div class="rule-row">Transfer quantitatively to a 100 mL volumetric flask</div>
       <div class="rule-row">Fill to the mark with distilled water → concentration ≈ 0.00800 M</div>
     </div>
-    <div class="formula-box"><div class="eq">Molarity = mass(g) / [158.04 g/mol × 0.1000 L]</div></div>
+    <div class="formula-box"><div class="eq">M = <span class="fr"><span>mass (g)</span><span>158.04 g mol<sup>−1</sup> × 0.1000 L</span></span></div></div>
   </div>
 
   <div class="card">
@@ -1311,7 +1317,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
         <tr><td>4</td><td>1.00 mL</td><td>10.0 mL</td><td>0.000800 M</td></tr>
       </table>
     </div>
-    <div class="callout info"><span class="ci">ℹ️</span><div>Use M₁V₁ = M₂V₂ to verify concentrations.</div></div>
+    <div class="callout info"><span class="ci">ℹ️</span><div>Use M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub> to verify concentrations.</div></div>
   </div>
 
   <div class="grid-2">
@@ -1321,13 +1327,13 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
         <li>Use Standard 4 (0.0008 M)</li>
         <li>Set wavelength at 400 nm → zero with distilled water blank → measure A</li>
         <li>Repeat at 420, 440, 460, 480, 500, 520, 540, 560, 580, 600 nm</li>
-        <li>Plot A vs λ → peak = λ_max</li>
+        <li>Plot A vs λ → peak = λ<sub>max</sub></li>
       </ul>
     </div>
     <div class="card">
       <h3>Calibration Curve Procedure</h3>
       <ul class="plain">
-        <li>Set wavelength at 525 nm (λ_max)</li>
+        <li>Set wavelength at 525 nm (λ<sub>max</sub>)</li>
         <li>Zero with distilled water blank</li>
         <li>Measure absorbance from MOST DILUTE (Standard 1) to most concentrated (Standard 4)</li>
         <li>After each measurement, rinse cuvette with the NEXT standard — never with water</li>
@@ -1336,12 +1342,185 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     </div>
   </div>
 
-  <div class="callout tip"><span class="ci">✅</span><div><b>Key points:</b> Always blank with distilled water before each measurement · rinse cuvette with the NEXT standard between measurements · measure at λ_max for maximum sensitivity · slope of A vs C = ε (when l = 1 cm).</div></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Absorption Spectrum — KMnO<sub>4</sub></h3>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="width:100%;height:auto;display:block;">
+        <rect width="400" height="260" fill="#F3EEFF" rx="10"/>
+        <!-- axes -->
+        <line x1="55" y1="20" x2="55" y2="210" stroke="#1E1B4B" stroke-width="2"/>
+        <line x1="55" y1="210" x2="385" y2="210" stroke="#1E1B4B" stroke-width="2"/>
+        <!-- axis labels -->
+        <text x="220" y="248" text-anchor="middle" fill="#1E1B4B" font-size="13" font-family="Inter,sans-serif" font-weight="600">Wavelength λ (nm)</text>
+        <text x="14" y="120" text-anchor="middle" fill="#1E1B4B" font-size="13" font-family="Inter,sans-serif" font-weight="600" transform="rotate(-90,14,120)">Absorbance (A)</text>
+        <!-- Y tick marks & labels -->
+        <line x1="50" y1="210" x2="55" y2="210" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="214" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">0</text>
+        <line x1="50" y1="172" x2="55" y2="172" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="176" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">0.2</text>
+        <line x1="50" y1="134" x2="55" y2="134" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="138" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">0.4</text>
+        <line x1="50" y1="96" x2="55" y2="96" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="100" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">0.6</text>
+        <line x1="50" y1="58" x2="55" y2="58" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="62" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">0.8</text>
+        <line x1="50" y1="20" x2="55" y2="20" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="46" y="24" text-anchor="end" fill="#1E1B4B" font-size="11" font-family="Inter,sans-serif">1.0</text>
+        <!-- X tick marks & labels: 400,450,500,525,550,600,650,700 -->
+        <line x1="55" y1="210" x2="55" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="55" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">400</text>
+        <line x1="111" y1="210" x2="111" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="111" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">450</text>
+        <line x1="167" y1="210" x2="167" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="167" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">500</text>
+        <line x1="195" y1="210" x2="195" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="195" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">525</text>
+        <line x1="223" y1="210" x2="223" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="223" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">550</text>
+        <line x1="279" y1="210" x2="279" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="279" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">600</text>
+        <line x1="335" y1="210" x2="335" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="335" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">650</text>
+        <line x1="385" y1="210" x2="385" y2="215" stroke="#1E1B4B" stroke-width="1.5"/>
+        <text x="385" y="226" text-anchor="middle" fill="#1E1B4B" font-size="10" font-family="Inter,sans-serif">700</text>
+        <!-- Grid lines -->
+        <line x1="55" y1="172" x2="385" y2="172" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="55" y1="134" x2="385" y2="134" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="55" y1="96" x2="385" y2="96" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="55" y1="58" x2="385" y2="58" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="55" y1="20" x2="385" y2="20" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <!-- KMnO4 absorption spectrum curve (peaks at ~525 nm, shoulder ~550) -->
+        <!-- map: 400nm=55px, 700nm=385px → scale=330/300=1.1px/nm, offset=55-400*1.1 -->
+        <!-- λ→x: x = 55 + (λ-400)*(330/300) -->
+        <!-- A→y: y = 210 - A*190 -->
+        <!-- Gaussian peaks: main at 525nm A=0.88, shoulder at 550nm A=0.60 -->
+        <path d="
+          M 55 207
+          C 80 206 100 205 120 200
+          C 140 195 150 185 160 175
+          C 168 165 175 148 180 135
+          C 185 118 188 100 192 78
+          C 194 58 195 32 196 30
+          C 197 28 198 30 199 34
+          C 200 42 202 52 204 62
+          C 207 78 210 92 214 104
+          C 218 116 222 124 226 130
+          C 230 135 233 137 236 136
+          C 239 134 242 130 244 125
+          C 246 118 247 110 248 100
+          C 249 90 250 80 251 73
+          C 252 62 253 55 254 52
+          C 255 50 256 52 257 57
+          C 259 68 261 84 263 97
+          C 266 115 270 132 275 148
+          C 280 162 285 173 295 183
+          C 310 194 330 200 360 205
+          C 375 207 385 208 385 209
+        " fill="none" stroke="#7c3aed" stroke-width="2.5"/>
+        <!-- Fill under curve -->
+        <path d="
+          M 55 210
+          L 55 207
+          C 80 206 100 205 120 200
+          C 140 195 150 185 160 175
+          C 168 165 175 148 180 135
+          C 185 118 188 100 192 78
+          C 194 58 195 32 196 30
+          C 197 28 198 30 199 34
+          C 200 42 202 52 204 62
+          C 207 78 210 92 214 104
+          C 218 116 222 124 226 130
+          C 230 135 233 137 236 136
+          C 239 134 242 130 244 125
+          C 246 118 247 110 248 100
+          C 249 90 250 80 251 73
+          C 252 62 253 55 254 52
+          C 255 50 256 52 257 57
+          C 259 68 261 84 263 97
+          C 266 115 270 132 275 148
+          C 280 162 285 173 295 183
+          C 310 194 330 200 360 205
+          C 375 207 385 208 385 209
+          L 385 210 Z
+        " fill="#7c3aed" opacity="0.12"/>
+        <!-- λ_max annotation at 525nm (x=195) -->
+        <line x1="195" y1="30" x2="195" y2="210" stroke="#C4498C" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <text x="198" y="47" fill="#C4498C" font-size="11" font-family="Inter,sans-serif" font-weight="700">λ<tspan baseline-shift="sub" font-size="9">max</tspan> = 525 nm</text>
+        <!-- purple label -->
+        <text x="80" y="40" fill="#7c3aed" font-size="11" font-family="Inter,sans-serif" font-weight="600">KMnO<tspan baseline-shift="sub" font-size="9">4</tspan> (purple)</text>
+      </svg>
+    </div>
+    <div class="card">
+      <h3>Calibration Curve — A vs C</h3>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="width:100%;height:auto;display:block;">
+        <rect width="400" height="260" fill="#F3EEFF" rx="10"/>
+        <!-- axes -->
+        <line x1="65" y1="20" x2="65" y2="210" stroke="#1E1B4B" stroke-width="2"/>
+        <line x1="65" y1="210" x2="385" y2="210" stroke="#1E1B4B" stroke-width="2"/>
+        <!-- axis labels -->
+        <text x="225" y="248" text-anchor="middle" fill="#1E1B4B" font-size="12" font-family="Inter,sans-serif" font-weight="600">Concentration C (×10⁻⁴ mol L⁻¹)</text>
+        <text x="14" y="120" text-anchor="middle" fill="#1E1B4B" font-size="13" font-family="Inter,sans-serif" font-weight="600" transform="rotate(-90,14,120)">Absorbance (A)</text>
+        <!-- Y ticks: 0, 0.2, 0.4, 0.6, 0.8, 1.0 -->
+        <line x1="60" y1="210" x2="65" y2="210" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="214" text-anchor="end" fill="#1E1B4B" font-size="11">0</text>
+        <line x1="60" y1="172" x2="65" y2="172" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="176" text-anchor="end" fill="#1E1B4B" font-size="11">0.2</text>
+        <line x1="60" y1="134" x2="65" y2="134" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="138" text-anchor="end" fill="#1E1B4B" font-size="11">0.4</text>
+        <line x1="60" y1="96" x2="65" y2="96" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="100" text-anchor="end" fill="#1E1B4B" font-size="11">0.6</text>
+        <line x1="60" y1="58" x2="65" y2="58" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="62" text-anchor="end" fill="#1E1B4B" font-size="11">0.8</text>
+        <line x1="60" y1="20" x2="65" y2="20" stroke="#1E1B4B" stroke-width="1.5"/><text x="56" y="24" text-anchor="end" fill="#1E1B4B" font-size="11">1.0</text>
+        <!-- X ticks: 0 to 8 (×10⁻⁴) — 65 to 385px, 8 units → 40px each -->
+        <line x1="65" y1="210" x2="65" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="65" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">0</text>
+        <line x1="105" y1="210" x2="105" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="105" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">1</text>
+        <line x1="145" y1="210" x2="145" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="145" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">2</text>
+        <line x1="185" y1="210" x2="185" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="185" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">3</text>
+        <line x1="225" y1="210" x2="225" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="225" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">4</text>
+        <line x1="265" y1="210" x2="265" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="265" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">5</text>
+        <line x1="305" y1="210" x2="305" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="305" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">6</text>
+        <line x1="345" y1="210" x2="345" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="345" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">7</text>
+        <line x1="385" y1="210" x2="385" y2="215" stroke="#1E1B4B" stroke-width="1.5"/><text x="385" y="226" text-anchor="middle" fill="#1E1B4B" font-size="11">8</text>
+        <!-- Grid lines -->
+        <line x1="65" y1="172" x2="385" y2="172" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="65" y1="134" x2="385" y2="134" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="65" y1="96" x2="385" y2="96" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <line x1="65" y1="58" x2="385" y2="58" stroke="#E2D9F3" stroke-width="1" stroke-dasharray="4,3"/>
+        <!-- Data points: Standards 1-4
+          C values: 0.80, 1.60, 4.00, 8.00 (×10⁻⁴ M)
+          A values (ε=2200, l=1cm): 0.176, 0.352, 0.880, 1.760→cap at 1.0 if needed
+          Slight scatter: 0.19, 0.37, 0.86, 1.0 (capped)
+          x = 65 + C×40  (C in units of 10⁻⁴)
+          y = 210 - A×190
+          Std1: C=0.80 → x=97, A=0.19 → y=174
+          Std2: C=1.60 → x=129, A=0.37 → y=140
+          Std3: C=4.00 → x=225, A=0.86 → y=47
+          Std4: C=8.00 → x=385, A=1.0→cap: y=20+1=21
+          Best-fit line through origin: slope from above → approximately through (0,210),(225,47),(385,17)
+        -->
+        <!-- Best-fit trendline -->
+        <line x1="65" y1="210" x2="380" y2="22" stroke="#6B3FA0" stroke-width="2" stroke-dasharray="6,3"/>
+        <!-- Data points -->
+        <circle cx="97" cy="174" r="6" fill="#6B3FA0" stroke="#fff" stroke-width="2"/>
+        <circle cx="129" cy="140" r="6" fill="#6B3FA0" stroke="#fff" stroke-width="2"/>
+        <circle cx="225" cy="47" r="6" fill="#6B3FA0" stroke="#fff" stroke-width="2"/>
+        <circle cx="385" cy="18" r="6" fill="#6B3FA0" stroke="#fff" stroke-width="2"/>
+        <!-- Labels for data points -->
+        <text x="100" y="168" fill="#6B3FA0" font-size="10" font-family="Inter,sans-serif">Std 1</text>
+        <text x="132" y="134" fill="#6B3FA0" font-size="10" font-family="Inter,sans-serif">Std 2</text>
+        <text x="228" y="42" fill="#6B3FA0" font-size="10" font-family="Inter,sans-serif">Std 3</text>
+        <text x="345" y="15" fill="#6B3FA0" font-size="10" font-family="Inter,sans-serif">Std 4</text>
+        <!-- Equation annotation -->
+        <rect x="95" y="60" width="195" height="44" rx="6" fill="rgba(107,63,160,0.10)" stroke="#6B3FA0" stroke-width="1"/>
+        <text x="192" y="78" text-anchor="middle" fill="#6B3FA0" font-size="12" font-family="JetBrains Mono,monospace" font-weight="700">A = ε · l · C</text>
+        <text x="192" y="96" text-anchor="middle" fill="#5b5070" font-size="11" font-family="Inter,sans-serif">slope = ε (l = 1 cm),  R² ≈ 0.999</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="callout tip"><span class="ci">✅</span><div><b>Key points:</b> Always blank with distilled water before each measurement · rinse cuvette with the NEXT standard between measurements · measure at λ<sub>max</sub> for maximum sensitivity · slope of A vs C = ε (when l = 1 cm).</div></div>
 
   <div class="card vid-card">
     <h3>Lab Video</h3>
     <div class="vid-wrap">
-      <iframe src="https://www.youtube.com/embed/6VkOKpvEyP8" title="Spectrophotometric Analysis of Potassium Permanganate (KMnO₄) — Gen Chem 103" allowfullscreen loading="lazy"></iframe>
+      <iframe src="https://www.youtube.com/embed/6VkOKpvEyP8" title="Spectrophotometric Analysis of Potassium Permanganate (KMnO<sub>4</sub>) — Gen Chem 103" allowfullscreen loading="lazy"></iframe>
     </div>
   </div>
 
@@ -1401,9 +1580,9 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="card">
       <h3>Chemistry Method</h3>
       <div class="flow">
-        <div class="flow-step"><span class="num">1</span>ASA + NaOH (heated) → Salicylate anion (SA⁻) + acetate. Hydrolysis of the acetate ester bond</div>
+        <div class="flow-step"><span class="num">1</span>ASA + NaOH (heated) → Salicylate anion (SA<sup>−</sup>) + acetate. Hydrolysis of the acetate ester bond</div>
         <div class="flow-arrow">→</div>
-        <div class="flow-step"><span class="num">2</span>SA⁻ + Fe³⁺ (FeCl₃) → Fe-salicylate complex (violet/purple)</div>
+        <div class="flow-step"><span class="num">2</span>SA<sup>−</sup> + Fe<sup>3+</sup> (FeCl<sub>3</sub>) → Fe-salicylate complex (violet/purple)</div>
         <div class="flow-arrow">→</div>
         <div class="flow-step"><span class="num">3</span>Measure A at 530 nm → compare to SA calibration curve</div>
       </div>
@@ -1421,7 +1600,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
         <div class="flow-arrow">→</div>
         <div class="flow-step"><span class="num">3</span>Transfer to 100.0 mL volumetric flask → fill to mark</div>
       </div>
-      <div class="formula-box"><div class="eq">Molarity = mass(g) / (138.1 × 0.100)</div></div>
+      <div class="formula-box"><div class="eq">M = <span class="fr"><span>mass (g)</span><span>138.1 g mol<sup>−1</sup> × 0.100 L</span></span></div></div>
     </div>
     <div class="card">
       <h3>ASA Unknown Side (Tablet)</h3>
@@ -1448,14 +1627,14 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="tbl-wrap">
       <table class="tbl">
         <tr><th>Standard</th><th>SA Stock Transferred</th><th>Final Volume</th></tr>
-        <tr><td>1</td><td>100 μL</td><td>10.0 mL with acidified FeCl₃</td></tr>
-        <tr><td>2</td><td>200 μL</td><td>10.0 mL with acidified FeCl₃</td></tr>
-        <tr><td>3</td><td>300 μL</td><td>10.0 mL with acidified FeCl₃</td></tr>
-        <tr><td>4</td><td>400 μL</td><td>10.0 mL with acidified FeCl₃</td></tr>
-        <tr><td>5</td><td>500 μL</td><td>10.0 mL with acidified FeCl₃</td></tr>
+        <tr><td>1</td><td>100 μL</td><td>10.0 mL with acidified FeCl<sub>3</sub></td></tr>
+        <tr><td>2</td><td>200 μL</td><td>10.0 mL with acidified FeCl<sub>3</sub></td></tr>
+        <tr><td>3</td><td>300 μL</td><td>10.0 mL with acidified FeCl<sub>3</sub></td></tr>
+        <tr><td>4</td><td>400 μL</td><td>10.0 mL with acidified FeCl<sub>3</sub></td></tr>
+        <tr><td>5</td><td>500 μL</td><td>10.0 mL with acidified FeCl<sub>3</sub></td></tr>
       </table>
     </div>
-    <div class="callout note"><span class="ci">💡</span><div>Use acidified FeCl₃ as the blank (NOT distilled water — Fe³⁺ itself absorbs light at 530 nm). ASA unknown: 200 μL ASA stock → 10.0 mL with acidified FeCl₃. All absorbances measured at 530 nm.</div></div>
+    <div class="callout note"><span class="ci">💡</span><div>Use acidified FeCl<sub>3</sub> as the blank (NOT distilled water — Fe<sup>3+</sup> itself absorbs light at 530 nm). ASA unknown: 200 μL ASA stock → 10.0 mL with acidified FeCl<sub>3</sub>. All absorbances measured at 530 nm.</div></div>
   </div>
 
   <div class="card">
@@ -1533,14 +1712,14 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Background</h3>
     <p style="font-size:.88rem;">Titration is a quantitative method to determine concentration. A standard solution (known concentration) is added from a burette to the analyte until the reaction is complete (equivalence point), detected by an indicator color change (endpoint).</p>
-    <div class="callout info"><span class="ci">ℹ️</span><div><b>Why standardise NaOH?</b> NaOH cannot be a primary standard because it is hygroscopic (absorbs moisture during weighing → unreliable mass) and reacts with atmospheric CO₂ (CO₂ + 2NaOH → Na₂CO₃ + H₂O → changes concentration).</div></div>
+    <div class="callout info"><span class="ci">ℹ️</span><div><b>Why standardise NaOH?</b> NaOH cannot be a primary standard because it is hygroscopic (absorbs moisture during weighing → unreliable mass) and reacts with atmospheric CO<sub>2</sub> (CO<sub>2</sub> + 2NaOH → Na<sub>2</sub>CO<sub>3</sub> + H<sub>2</sub>O → changes concentration).</div></div>
   </div>
 
   <div class="grid-2">
     <div class="card">
       <h3>Primary Standard: KHP</h3>
-      <div class="formula-box"><div class="eq">KHC₈H₄O₄ &nbsp;(KHP)</div><div class="note">Molar mass = 204.2 g/mol. P = phthalate ion, NOT phosphorus!</div></div>
-      <div class="formula-box"><div class="eq">KHP + NaOH → KNaP + H₂O</div><div class="note">Monoprotic — one ionisable H⁺, reacts 1:1 with NaOH</div></div>
+      <div class="formula-box"><div class="eq">KHC<sub>8</sub>H<sub>4</sub>O<sub>4</sub> &nbsp;(KHP)</div><div class="note">Molar mass = 204.2 g/mol. P = phthalate ion, NOT phosphorus!</div></div>
+      <div class="formula-box"><div class="eq">KHP + NaOH → KNaP + H<sub>2</sub>O</div><div class="note">Monoprotic — one ionisable H<sup>+</sup>, reacts 1:1 with NaOH</div></div>
       <h4>Four Criteria for a Primary Standard</h4>
       <ul class="plain">
         <li>High purity</li>
@@ -1593,12 +1772,12 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="formula-box"><div class="eq">Moles NaOH = Moles KHP (1:1)</div></div>
       <div class="formula-box"><div class="eq">M(NaOH) = Moles NaOH / V(L)</div></div>
     </div>
-    <div class="formula-box"><div class="eq">M_avg = (M₁+M₂+M₃)/3</div><div class="note">Three molarities must agree within 1% of each other for accurate work</div></div>
+    <div class="formula-box"><div class="eq">M_avg = (M<sub>1</sub>+M<sub>2</sub>+M<sub>3</sub>)/3</div><div class="note">Three molarities must agree within 1% of each other for accurate work</div></div>
   </div>
 
   <div class="card">
     <h3>Phenolphthalein Colour Fading</h3>
-    <div class="callout note"><span class="ci">💡</span><div>After the endpoint, CO₂ from lab air dissolves into the basic solution: CO₂(g)+H₂O(l)→H₂CO₃(aq), a weak acid that reacts with excess NaOH and lowers the pH, returning the indicator to colourless. This is NORMAL. Breathing into the flask and swirling increases CO₂ → pink briefly returns, confirming the endpoint was correct.</div></div>
+    <div class="callout note"><span class="ci">💡</span><div>After the endpoint, CO<sub>2</sub> from lab air dissolves into the basic solution: CO<sub>2</sub>(g)+H<sub>2</sub>O(l)→H<sub>2</sub>CO<sub>3</sub>(aq), a weak acid that reacts with excess NaOH and lowers the pH, returning the indicator to colourless. This is NORMAL. Breathing into the flask and swirling increases CO<sub>2</sub> → pink briefly returns, confirming the endpoint was correct.</div></div>
     <div class="callout info"><span class="ci">ℹ️</span><div><b>Burette technique:</b> Use both hands — one on the stopcock, one swirling the flask. Read to 0.01 mL. Don't waste time aligning the meniscus exactly at 0.00 mL.</div></div>
   </div>
 
@@ -1611,8 +1790,8 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Quick Check</h3>
-    <details class="qcheck"><summary>Why can't NaOH be weighed directly and used as a primary standard?</summary><div class="qa">NaOH is hygroscopic (absorbs water from air, making its mass unreliable) and reacts with atmospheric CO₂ to form Na₂CO₃, which changes its effective concentration.</div></details>
-    <details class="qcheck"><summary>The pink color fades a minute after reaching the endpoint. Should you add more NaOH?</summary><div class="qa">No — this fading is caused by atmospheric CO₂ reacting with the excess NaOH and is normal; it does not mean the endpoint was missed.</div></details>
+    <details class="qcheck"><summary>Why can't NaOH be weighed directly and used as a primary standard?</summary><div class="qa">NaOH is hygroscopic (absorbs water from air, making its mass unreliable) and reacts with atmospheric CO<sub>2</sub> to form Na<sub>2</sub>CO<sub>3</sub>, which changes its effective concentration.</div></details>
+    <details class="qcheck"><summary>The pink color fades a minute after reaching the endpoint. Should you add more NaOH?</summary><div class="qa">No — this fading is caused by atmospheric CO<sub>2</sub> reacting with the excess NaOH and is normal; it does not mean the endpoint was missed.</div></details>
   </div>
 </section>
 
@@ -1625,20 +1804,20 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   </div>
 
   <div class="grid-2">
-    <div class="f-card"><div class="fname">Density</div><div class="feq">d = m / V</div><div class="fnote">g/mL (liquid), g/cm³ (solid) · m = d×V · V = m/d</div></div>
+    <div class="f-card"><div class="fname">Density</div><div class="feq">d = m / V</div><div class="fnote">g/mL (liquid), g/cm<sup>3</sup> (solid) · m = d×V · V = m/d</div></div>
     <div class="f-card"><div class="fname">% Error (Accuracy)</div><div class="feq">|True − Exp| / True × 100%</div><div class="fnote">Measures how close to the true value</div></div>
-    <div class="f-card"><div class="fname">Standard Deviation</div><div class="feq">SD = √[Σ(xᵢ−x̄)² / (n−1)]</div><div class="fnote">%SD = SD/Mean × 100% (precision)</div></div>
-    <div class="f-card"><div class="fname">Beer-Lambert Law</div><div class="feq">A = ε · l · C</div><div class="fnote">A dimensionless · ε in L·mol⁻¹·cm⁻¹</div></div>
-    <div class="f-card"><div class="fname">Absorbance</div><div class="feq">A = −log(T)</div><div class="fnote">T = I/I₀ · A ∝ C (linear!)</div></div>
+    <div class="f-card"><div class="fname">Standard Deviation</div><div class="feq">SD = √[Σ(xᵢ−x̄)<sup>2</sup> / (n−1)]</div><div class="fnote">%SD = SD/Mean × 100% (precision)</div></div>
+    <div class="f-card"><div class="fname">Beer-Lambert Law</div><div class="feq">A = ε · l · C</div><div class="fnote">A dimensionless · ε in L·mol<sup>−1</sup>·cm<sup>−1</sup></div></div>
+    <div class="f-card"><div class="fname">Absorbance</div><div class="feq">A = −log(T)</div><div class="fnote">T = I/I<sub>0</sub> · A ∝ C (linear!)</div></div>
     <div class="f-card"><div class="fname">Molar Absorptivity</div><div class="feq">ε = A / (C · l)</div><div class="fnote">Slope of A vs C calibration curve</div></div>
-    <div class="f-card"><div class="fname">Dilution Equation</div><div class="feq">M₁V₁ = M₂V₂</div><div class="fnote">For all dilution calculations</div></div>
+    <div class="f-card"><div class="fname">Dilution Equation</div><div class="feq">M<sub>1</sub>V<sub>1</sub> = M<sub>2</sub>V<sub>2</sub></div><div class="fnote">For all dilution calculations</div></div>
     <div class="f-card"><div class="fname">Ideal Gas Law</div><div class="feq">PV = nRT</div><div class="fnote">R = 0.08206 L·atm/mol·K</div></div>
-    <div class="f-card"><div class="fname">P(H₂) Correction</div><div class="feq">P(H₂) = P_atm − P(H₂O) − ΔP</div><div class="fnote">ΔP = level diff (mm) ÷ 13.6 mmHg</div></div>
+    <div class="f-card"><div class="fname">P(H<sub>2</sub>) Correction</div><div class="feq">P(H<sub>2</sub>) = P<sub>atm</sub> − P(H<sub>2</sub>O) − ΔP</div><div class="fnote">ΔP = level diff (mm) ÷ 13.6 mmHg</div></div>
     <div class="f-card"><div class="fname">Unit Conversions</div><div class="feq">T(K) = T(°C) + 273.15</div><div class="fnote">1 atm = 760 mmHg</div></div>
     <div class="f-card"><div class="fname">Calculate R</div><div class="feq">R = P(atm)·V(L) / (n·T(K))</div><div class="fnote">Compare to 0.08206 L·atm/mol·K</div></div>
     <div class="f-card"><div class="fname">Calorimeter Heat</div><div class="feq">q = −C · ΔT</div><div class="fnote">C = mass × 4.184 J/g·°C</div></div>
-    <div class="f-card"><div class="fname">Molar Enthalpy</div><div class="feq">ΔH_molar = q_p / moles</div><div class="fnote">kJ/mol · ΔH&lt;0 exothermic</div></div>
-    <div class="f-card"><div class="fname">ΔHf°(MgO)</div><div class="feq">ΔH₁ − ΔH₂ + ΔH₃</div><div class="fnote">Literature: −601.7 kJ/mol</div></div>
+    <div class="f-card"><div class="fname">Molar Enthalpy</div><div class="feq">ΔH<sub>molar</sub> = q<sub>p</sub> / moles</div><div class="fnote">kJ/mol · ΔH&lt;0 exothermic</div></div>
+    <div class="f-card"><div class="fname">ΔHf°(MgO)</div><div class="feq">ΔH<sub>1</sub> − ΔH<sub>2</sub> + ΔH<sub>3</sub></div><div class="fnote">Literature: −601.7 kJ/mol</div></div>
     <div class="f-card"><div class="fname">% Yield (Alum)</div><div class="feq">Actual / Theoretical × 100%</div><div class="fnote">Theoretical = moles Al × 474.4 g/mol</div></div>
     <div class="f-card"><div class="fname">M(NaOH) Titration</div><div class="feq">moles KHP / V(NaOH in L)</div><div class="fnote">moles KHP = mass / 204.2</div></div>
     <div class="f-card"><div class="fname">% ASA in Tablet</div><div class="feq">mass ASA / mass tablet × 100%</div><div class="fnote">C_stock = C_diluted × 50</div></div>
@@ -1655,11 +1834,11 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="rule-item"><span class="rn">5</span>Always use a NEW test tube for each anion group test, in order.</div>
       <div class="rule-item"><span class="rn">M</span>Identify only ONE anion per unknown by following the 4-step flowchart in order.</div>
       <div class="rule-item"><span class="rn">6</span>Spectator ions are never included in net ionic equations.</div>
-      <div class="rule-item"><span class="rn">7</span>Always subtract water vapour pressure from total pressure to get true P(H₂).</div>
+      <div class="rule-item"><span class="rn">7</span>Always subtract water vapour pressure from total pressure to get true P(H<sub>2</sub>).</div>
       <div class="rule-item"><span class="rn">8</span>Reversing a reaction flips the sign of ΔH; scaling multiplies ΔH by the same factor.</div>
-      <div class="rule-item"><span class="rn">9</span>Always measure at λ_max and rinse the cuvette with the next standard, never water.</div>
-      <div class="rule-item"><span class="rn">10</span>Use acidified FeCl₃, not water, as the blank — Fe³⁺ itself absorbs at 530 nm.</div>
-      <div class="rule-item"><span class="rn">11</span>NaOH must be standardised against KHP — it is hygroscopic and reacts with CO₂.</div>
+      <div class="rule-item"><span class="rn">9</span>Always measure at λ<sub>max</sub> and rinse the cuvette with the next standard, never water.</div>
+      <div class="rule-item"><span class="rn">10</span>Use acidified FeCl<sub>3</sub>, not water, as the blank — Fe<sup>3+</sup> itself absorbs at 530 nm.</div>
+      <div class="rule-item"><span class="rn">11</span>NaOH must be standardised against KHP — it is hygroscopic and reacts with CO<sub>2</sub>.</div>
     </div>
   </div>
 </section>
