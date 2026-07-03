@@ -1080,9 +1080,9 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <h3>Key Formulas</h3>
       <div class="formula-box"><div class="eq">PV = nRT</div><div class="note">R = 0.08206 L·atm/mol·K &nbsp;or&nbsp; 8.314 J/mol·K</div></div>
       <div class="formula-box"><div class="eq">P(H<sub>2</sub>) = P<sub>atm</sub> − P(H<sub>2</sub>O) − ΔP</div><div class="note">ΔP (mmHg) = level difference (mm water) ÷ 13.6</div></div>
-      <div class="formula-box"><div class="eq">V(gas total) = V_dead + (50 mL − final reading)</div><div class="note">Dead volume below the 50 mL mark</div></div>
+      <div class="formula-box"><div class="eq">V<sub>total</sub> = V<sub>dead</sub> + (50 mL − final reading)</div><div class="note">Dead volume below the 50 mL mark</div></div>
       <div class="formula-box"><div class="eq">T(K) = T(°C) + 273.15</div><div class="note">1 atm = 760 mmHg → P(atm) = P(mmHg) / 760</div></div>
-      <div class="formula-box"><div class="eq">R = P(atm)·V(L) / (n·T(K))</div><div class="note">n(H<sub>2</sub>) = n(Mg) = mass Mg / 24.3 g/mol</div></div>
+      <div class="formula-box"><div class="eq">R = <span class="fr"><span>P<sub>atm</sub>·V(L)</span><span>n·T(K)</span></span></div><div class="note">n(H<sub>2</sub>) = n(Mg) = mass Mg / 24.3 g/mol</div></div>
     </div>
 
     <div class="card">
@@ -1095,10 +1095,10 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
   <div class="card">
     <h3>Statistics (3 Trials Required)</h3>
     <div class="grid-2">
-      <div class="formula-box"><div class="eq">R_avg = (R<sub>1</sub>+R<sub>2</sub>+R<sub>3</sub>)/3</div></div>
-      <div class="formula-box"><div class="eq">SD = √[Σ(Rᵢ−R_avg)<sup>2</sup>/(n−1)]</div></div>
-      <div class="formula-box"><div class="eq">%RSD = (SD/R_avg)×100%</div><div class="note">Measures precision</div></div>
-      <div class="formula-box"><div class="eq">%Error = |R_lit−R_exp|/R_lit×100%</div><div class="note">Measures accuracy</div></div>
+      <div class="formula-box"><div class="eq">R<sub>avg</sub> = <span class="fr"><span>R<sub>1</sub>+R<sub>2</sub>+R<sub>3</sub></span><span>3</span></span></div></div>
+      <div class="formula-box"><div class="eq">SD = √<span class="fr"><span>Σ(R<sub>i</sub>−R<sub>avg</sub>)<sup>2</sup></span><span>n−1</span></span></div></div>
+      <div class="formula-box"><div class="eq">%RSD = <span class="fr"><span>SD</span><span>R<sub>avg</sub></span></span>×100%</div><div class="note">Measures precision</div></div>
+      <div class="formula-box"><div class="eq">%Error = <span class="fr"><span>|R<sub>lit</sub>−R<sub>exp</sub>|</span><span>R<sub>lit</sub></span></span>×100%</div><div class="note">Measures accuracy</div></div>
     </div>
   </div>
 
@@ -1772,7 +1772,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
       <div class="formula-box"><div class="eq">Moles NaOH = Moles KHP (1:1)</div></div>
       <div class="formula-box"><div class="eq">M(NaOH) = Moles NaOH / V(L)</div></div>
     </div>
-    <div class="formula-box"><div class="eq">M_avg = (M<sub>1</sub>+M<sub>2</sub>+M<sub>3</sub>)/3</div><div class="note">Three molarities must agree within 1% of each other for accurate work</div></div>
+    <div class="formula-box"><div class="eq">M<sub>avg</sub> = <span class="fr"><span>M<sub>1</sub>+M<sub>2</sub>+M<sub>3</sub></span><span>3</span></span></div><div class="note">Three molarities must agree within 1% of each other for accurate work</div></div>
   </div>
 
   <div class="card">
@@ -1814,7 +1814,7 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
     <div class="f-card"><div class="fname">Ideal Gas Law</div><div class="feq">PV = nRT</div><div class="fnote">R = 0.08206 L·atm/mol·K</div></div>
     <div class="f-card"><div class="fname">P(H<sub>2</sub>) Correction</div><div class="feq">P(H<sub>2</sub>) = P<sub>atm</sub> − P(H<sub>2</sub>O) − ΔP</div><div class="fnote">ΔP = level diff (mm) ÷ 13.6 mmHg</div></div>
     <div class="f-card"><div class="fname">Unit Conversions</div><div class="feq">T(K) = T(°C) + 273.15</div><div class="fnote">1 atm = 760 mmHg</div></div>
-    <div class="f-card"><div class="fname">Calculate R</div><div class="feq">R = P(atm)·V(L) / (n·T(K))</div><div class="fnote">Compare to 0.08206 L·atm/mol·K</div></div>
+    <div class="f-card"><div class="fname">Calculate R</div><div class="feq">R = <span class="fr"><span>P<sub>atm</sub>·V(L)</span><span>n·T(K)</span></span></div><div class="fnote">Compare to 0.08206 L·atm/mol·K</div></div>
     <div class="f-card"><div class="fname">Calorimeter Heat</div><div class="feq">q = −C · ΔT</div><div class="fnote">C = mass × 4.184 J/g·°C</div></div>
     <div class="f-card"><div class="fname">Molar Enthalpy</div><div class="feq">ΔH<sub>molar</sub> = q<sub>p</sub> / moles</div><div class="fnote">kJ/mol · ΔH&lt;0 exothermic</div></div>
     <div class="f-card"><div class="fname">ΔHf°(MgO)</div><div class="feq">ΔH<sub>1</sub> − ΔH<sub>2</sub> + ΔH<sub>3</sub></div><div class="fnote">Literature: −601.7 kJ/mol</div></div>
