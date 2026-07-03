@@ -175,6 +175,19 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 .fr>span:first-child{border-bottom:2px solid currentColor;padding:0 6px 3px;text-align:center;white-space:nowrap;}
 .fr>span:last-child{padding:3px 6px 0;text-align:center;white-space:nowrap;}
 .eq sub,.eq sup,.feq sub,.feq sup{font-size:.7em;font-family:"JetBrains Mono",monospace;}
+/* ===== MIND MAP – INORGANIC COMPOUNDS ===== */
+.mm-wrap{display:flex;flex-direction:column;align-items:center;padding:8px 0 4px;}
+.mm-hub{background:linear-gradient(135deg,var(--purple),var(--navy));color:#fff;font-weight:700;font-size:1rem;padding:14px 38px;border-radius:50px;text-align:center;line-height:1.4;letter-spacing:.3px;position:relative;z-index:2;box-shadow:0 4px 18px rgba(107,63,160,.3);}
+.mm-trunk{width:3px;height:28px;background:var(--purple);opacity:.5;margin:0 auto;}
+.mm-bar{width:calc(100% - 80px);height:3px;background:var(--purple);opacity:.35;position:relative;display:flex;justify-content:space-between;padding:0 calc(100%/12);}
+.mm-bar-tick{width:3px;height:20px;background:var(--purple);opacity:.6;margin-top:0;}
+.mm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;width:100%;margin-top:0;}
+.mm-card{border-radius:14px;border-top:5px solid;overflow:hidden;background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.07);}
+.mm-card-head{color:#fff;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.8px;padding:7px 14px;}
+.mm-card-name{font-weight:700;font-size:.88rem;color:var(--navy);padding:10px 14px 4px;}
+.mm-card-rule{font-size:.8rem;color:#555;padding:0 14px 8px;line-height:1.55;}
+.mm-card-ex{font-size:.82rem;background:#f5f0ff;border-radius:8px;margin:0 10px 8px;padding:8px 10px;color:#2d1b69;font-family:"JetBrains Mono",monospace;line-height:1.7;}
+.mm-card-tip{font-size:.75rem;color:#888;padding:0 14px 10px;font-style:italic;}
 /* ===== COLOR RESULTS GRID (Midterm) ===== */
 .cr-grid{display:flex;flex-direction:column;gap:8px;}
 .cr-row{display:flex;align-items:center;gap:14px;}
@@ -470,14 +483,100 @@ ul.plain li::before{content:"• ";color:var(--purple);font-weight:700;}
 
   <div class="card">
     <h3>Five Types of Inorganic Compounds</h3>
-    <div class="rule-list">
-      <div class="rule-row"><span class="badge badge-navy">Type 1</span> <b>Binary Ionic (fixed charge):</b> Metal (Group IA, IIA, Al, Ga, In, Zn, Cd, Ag) + non-metal. Name: [Metal] + [anion root] + -ide. Ex: CaCl<sub>2</sub> = Calcium chloride, Na<sub>2</sub>O = Sodium oxide.</div>
-      <div class="rule-row"><span class="badge badge-purple">Type 2</span> <b>Binary Ionic (variable charge):</b> Transition metal + non-metal. Cation charge = (anion charge × anion subscript) ÷ cation subscript. Name: Metal + (Roman numeral) + -ide. Ex: FeCl<sub>3</sub> = Iron(III) chloride, PbO<sub>2</sub> = Lead(IV) oxide. Classical: -ous = lower charge (Fe<sup>2+</sup> Ferrous, Cu<sup>+</sup> Cuprous), -ic = higher charge (Fe<sup>3+</sup> Ferric, Cu<sup>2+</sup> Cupric).</div>
-      <div class="rule-row"><span class="badge badge-magenta">Polyatomic</span> <b>Metal + polyatomic anion:</b> Use parentheses when subscript &gt; 1. Ex: (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> = Ammonium sulfate, Fe(NO<sub>3</sub>)<sub>3</sub> = Iron(III) nitrate.</div>
-      <div class="rule-row"><span class="badge badge-teal">Type 3</span> <b>Molecular (covalent):</b> Two non-metals, Greek prefixes; mono- dropped for first element only. Ex: N<sub>2</sub>O<sub>5</sub> = Dinitrogen pentoxide, CCl<sub>4</sub> = Carbon tetrachloride.</div>
-      <div class="rule-row"><span class="badge badge-red">Binary Acid</span> H<sup>+</sup> + non-metal in water (aq). Name: hydro + [root] + ic acid. Ex: HCl(aq) = Hydrochloric acid, HBr(aq) = Hydrobromic acid.</div>
-      <div class="rule-row"><span class="badge badge-orange">Oxyacid</span> H<sup>+</sup> + oxygen-containing polyatomic anion. -ate → ic acid; -ite → ous acid. Ex: H<sub>2</sub>SO<sub>4</sub> = Sulfuric acid, H<sub>2</sub>SO<sub>3</sub> = Sulfurous acid, HNO<sub>3</sub> = Nitric acid, HNO<sub>2</sub> = Nitrous acid.</div>
-    </div>
+
+    <!-- MIND MAP -->
+    <div class="mm-wrap">
+
+      <!-- Hub -->
+      <div class="mm-hub">Inorganic<br>Compounds</div>
+
+      <!-- Trunk line -->
+      <div class="mm-trunk"></div>
+
+      <!-- Horizontal bar connecting 3 columns -->
+      <div class="mm-bar">
+        <div class="mm-bar-tick"></div>
+        <div class="mm-bar-tick"></div>
+        <div class="mm-bar-tick"></div>
+        <div class="mm-bar-tick"></div>
+        <div class="mm-bar-tick"></div>
+        <div class="mm-bar-tick"></div>
+      </div>
+
+      <!-- 6 branch cards -->
+      <div class="mm-grid">
+
+        <!-- Type 1 -->
+        <div class="mm-card" style="border-color:#1E1B4B;">
+          <div class="mm-card-head" style="background:#1E1B4B;">Type 1</div>
+          <div class="mm-card-name">Binary Ionic · Fixed Charge</div>
+          <div class="mm-card-rule">Fixed-charge metal + non-metal<br>Name: Metal + [root] + <b>-ide</b></div>
+          <div class="mm-card-ex">
+            CaCl<sub>2</sub> = Calcium chloride<br>
+            Na<sub>2</sub>O = Sodium oxide
+          </div>
+          <div class="mm-card-tip">Metals: Group IA, IIA, Al, Zn, Ag…</div>
+        </div>
+
+        <!-- Type 2 -->
+        <div class="mm-card" style="border-color:#6B3FA0;">
+          <div class="mm-card-head" style="background:#6B3FA0;">Type 2</div>
+          <div class="mm-card-name">Binary Ionic · Variable Charge</div>
+          <div class="mm-card-rule">Transition metal + non-metal<br>Name: Metal + <b>(Roman numeral)</b> + -ide<br>Charge = <span class="fr" style="font-size:.75rem;"><span>anion charge × anion subscript</span><span>cation subscript</span></span></div>
+          <div class="mm-card-ex">
+            FeCl<sub>3</sub> = Iron(III) chloride<br>
+            PbO<sub>2</sub> = Lead(IV) oxide
+          </div>
+          <div class="mm-card-tip">Fe<sup>2+</sup> ferrous / Fe<sup>3+</sup> ferric &nbsp;·&nbsp; Cu<sup>+</sup> cuprous / Cu<sup>2+</sup> cupric</div>
+        </div>
+
+        <!-- Polyatomic -->
+        <div class="mm-card" style="border-color:#8B2D6E;">
+          <div class="mm-card-head" style="background:#8B2D6E;">Polyatomic</div>
+          <div class="mm-card-name">Ionic · Polyatomic Anion</div>
+          <div class="mm-card-rule">Metal + polyatomic anion<br>Use <b>( )</b> around ion when subscript &gt; 1</div>
+          <div class="mm-card-ex">
+            (NH<sub>4</sub>)<sub>2</sub>SO<sub>4</sub> = Ammonium sulfate<br>
+            Fe(NO<sub>3</sub>)<sub>3</sub> = Iron(III) nitrate
+          </div>
+        </div>
+
+        <!-- Type 3 -->
+        <div class="mm-card" style="border-color:#0E7490;">
+          <div class="mm-card-head" style="background:#0E7490;">Type 3</div>
+          <div class="mm-card-name">Molecular (Covalent)</div>
+          <div class="mm-card-rule">Two non-metals · Greek prefixes<br><b>mono-</b> dropped for 1st element only</div>
+          <div class="mm-card-ex">
+            N<sub>2</sub>O<sub>5</sub> = Dinitrogen pentoxide<br>
+            CCl<sub>4</sub> = Carbon tetrachloride
+          </div>
+          <div class="mm-card-tip">mono di tri tetra penta hexa…</div>
+        </div>
+
+        <!-- Binary Acid -->
+        <div class="mm-card" style="border-color:#B91C1C;">
+          <div class="mm-card-head" style="background:#B91C1C;">Binary Acid</div>
+          <div class="mm-card-name">Acid · No Oxygen</div>
+          <div class="mm-card-rule">H<sup>+</sup> + non-metal in water (aq)<br>Name: <b>hydro</b> + [root] + <b>ic acid</b></div>
+          <div class="mm-card-ex">
+            HCl(aq) = Hydrochloric acid<br>
+            HBr(aq) = Hydrobromic acid
+          </div>
+        </div>
+
+        <!-- Oxyacid -->
+        <div class="mm-card" style="border-color:#C2410C;">
+          <div class="mm-card-head" style="background:#C2410C;">Oxyacid</div>
+          <div class="mm-card-name">Acid · Oxygen-Containing</div>
+          <div class="mm-card-rule">H<sup>+</sup> + polyatomic anion with O<br><b>-ate</b> → -ic acid &nbsp;·&nbsp; <b>-ite</b> → -ous acid</div>
+          <div class="mm-card-ex">
+            H<sub>2</sub>SO<sub>4</sub> = Sulfuric acid &nbsp;·&nbsp; H<sub>2</sub>SO<sub>3</sub> = Sulfurous acid<br>
+            HNO<sub>3</sub> = Nitric acid &nbsp;·&nbsp; HNO<sub>2</sub> = Nitrous acid
+          </div>
+        </div>
+
+      </div><!-- end mm-grid -->
+    </div><!-- end mm-wrap -->
   </div>
 
   <div class="grid-2">
