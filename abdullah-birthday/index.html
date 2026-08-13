@@ -593,12 +593,14 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
             أضف الموعد للتقويم
           </a>
         </div>
+        <!--#ICS_START-->
         <div class="btns">
           <button class="btn ghost" id="icsBtn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 11l4 4 4-4M4 19h16"/></svg>
             تحميل ملف التقويم (Apple / Outlook)
           </button>
         </div>
+        <!--#ICS_END-->
       </section>
 
       <div class="perf"></div><div class="stub"><b>running order</b></div>
@@ -800,6 +802,9 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
     + "&details=" + encodeURIComponent("نتقابل في نوﭬو سينما، مول دوحة أويسيس 🎉");
   $("#calBtn").href = gcal;
 
+  /* #ICS_START — stripped from the claude.ai artifact build: that viewer never
+     lets a page start its own download, and .ics is not a saveable type there.
+     Google Calendar covers those viewers; this button is for the hosted copy. */
   $("#icsBtn").addEventListener("click", function(){
     var ics = [
       "BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//Abdullah Birthday//AR//","CALSCALE:GREGORIAN",
@@ -814,9 +819,10 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
       a.href = url; a.download = "abdullah-birthday.ics";
       document.body.appendChild(a); a.click(); document.body.removeChild(a);
       setTimeout(function(){ URL.revokeObjectURL(url); }, 4000);
-      toast("لو الملف ما نزلش، استخدم زر تقويم جوجل ☝️");
+      toast("نزّلنا ملف الموعد — افتحه عشان يتضاف للتقويم 📅");
     }catch(e){ toast("استخدم زر «أضف الموعد للتقويم» بدل كده"); }
   });
+  /* #ICS_END */
 
   /* ---------- confetti ---------------------------------------------------- */
   var cvs = $("#confetti"), ctx = cvs.getContext("2d"), bits = [], raf = null;
