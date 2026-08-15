@@ -737,6 +737,10 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
      ============================================================ */
   var HOST_WHATSAPP = "97433625942";   /* country code first, no + / 00 / spaces */
   var HOST_NAME     = "نور";
+  /* Every reply is recorded here the moment the guest taps confirm, so a reply
+     no longer depends on them actually sending the WhatsApp message. Swap this
+     for the service's alias endpoint once the address is activated. */
+  var RSVP_ENDPOINT = "https://formsubmit.co/ajax/noorzaher164@gmail.com";
   var EVENT = {
     title: "عيد ميلاد عبدالله 🎂",
     startUTC: "2026-08-15T17:00:00Z",  /* 20:00 Doha (GMT+3) */
@@ -1049,11 +1053,40 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
     if(note) m += "\nرسالة: " + note;
     return m;
   }
-  function afterSend(){
+  /* Record the reply straight away. Fire-and-forget: a failure here must never
+     block the guest, it just falls back to the WhatsApp message being the
+     only copy. */
+  function recordRsvp(){
+    if(!RSVP_ENDPOINT || !window.fetch) return Promise.resolve(false);
+    var name = $("#rName").value.trim();
+    var note = $("#rNote").value.trim();
+    var n = going ? $("#rCount").value : "-";
+    var when;
+    try{ when = new Date().toLocaleString("ar-EG", {timeZone:"Asia/Qatar"}); }
+    catch(e){ when = new Date().toISOString(); }
+    return fetch(RSVP_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        _subject: (going ? "تأكيد حضور: " : "اعتذار: ") + name,
+        _template: "table",
+        _captcha: "false",
+        summary: name + " — " + (going ? "هيحضر، عدد " + n : "مش هيقدر") + (note ? " — " + note : ""),
+        name: name,
+        status: going ? "هيحضر ✅" : "مش هيقدر ❌",
+        guests: n,
+        message: note || "-",
+        sent_at: when
+      })
+    }).then(function(r){ return r.ok; }).catch(function(){ return false; });
+  }
+
+  function afterSend(recorded){
     var s = $("#saved");
-    $("#savedTxt").textContent = going
-      ? "تمام! ابعت الرسالة لـ" + HOST_NAME + " وخلاص ✨"
-      : "وصلتنا — هتوحشنا 🤍";
+    $("#savedTxt").textContent = !going
+      ? "وصلتنا — هتوحشنا 🤍"
+      : (recorded ? "ردّك اتسجّل ووصل لـ" + HOST_NAME + " ✓ مستنينك 🎉"
+                  : "تمام! ابعت الرسالة لـ" + HOST_NAME + " وخلاص ✨");
     s.classList.add("on");
     try{ localStorage.setItem("abdullah31_rsvp", JSON.stringify({going:going, name:$("#rName").value})); }catch(e){}
   }
@@ -1072,18 +1105,25 @@ h2.title{font-family:var(--display);font-weight:600;font-size:clamp(1.25rem,5vw,
 
   /* With a host number the reply goes straight to them; without one, WhatsApp
      opens its own contact picker so the guest still sends in one tap. */
-  addBtn("primary", "ابعت الرد على واتساب", waIcon, function(){
+  addBtn("primary", "أكّد ردّك وابعته على واتساب", waIcon, function(){
     var m = buildMsg(); if(!m) return;
+    /* start recording, then open WhatsApp synchronously so the tap is not
+       swallowed by the popup blocker */
+    var pending = recordRsvp();
     var url = HOST_WHATSAPP
       ? "https://wa.me/" + HOST_WHATSAPP + "?text=" + encodeURIComponent(m)
       : "https://api.whatsapp.com/send?text=" + encodeURIComponent(m);
     window.open(url, "_blank", "noopener");
-    afterSend();
+    afterSend(false);
+    pending.then(function(ok){ if(ok) afterSend(true); });
   });
-  addBtn("ghost", "انسخ ردّك وابعته", cpIcon, function(){
+  addBtn("ghost", "سجّل ردّك من غير واتساب", cpIcon, function(){
     var m = buildMsg(); if(!m) return;
-    copy(m, "اتنسخ ✓ ابعته لـ" + HOST_NAME + " على واتساب");
-    afterSend();
+    recordRsvp().then(function(ok){
+      afterSend(ok);
+      toast(ok ? "ردّك اتسجّل ✓" : "مش قادر أسجّل — انسخ الرد وابعته");
+      if(!ok) copy(m, "اتنسخ ✓ ابعته لـ" + HOST_NAME + " على واتساب");
+    });
   });
 
   try{
